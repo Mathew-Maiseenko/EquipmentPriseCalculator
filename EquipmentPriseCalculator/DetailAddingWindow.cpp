@@ -1,0 +1,2 @@
+#include "DetailAddingWindow.h"
+
