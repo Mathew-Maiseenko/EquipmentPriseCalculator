@@ -4,13 +4,13 @@
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::GoBackFromDetailsPageToHomePage(System::Object^ sender, System::EventArgs^ e)
 {
 	HomePage->Show();
-	DetailsPage->Hide();
+	DetailsListPage->Hide();
 	return System::Void();
 }
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowDetailsListPage(System::Object^ sender, System::EventArgs^ e)
 {
 	DetailsListPage->Show();
-	DetailsPage->Hide();
+	HomePage->Hide();
 	return System::Void();
 }

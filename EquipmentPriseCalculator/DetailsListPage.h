@@ -194,3 +194,10 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsL
     MessageBox::Show("Current text: " + text);
     return System::Void();
 }
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::goBackToMainMenuFromDetailsList(System::Object^ sender, System::EventArgs^ e)
+{
+    DetailsListPage->Hide();
+    HomePage->Show();
+    return System::Void();
+}

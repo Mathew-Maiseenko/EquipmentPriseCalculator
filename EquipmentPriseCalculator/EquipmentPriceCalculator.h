@@ -27,8 +27,8 @@ namespace EquipmentPriseCalculator {
 		{
 			InitializeComponent();
 
-			DetailsPage->Hide();
-
+			DetailsListPage->Hide();
+			EquipmentListPage->Hide();
 			// Открываем файлы
 			fstream DetailFile("DetailSpisok.csv");
 			fstream EquipmentFile("EquipmentSpisok.csv");
@@ -91,7 +91,7 @@ namespace EquipmentPriseCalculator {
 			}
 			//delete GlobalStorage;
 		}
-	private: System::Windows::Forms::Panel^ EquipmentPage;
+
 	protected:
 
 	private: System::Windows::Forms::Panel^ HomePage;
@@ -107,14 +107,6 @@ namespace EquipmentPriseCalculator {
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ HomePage_DetailsButton;
-	private: System::Windows::Forms::Label^ EquipmentPage_Title;
-	private: System::Windows::Forms::Button^ EquipmentPage_EditListButton;
-
-
-
-
-	private: System::Windows::Forms::Button^ EquipmentPage_ViewWholeListButton;
-	private: System::Windows::Forms::Button^ EquipmentPage_ExitButton;
 
 
 
@@ -122,20 +114,28 @@ namespace EquipmentPriseCalculator {
 
 
 
-	private: System::Windows::Forms::Button^ EquipmentPage_SearchButton;
-	private: System::Windows::Forms::Panel^ DetailsPage;
-	private: System::Windows::Forms::Button^ DetailsPage_ExitButton;
 
 
 
-	private: System::Windows::Forms::Button^ DetailsPage_SearchButton;
-
-	private: System::Windows::Forms::Button^ DetailsPage_EditListButton;
-	private: System::Windows::Forms::Button^ DetailsPage_ViewWholeListButton;
 
 
 
-	private: System::Windows::Forms::Label^ DetailsPage_Title;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private: System::Windows::Forms::Panel^ DetailsListPage;
 	private: System::Windows::Forms::DataGridView^ DetailsListPage_DataGrid;
@@ -206,24 +206,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->EquipmentPage = (gcnew System::Windows::Forms::Panel());
-			this->EquipmentPage_ExitButton = (gcnew System::Windows::Forms::Button());
-			this->EquipmentPage_SearchButton = (gcnew System::Windows::Forms::Button());
-			this->EquipmentPage_EditListButton = (gcnew System::Windows::Forms::Button());
-			this->EquipmentPage_ViewWholeListButton = (gcnew System::Windows::Forms::Button());
-			this->EquipmentPage_Title = (gcnew System::Windows::Forms::Label());
 			this->HomePage = (gcnew System::Windows::Forms::Panel());
 			this->AuthorNameLabel = (gcnew System::Windows::Forms::Label());
 			this->HomePage_UsersGuidButton = (gcnew System::Windows::Forms::Button());
 			this->HomePage_EquipmentButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->HomePage_DetailsButton = (gcnew System::Windows::Forms::Button());
-			this->DetailsPage = (gcnew System::Windows::Forms::Panel());
-			this->DetailsPage_ExitButton = (gcnew System::Windows::Forms::Button());
-			this->DetailsPage_SearchButton = (gcnew System::Windows::Forms::Button());
-			this->DetailsPage_EditListButton = (gcnew System::Windows::Forms::Button());
-			this->DetailsPage_ViewWholeListButton = (gcnew System::Windows::Forms::Button());
-			this->DetailsPage_Title = (gcnew System::Windows::Forms::Label());
 			this->DetailsListPage = (gcnew System::Windows::Forms::Panel());
 			this->DetailsListPage_SearchInput = (gcnew System::Windows::Forms::TextBox());
 			this->DetailsListPage_AddingButton = (gcnew System::Windows::Forms::Button());
@@ -246,93 +234,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->EquipmentPage->SuspendLayout();
 			this->HomePage->SuspendLayout();
-			this->DetailsPage->SuspendLayout();
 			this->DetailsListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->BeginInit();
 			this->EquipmentListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->EquipmentListPage_DataGrid))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// EquipmentPage
-			// 
-			this->EquipmentPage->Controls->Add(this->EquipmentPage_ExitButton);
-			this->EquipmentPage->Controls->Add(this->EquipmentPage_SearchButton);
-			this->EquipmentPage->Controls->Add(this->EquipmentPage_EditListButton);
-			this->EquipmentPage->Controls->Add(this->EquipmentPage_ViewWholeListButton);
-			this->EquipmentPage->Controls->Add(this->EquipmentPage_Title);
-			this->EquipmentPage->Location = System::Drawing::Point(1232, 4);
-			this->EquipmentPage->Margin = System::Windows::Forms::Padding(4);
-			this->EquipmentPage->Name = L"EquipmentPage";
-			this->EquipmentPage->Size = System::Drawing::Size(364, 217);
-			this->EquipmentPage->TabIndex = 0;
-			// 
-			// EquipmentPage_ExitButton
-			// 
-			this->EquipmentPage_ExitButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->EquipmentPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
-			this->EquipmentPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->EquipmentPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentPage_ExitButton->Location = System::Drawing::Point(195, 149);
-			this->EquipmentPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
-			this->EquipmentPage_ExitButton->Name = L"EquipmentPage_ExitButton";
-			this->EquipmentPage_ExitButton->Size = System::Drawing::Size(332, 95);
-			this->EquipmentPage_ExitButton->TabIndex = 13;
-			this->EquipmentPage_ExitButton->Text = L"Назад";
-			this->EquipmentPage_ExitButton->UseVisualStyleBackColor = false;
-			// 
-			// EquipmentPage_SearchButton
-			// 
-			this->EquipmentPage_SearchButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->EquipmentPage_SearchButton->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->EquipmentPage_SearchButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->EquipmentPage_SearchButton->Location = System::Drawing::Point(-173, 149);
-			this->EquipmentPage_SearchButton->Margin = System::Windows::Forms::Padding(4);
-			this->EquipmentPage_SearchButton->Name = L"EquipmentPage_SearchButton";
-			this->EquipmentPage_SearchButton->Size = System::Drawing::Size(332, 95);
-			this->EquipmentPage_SearchButton->TabIndex = 12;
-			this->EquipmentPage_SearchButton->Text = L"Поиск";
-			this->EquipmentPage_SearchButton->UseVisualStyleBackColor = false;
-			// 
-			// EquipmentPage_EditListButton
-			// 
-			this->EquipmentPage_EditListButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->EquipmentPage_EditListButton->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->EquipmentPage_EditListButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->EquipmentPage_EditListButton->Location = System::Drawing::Point(195, 20);
-			this->EquipmentPage_EditListButton->Margin = System::Windows::Forms::Padding(4);
-			this->EquipmentPage_EditListButton->Name = L"EquipmentPage_EditListButton";
-			this->EquipmentPage_EditListButton->Size = System::Drawing::Size(332, 95);
-			this->EquipmentPage_EditListButton->TabIndex = 11;
-			this->EquipmentPage_EditListButton->Text = L"Редактировать список";
-			this->EquipmentPage_EditListButton->UseVisualStyleBackColor = false;
-			// 
-			// EquipmentPage_ViewWholeListButton
-			// 
-			this->EquipmentPage_ViewWholeListButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->EquipmentPage_ViewWholeListButton->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->EquipmentPage_ViewWholeListButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->EquipmentPage_ViewWholeListButton->Location = System::Drawing::Point(-168, 20);
-			this->EquipmentPage_ViewWholeListButton->Margin = System::Windows::Forms::Padding(4);
-			this->EquipmentPage_ViewWholeListButton->Name = L"EquipmentPage_ViewWholeListButton";
-			this->EquipmentPage_ViewWholeListButton->Size = System::Drawing::Size(327, 95);
-			this->EquipmentPage_ViewWholeListButton->TabIndex = 10;
-			this->EquipmentPage_ViewWholeListButton->Text = L"Смотреть весь список";
-			this->EquipmentPage_ViewWholeListButton->UseVisualStyleBackColor = false;
-			// 
-			// EquipmentPage_Title
-			// 
-			this->EquipmentPage_Title->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->EquipmentPage_Title->AutoSize = true;
-			this->EquipmentPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->EquipmentPage_Title->Location = System::Drawing::Point(37, -49);
-			this->EquipmentPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->EquipmentPage_Title->Name = L"EquipmentPage_Title";
-			this->EquipmentPage_Title->Size = System::Drawing::Size(262, 39);
-			this->EquipmentPage_Title->TabIndex = 10;
-			this->EquipmentPage_Title->Text = L"Оборудование";
-			this->EquipmentPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// HomePage
 			// 
@@ -387,7 +294,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage_EquipmentButton->TabIndex = 7;
 			this->HomePage_EquipmentButton->Text = L"Оборудование";
 			this->HomePage_EquipmentButton->UseVisualStyleBackColor = false;
-			this->HomePage_EquipmentButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowEquipmentPage);
+			this->HomePage_EquipmentButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowEquipmentListPage);
 			// 
 			// label1
 			// 
@@ -414,88 +321,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage_DetailsButton->TabIndex = 5;
 			this->HomePage_DetailsButton->Text = L"Детали";
 			this->HomePage_DetailsButton->UseVisualStyleBackColor = false;
-			this->HomePage_DetailsButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowDetailsPage);
-			// 
-			// DetailsPage
-			// 
-			this->DetailsPage->Controls->Add(this->DetailsPage_ExitButton);
-			this->DetailsPage->Controls->Add(this->DetailsPage_SearchButton);
-			this->DetailsPage->Controls->Add(this->DetailsPage_EditListButton);
-			this->DetailsPage->Controls->Add(this->DetailsPage_ViewWholeListButton);
-			this->DetailsPage->Controls->Add(this->DetailsPage_Title);
-			this->DetailsPage->Location = System::Drawing::Point(38, 24);
-			this->DetailsPage->Margin = System::Windows::Forms::Padding(4);
-			this->DetailsPage->Name = L"DetailsPage";
-			this->DetailsPage->Size = System::Drawing::Size(54, 217);
-			this->DetailsPage->TabIndex = 14;
-			// 
-			// DetailsPage_ExitButton
-			// 
-			this->DetailsPage_ExitButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->DetailsPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
-			this->DetailsPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->DetailsPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsPage_ExitButton->Location = System::Drawing::Point(41, 149);
-			this->DetailsPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
-			this->DetailsPage_ExitButton->Name = L"DetailsPage_ExitButton";
-			this->DetailsPage_ExitButton->Size = System::Drawing::Size(332, 95);
-			this->DetailsPage_ExitButton->TabIndex = 13;
-			this->DetailsPage_ExitButton->Text = L"Назад";
-			this->DetailsPage_ExitButton->UseVisualStyleBackColor = false;
-			this->DetailsPage_ExitButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::GoBackFromDetailsPageToHomePage);
-			// 
-			// DetailsPage_SearchButton
-			// 
-			this->DetailsPage_SearchButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->DetailsPage_SearchButton->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->DetailsPage_SearchButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->DetailsPage_SearchButton->Location = System::Drawing::Point(-327, 149);
-			this->DetailsPage_SearchButton->Margin = System::Windows::Forms::Padding(4);
-			this->DetailsPage_SearchButton->Name = L"DetailsPage_SearchButton";
-			this->DetailsPage_SearchButton->Size = System::Drawing::Size(332, 95);
-			this->DetailsPage_SearchButton->TabIndex = 12;
-			this->DetailsPage_SearchButton->Text = L"Поиск";
-			this->DetailsPage_SearchButton->UseVisualStyleBackColor = false;
-			// 
-			// DetailsPage_EditListButton
-			// 
-			this->DetailsPage_EditListButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->DetailsPage_EditListButton->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->DetailsPage_EditListButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->DetailsPage_EditListButton->Location = System::Drawing::Point(41, 20);
-			this->DetailsPage_EditListButton->Margin = System::Windows::Forms::Padding(4);
-			this->DetailsPage_EditListButton->Name = L"DetailsPage_EditListButton";
-			this->DetailsPage_EditListButton->Size = System::Drawing::Size(332, 95);
-			this->DetailsPage_EditListButton->TabIndex = 11;
-			this->DetailsPage_EditListButton->Text = L"Редактировать список";
-			this->DetailsPage_EditListButton->UseVisualStyleBackColor = false;
-			// 
-			// DetailsPage_ViewWholeListButton
-			// 
-			this->DetailsPage_ViewWholeListButton->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->DetailsPage_ViewWholeListButton->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->DetailsPage_ViewWholeListButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->DetailsPage_ViewWholeListButton->Location = System::Drawing::Point(-322, 20);
-			this->DetailsPage_ViewWholeListButton->Margin = System::Windows::Forms::Padding(4);
-			this->DetailsPage_ViewWholeListButton->Name = L"DetailsPage_ViewWholeListButton";
-			this->DetailsPage_ViewWholeListButton->Size = System::Drawing::Size(327, 95);
-			this->DetailsPage_ViewWholeListButton->TabIndex = 10;
-			this->DetailsPage_ViewWholeListButton->Text = L"Смотреть весь список";
-			this->DetailsPage_ViewWholeListButton->UseVisualStyleBackColor = false;
-			this->DetailsPage_ViewWholeListButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowDetailsListPage);
-			// 
-			// DetailsPage_Title
-			// 
-			this->DetailsPage_Title->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->DetailsPage_Title->AutoSize = true;
-			this->DetailsPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->DetailsPage_Title->Location = System::Drawing::Point(-55, -49);
-			this->DetailsPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->DetailsPage_Title->Name = L"DetailsPage_Title";
-			this->DetailsPage_Title->Size = System::Drawing::Size(141, 39);
-			this->DetailsPage_Title->TabIndex = 10;
-			this->DetailsPage_Title->Text = L"Детали";
-			this->DetailsPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->HomePage_DetailsButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowDetailsListPage);
 			// 
 			// DetailsListPage
 			// 
@@ -578,6 +404,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->DetailsListPage_ExitButton->TabIndex = 14;
 			this->DetailsListPage_ExitButton->Text = L"Назад";
 			this->DetailsListPage_ExitButton->UseVisualStyleBackColor = false;
+			this->DetailsListPage_ExitButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::goBackToMainMenuFromDetailsList);
 			// 
 			// DetailsListPage_Title
 			// 
@@ -711,6 +538,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->EquipmentListPage_ExitButton->TabIndex = 14;
 			this->EquipmentListPage_ExitButton->Text = L"Назад";
 			this->EquipmentListPage_ExitButton->UseVisualStyleBackColor = false;
+			this->EquipmentListPage_ExitButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::goBackToMainMenuFromEquipmentListPage);
 			// 
 			// EquipmentListPage_Title
 			// 
@@ -772,20 +600,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->ClientSize = System::Drawing::Size(1612, 1055);
 			this->Controls->Add(this->EquipmentListPage);
 			this->Controls->Add(this->DetailsListPage);
-			this->Controls->Add(this->DetailsPage);
 			this->Controls->Add(this->HomePage);
-			this->Controls->Add(this->EquipmentPage);
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"EquipmentPriceCalculator";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EquipmentPriceCalculator";
 			this->Load += gcnew System::EventHandler(this, &EquipmentPriceCalculator::onAppLoad);
-			this->EquipmentPage->ResumeLayout(false);
-			this->EquipmentPage->PerformLayout();
 			this->HomePage->ResumeLayout(false);
 			this->HomePage->PerformLayout();
-			this->DetailsPage->ResumeLayout(false);
-			this->DetailsPage->PerformLayout();
 			this->DetailsListPage->ResumeLayout(false);
 			this->DetailsListPage->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->EndInit();
@@ -806,8 +628,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 	};
 	//MainPage
 	private: System::Void ShowGuidOnClick(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void ShowDetailsPage(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void ShowEquipmentPage(System::Object^ sender, System::EventArgs^ e);
 
 	//DetailsPage
 	private: System::Void GoBackFromDetailsPageToHomePage(System::Object^ sender, System::EventArgs^ e);
@@ -824,5 +644,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 	private: System::Void DetailsListPage_DataGrid_OpeningDetailsAddingWindow(System::Object^ sender, System::EventArgs^ e);
 	private: void OnGivingNewDetailsInfoEvent(Object^ sender, GivingNewDetailsInfoEventArgs^ e);
 	private: System::Void DetailsListPage_SearchInput_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ShowEquipmentListPage(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void goBackToMainMenuFromDetailsList(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void goBackToMainMenuFromEquipmentListPage(System::Object^ sender, System::EventArgs^ e) {
+		EquipmentListPage->Hide();
+		HomePage->Show();
+	}
 };
 }
