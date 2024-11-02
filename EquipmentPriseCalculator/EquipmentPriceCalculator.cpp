@@ -3,6 +3,7 @@
 #include "GlobalList.h"
 #include "DetailsPage.h"
 #include "DetailsListPage.h"
+#include "EquipmentListPage.h"
 
 using namespace System;
 using namespace System::Windows::Forms;

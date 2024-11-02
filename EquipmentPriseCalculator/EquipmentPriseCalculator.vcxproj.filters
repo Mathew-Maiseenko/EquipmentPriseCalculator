@@ -44,9 +44,13 @@
     <ClInclude Include="DetailAddingWindow.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="EquipmentListPage.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DetailSpisok.csv" />
     <None Include="EquipmentSpisok.csv" />
+    <None Include="GlobalSpisok.csv" />
   </ItemGroup>
 </Project>

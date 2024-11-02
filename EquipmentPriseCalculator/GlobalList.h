@@ -48,8 +48,7 @@ struct Detail {     //Деталь
 
 class GlobalList {
 
-    string SpisokFile;
-    string NameFile;
+    string fileName;
 
     double WhalePrice;
 
@@ -72,11 +71,13 @@ public:
         fstream EquipmentFile;
         EquipmentFile.open("EquipmentSpisok.csv");
 
+        fileName = "GlobalSpisok.csv";
 
 
-        this->readDetailsFile(DetailFile, *this, "DetailSpisok.csv");
-        this->readEquipmentFile(EquipmentFile, *this, "EquipmentSpisok.csv");
+        //this->readDetailsFile(DetailFile, *this, "DetailSpisok.csv");
+        //this->readEquipmentFile(EquipmentFile, *this, "EquipmentSpisok.csv");
 
+        readFile(fileName);
         DetailFile.close();
         EquipmentFile.close();
 
@@ -85,6 +86,140 @@ public:
 
     vector<Detail> getDetailList() {
         return this->DetailList;
+    }
+
+    vector<Equipment> getEquipmentList() {
+        return this->EquipmentList;
+    }
+
+    int getMaxEquipmentsDetailsCount() {
+        int count = 0;
+        for (Equipment curEquipment : this->EquipmentList) {
+            int curDetailsCount = curEquipment.DetailsCount.size();
+            if (curDetailsCount > count)
+            {
+                count = curDetailsCount;
+            }
+        }
+        return count;
+    }
+
+    void readFile(string fileName) {
+        fstream GlobalFile;
+        GlobalFile.open(fileName);
+
+        string line;
+        bool isDetailsSection = false;
+
+        while (getline(GlobalFile, line)) {
+            if (line.find("########################Details##############################") != string::npos) {
+                isDetailsSection = true;
+            }
+            else if (line.find("########################Equipment############################") != string::npos) {
+                isDetailsSection = false;
+            }
+            else if (!line.empty()) {
+                istringstream iss(line);
+                if (isDetailsSection) {
+                    // Read details
+                    Detail curDetail;
+                    string curId;
+                    getline(iss, curId, ',');
+                    curDetail.id = stoi(curId);
+
+                    string curNameAndOtherInfo;
+                    getline(iss, curNameAndOtherInfo, '\n');
+                    string curName = unescapeName(curNameAndOtherInfo);
+                    curDetail.Name = curName;
+
+
+                    curDetail.costs = stod(curNameAndOtherInfo.substr(curName.size() + 2));
+                    DetailsNameMap[curName] = curDetail;
+                    DetailList.push_back(curDetail);
+                }
+                else {
+                    // Read equipment
+                    Equipment curEquipment;
+
+                    string curId;
+                    getline(iss, curId, ',');
+                    curEquipment.id = stoi(curId);
+
+                    string curNameAndOtherInfo;
+                    getline(iss, curNameAndOtherInfo, '\n');
+                    string curName = unescapeName(curNameAndOtherInfo);
+                    curEquipment.Name = curName;
+
+                    string curOtherInfo = curNameAndOtherInfo.substr(curName.size() + 2);
+
+                    //string curInfo;
+                    //getline(iss, curInfo);
+                    istringstream issEquip(curOtherInfo);
+
+                    
+                    string detailsInfo;
+                    getline(issEquip, detailsInfo);
+
+                    string detail;
+                    string detailCount;
+                    while (!detail.empty()) {
+                        detail = unescapeName(detailsInfo);
+                        detailsInfo = detailsInfo.substr(detail.size() + 2);
+                        
+                        detailCount = unescapeCount(detailsInfo);
+                        detailsInfo = detailCount.substr(detail.size() + 2);
+                        int NeedCount = stoi(detailCount);
+
+                        curEquipment.DetailsCount[detail] = NeedCount;
+                    };
+                    EquipmentNameMap[curName] = curEquipment;
+                    EquipmentList.push_back(curEquipment);
+                }
+            }
+        }
+    }
+
+    string unescapeName(const string& escapedString) {
+        string unescapedString;
+        bool escaped = false;
+        for (int i = 0; i < escapedString.size(); i++) {
+            char c = escapedString[i];
+            if (escaped) {
+                if (c == ',') {
+                    unescapedString.push_back(c);
+                    escaped = false;
+                } else {
+                    unescapedString.push_back(escapedString[i - 1]);
+                    unescapedString.push_back(c);
+                    escaped = false;
+                }
+            }
+            else if (c == '|') {
+                escaped = true;
+            }
+            else if (c == ',') {
+                return unescapedString;
+            }
+            else {
+                unescapedString.push_back(c);
+            }
+        }
+        return unescapedString;
+    }
+
+    string unescapeCount(const string& escapedString) {
+        string unescapedString;
+        bool escaped = false;
+        for (int i = 0; i < escapedString.size(); i++) {
+            char c = escapedString[i];
+            if (c == ',') {
+                return unescapedString;
+            }
+            else {
+                unescapedString.push_back(c);
+            }
+        }
+        return unescapedString;
     }
 
     void readDetailsFile(istream& DetailFile, GlobalList& List, string DetailFileTitle) {
@@ -1085,8 +1220,8 @@ public:
             return formatDouble(curDetail.costs);
         }
     }
-
-    fstream& editDetailsInfoByOldName(int collumnIndex, int rowIndex, string newValue) {
+    /*
+     fstream& editDetailsInfoByOldName(int collumnIndex, int rowIndex, string newValue) {
         std::fstream OldDetailFile("DetailSpisok.csv", std::ios::in | std::ios::out);
 
         string oldName = DetailList.at(rowIndex).Name;
@@ -1149,6 +1284,23 @@ public:
 
         return OldDetailFile;
     }
+    */
+
+    void editDetailsInfoByOldName(int collumnIndex, int rowIndex, string newValue) {
+        if (collumnIndex == 0) {
+            DetailList.at(rowIndex).id = stoi(newValue);
+        }
+        else if (collumnIndex == 1) {
+            DetailList.at(rowIndex).Name = newValue;
+        }
+        else if (collumnIndex == 2) {
+            DetailList.at(rowIndex).costs = stod(newValue);
+        }
+        else
+        {
+            return;
+        }
+    }
     void editDetailByName() {
         fstream File;
         File.open(DetailFileName);
@@ -1168,6 +1320,33 @@ public:
         return sortedDetails;
     }
 
+
+    /*
+    *     ofstream& removeDetailById(int elementIndexToDelete) {
+        int idToDelete = DetailList.at(elementIndexToDelete).id;
+        ofstream UpgradedDetailFile;
+        UpgradedDetailFile.open("DetailSpisok.csv");
+
+        // Удаляем элемент из DetailList и DetailsNameMap
+        for (auto it = DetailList.begin(); it != DetailList.end(); ++it) {
+            if (it->id == idToDelete) {
+                DetailsNameMap.erase(it->Name);
+                DetailList.erase(it);
+                break;
+            }
+        }
+
+        // Сортируем оставшиеся элементы
+        vector<Detail> sortedDetailList = sortDetailsById(DetailList);
+
+        // Записываем оставшиеся элементы в файл
+        for (Detail element : sortedDetailList) {
+            UpgradedDetailFile << element.id << ',' << element.Name << ',' << element.costs << endl;
+        }
+
+        return UpgradedDetailFile;
+    }
+    */
     ofstream& removeDetailById(int elementIndexToDelete) {
         int idToDelete = DetailList.at(elementIndexToDelete).id;
         ofstream UpgradedDetailFile;

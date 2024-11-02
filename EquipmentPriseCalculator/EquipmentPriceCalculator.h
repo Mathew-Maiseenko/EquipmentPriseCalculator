@@ -183,6 +183,7 @@ private: System::Windows::Forms::DataGridView^ EquipmentListPage_DataGrid;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
+private: System::Windows::Forms::Button^ DetailsListPage_SavingButton;
 
 
 
@@ -234,6 +235,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->DetailsListPage_SavingButton = (gcnew System::Windows::Forms::Button());
 			this->HomePage->SuspendLayout();
 			this->DetailsListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->BeginInit();
@@ -248,10 +250,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage->Controls->Add(this->HomePage_EquipmentButton);
 			this->HomePage->Controls->Add(this->label1);
 			this->HomePage->Controls->Add(this->HomePage_DetailsButton);
-			this->HomePage->Location = System::Drawing::Point(423, 4);
-			this->HomePage->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage->Location = System::Drawing::Point(317, 3);
 			this->HomePage->Name = L"HomePage";
-			this->HomePage->Size = System::Drawing::Size(787, 326);
+			this->HomePage->Size = System::Drawing::Size(590, 265);
 			this->HomePage->TabIndex = 1;
 			// 
 			// AuthorNameLabel
@@ -259,10 +260,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->AuthorNameLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AuthorNameLabel->AutoSize = true;
 			this->AuthorNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AuthorNameLabel->Location = System::Drawing::Point(194, 61);
-			this->AuthorNameLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AuthorNameLabel->Location = System::Drawing::Point(146, 50);
 			this->AuthorNameLabel->Name = L"AuthorNameLabel";
-			this->AuthorNameLabel->Size = System::Drawing::Size(424, 31);
+			this->AuthorNameLabel->Size = System::Drawing::Size(350, 26);
 			this->AuthorNameLabel->TabIndex = 9;
 			this->AuthorNameLabel->Text = L"Майсеенко Матвей Андреевич";
 			this->AuthorNameLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -272,10 +272,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage_UsersGuidButton->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->HomePage_UsersGuidButton->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->HomePage_UsersGuidButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->HomePage_UsersGuidButton->Location = System::Drawing::Point(71, 245);
-			this->HomePage_UsersGuidButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_UsersGuidButton->Location = System::Drawing::Point(53, 199);
 			this->HomePage_UsersGuidButton->Name = L"HomePage_UsersGuidButton";
-			this->HomePage_UsersGuidButton->Size = System::Drawing::Size(652, 54);
+			this->HomePage_UsersGuidButton->Size = System::Drawing::Size(489, 44);
 			this->HomePage_UsersGuidButton->TabIndex = 8;
 			this->HomePage_UsersGuidButton->Text = L"Руководство пользователя";
 			this->HomePage_UsersGuidButton->UseVisualStyleBackColor = false;
@@ -287,10 +286,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage_EquipmentButton->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->HomePage_EquipmentButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->HomePage_EquipmentButton->Location = System::Drawing::Point(403, 126);
-			this->HomePage_EquipmentButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_EquipmentButton->Location = System::Drawing::Point(302, 102);
 			this->HomePage_EquipmentButton->Name = L"HomePage_EquipmentButton";
-			this->HomePage_EquipmentButton->Size = System::Drawing::Size(320, 111);
+			this->HomePage_EquipmentButton->Size = System::Drawing::Size(240, 90);
 			this->HomePage_EquipmentButton->TabIndex = 7;
 			this->HomePage_EquipmentButton->Text = L"Оборудование";
 			this->HomePage_EquipmentButton->UseVisualStyleBackColor = false;
@@ -301,10 +299,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->label1->Location = System::Drawing::Point(88, 20);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(66, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(597, 31);
+			this->label1->Size = System::Drawing::Size(494, 26);
 			this->label1->TabIndex = 6;
 			this->label1->Text = L"Калькулятор себестоимости оборудования";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -314,10 +311,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage_DetailsButton->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->HomePage_DetailsButton->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->HomePage_DetailsButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->HomePage_DetailsButton->Location = System::Drawing::Point(71, 126);
-			this->HomePage_DetailsButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_DetailsButton->Location = System::Drawing::Point(53, 102);
 			this->HomePage_DetailsButton->Name = L"HomePage_DetailsButton";
-			this->HomePage_DetailsButton->Size = System::Drawing::Size(320, 111);
+			this->HomePage_DetailsButton->Size = System::Drawing::Size(240, 90);
 			this->HomePage_DetailsButton->TabIndex = 5;
 			this->HomePage_DetailsButton->Text = L"Детали";
 			this->HomePage_DetailsButton->UseVisualStyleBackColor = false;
@@ -325,6 +321,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			// 
 			// DetailsListPage
 			// 
+			this->DetailsListPage->Controls->Add(this->DetailsListPage_SavingButton);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_SearchInput);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_AddingButton);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_SortTypeComboBox);
@@ -332,10 +329,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_ExitButton);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_Title);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_DataGrid);
-			this->DetailsListPage->Location = System::Drawing::Point(4, 331);
-			this->DetailsListPage->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage->Location = System::Drawing::Point(3, 269);
 			this->DetailsListPage->Name = L"DetailsListPage";
-			this->DetailsListPage->Size = System::Drawing::Size(729, 370);
+			this->DetailsListPage->Size = System::Drawing::Size(547, 301);
 			this->DetailsListPage->TabIndex = 15;
 			this->DetailsListPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_DetailsListPage);
 			// 
@@ -343,9 +339,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			// 
 			this->DetailsListPage_SearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->DetailsListPage_SearchInput->Location = System::Drawing::Point(19, 89);
+			this->DetailsListPage_SearchInput->Location = System::Drawing::Point(14, 72);
+			this->DetailsListPage_SearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->DetailsListPage_SearchInput->Name = L"DetailsListPage_SearchInput";
-			this->DetailsListPage_SearchInput->Size = System::Drawing::Size(484, 32);
+			this->DetailsListPage_SearchInput->Size = System::Drawing::Size(364, 27);
 			this->DetailsListPage_SearchInput->TabIndex = 18;
 			this->DetailsListPage_SearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::DetailsListPage_SearchInput_TextChanged);
 			// 
@@ -355,10 +352,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->DetailsListPage_AddingButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->DetailsListPage_AddingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->DetailsListPage_AddingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsListPage_AddingButton->Location = System::Drawing::Point(513, 193);
-			this->DetailsListPage_AddingButton->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_AddingButton->Location = System::Drawing::Point(383, 135);
 			this->DetailsListPage_AddingButton->Name = L"DetailsListPage_AddingButton";
-			this->DetailsListPage_AddingButton->Size = System::Drawing::Size(205, 64);
+			this->DetailsListPage_AddingButton->Size = System::Drawing::Size(154, 52);
 			this->DetailsListPage_AddingButton->TabIndex = 17;
 			this->DetailsListPage_AddingButton->Text = L"Добавить";
 			this->DetailsListPage_AddingButton->UseVisualStyleBackColor = false;
@@ -371,10 +367,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 				L"Id детали", L"Названию детали",
 					L"Стоимости детали"
 			});
-			this->DetailsListPage_SortTypeComboBox->Location = System::Drawing::Point(513, 133);
-			this->DetailsListPage_SortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_SortTypeComboBox->Location = System::Drawing::Point(385, 108);
 			this->DetailsListPage_SortTypeComboBox->Name = L"DetailsListPage_SortTypeComboBox";
-			this->DetailsListPage_SortTypeComboBox->Size = System::Drawing::Size(204, 24);
+			this->DetailsListPage_SortTypeComboBox->Size = System::Drawing::Size(154, 21);
 			this->DetailsListPage_SortTypeComboBox->TabIndex = 16;
 			this->DetailsListPage_SortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::onSelectDetailsListSortType);
 			// 
@@ -383,10 +378,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->DetailsListPage_SortTypeMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->DetailsListPage_SortTypeMessage->AutoSize = true;
 			this->DetailsListPage_SortTypeMessage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->DetailsListPage_SortTypeMessage->Location = System::Drawing::Point(518, 89);
-			this->DetailsListPage_SortTypeMessage->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DetailsListPage_SortTypeMessage->Location = System::Drawing::Point(381, 72);
 			this->DetailsListPage_SortTypeMessage->Name = L"DetailsListPage_SortTypeMessage";
-			this->DetailsListPage_SortTypeMessage->Size = System::Drawing::Size(199, 29);
+			this->DetailsListPage_SortTypeMessage->Size = System::Drawing::Size(158, 24);
 			this->DetailsListPage_SortTypeMessage->TabIndex = 15;
 			this->DetailsListPage_SortTypeMessage->Text = L"Сортировка по";
 			this->DetailsListPage_SortTypeMessage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -397,10 +391,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->DetailsListPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
 			this->DetailsListPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->DetailsListPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsListPage_ExitButton->Location = System::Drawing::Point(513, 279);
-			this->DetailsListPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_ExitButton->Location = System::Drawing::Point(385, 246);
 			this->DetailsListPage_ExitButton->Name = L"DetailsListPage_ExitButton";
-			this->DetailsListPage_ExitButton->Size = System::Drawing::Size(205, 70);
+			this->DetailsListPage_ExitButton->Size = System::Drawing::Size(154, 38);
 			this->DetailsListPage_ExitButton->TabIndex = 14;
 			this->DetailsListPage_ExitButton->Text = L"Назад";
 			this->DetailsListPage_ExitButton->UseVisualStyleBackColor = false;
@@ -412,10 +405,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->DetailsListPage_Title->AutoSize = true;
 			this->DetailsListPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->DetailsListPage_Title->Location = System::Drawing::Point(12, 18);
-			this->DetailsListPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DetailsListPage_Title->Location = System::Drawing::Point(9, 15);
 			this->DetailsListPage_Title->Name = L"DetailsListPage_Title";
-			this->DetailsListPage_Title->Size = System::Drawing::Size(336, 46);
+			this->DetailsListPage_Title->Size = System::Drawing::Size(259, 37);
 			this->DetailsListPage_Title->TabIndex = 10;
 			this->DetailsListPage_Title->Text = L"Список деталей";
 			this->DetailsListPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -428,11 +420,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 				this->DetailId,
 					this->DetailName, this->DetailPrice
 			});
-			this->DetailsListPage_DataGrid->Location = System::Drawing::Point(19, 133);
-			this->DetailsListPage_DataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_DataGrid->Location = System::Drawing::Point(14, 108);
 			this->DetailsListPage_DataGrid->Name = L"DetailsListPage_DataGrid";
 			this->DetailsListPage_DataGrid->RowHeadersWidth = 51;
-			this->DetailsListPage_DataGrid->Size = System::Drawing::Size(484, 216);
+			this->DetailsListPage_DataGrid->Size = System::Drawing::Size(363, 176);
 			this->DetailsListPage_DataGrid->TabIndex = 0;
 			this->DetailsListPage_DataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::DetailsGrid_CellEndEdit);
 			this->DetailsListPage_DataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::DetailsGrid_MouseClick);
@@ -470,19 +461,20 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_ExitButton);
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_Title);
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_DataGrid);
-			this->EquipmentListPage->Location = System::Drawing::Point(741, 331);
-			this->EquipmentListPage->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage->Location = System::Drawing::Point(556, 269);
 			this->EquipmentListPage->Name = L"EquipmentListPage";
-			this->EquipmentListPage->Size = System::Drawing::Size(729, 370);
+			this->EquipmentListPage->Size = System::Drawing::Size(547, 301);
 			this->EquipmentListPage->TabIndex = 19;
+			this->EquipmentListPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_EquipmentListPage);
 			// 
 			// EquipmentListPage_SearchInput
 			// 
 			this->EquipmentListPage_SearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->EquipmentListPage_SearchInput->Location = System::Drawing::Point(19, 89);
+			this->EquipmentListPage_SearchInput->Location = System::Drawing::Point(14, 72);
+			this->EquipmentListPage_SearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->EquipmentListPage_SearchInput->Name = L"EquipmentListPage_SearchInput";
-			this->EquipmentListPage_SearchInput->Size = System::Drawing::Size(484, 32);
+			this->EquipmentListPage_SearchInput->Size = System::Drawing::Size(364, 27);
 			this->EquipmentListPage_SearchInput->TabIndex = 18;
 			// 
 			// EquipmentListPage__AddingButton
@@ -491,10 +483,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->EquipmentListPage__AddingButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->EquipmentListPage__AddingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->EquipmentListPage__AddingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentListPage__AddingButton->Location = System::Drawing::Point(513, 193);
-			this->EquipmentListPage__AddingButton->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage__AddingButton->Location = System::Drawing::Point(385, 135);
 			this->EquipmentListPage__AddingButton->Name = L"EquipmentListPage__AddingButton";
-			this->EquipmentListPage__AddingButton->Size = System::Drawing::Size(205, 64);
+			this->EquipmentListPage__AddingButton->Size = System::Drawing::Size(154, 52);
 			this->EquipmentListPage__AddingButton->TabIndex = 17;
 			this->EquipmentListPage__AddingButton->Text = L"Добавить";
 			this->EquipmentListPage__AddingButton->UseVisualStyleBackColor = false;
@@ -506,10 +497,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 				L"Id детали", L"Названию детали",
 					L"Стоимости детали"
 			});
-			this->EquipmentListPage__SortTypeComboBox->Location = System::Drawing::Point(513, 133);
-			this->EquipmentListPage__SortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage__SortTypeComboBox->Location = System::Drawing::Point(385, 108);
 			this->EquipmentListPage__SortTypeComboBox->Name = L"EquipmentListPage__SortTypeComboBox";
-			this->EquipmentListPage__SortTypeComboBox->Size = System::Drawing::Size(204, 24);
+			this->EquipmentListPage__SortTypeComboBox->Size = System::Drawing::Size(154, 21);
 			this->EquipmentListPage__SortTypeComboBox->TabIndex = 16;
 			// 
 			// EquipmentListPage_SortTypeMessage
@@ -517,10 +507,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->EquipmentListPage_SortTypeMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->EquipmentListPage_SortTypeMessage->AutoSize = true;
 			this->EquipmentListPage_SortTypeMessage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->EquipmentListPage_SortTypeMessage->Location = System::Drawing::Point(518, 89);
-			this->EquipmentListPage_SortTypeMessage->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EquipmentListPage_SortTypeMessage->Location = System::Drawing::Point(381, 72);
 			this->EquipmentListPage_SortTypeMessage->Name = L"EquipmentListPage_SortTypeMessage";
-			this->EquipmentListPage_SortTypeMessage->Size = System::Drawing::Size(199, 29);
+			this->EquipmentListPage_SortTypeMessage->Size = System::Drawing::Size(158, 24);
 			this->EquipmentListPage_SortTypeMessage->TabIndex = 15;
 			this->EquipmentListPage_SortTypeMessage->Text = L"Сортировка по";
 			this->EquipmentListPage_SortTypeMessage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -531,10 +520,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->EquipmentListPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
 			this->EquipmentListPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->EquipmentListPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentListPage_ExitButton->Location = System::Drawing::Point(513, 279);
-			this->EquipmentListPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage_ExitButton->Location = System::Drawing::Point(385, 246);
 			this->EquipmentListPage_ExitButton->Name = L"EquipmentListPage_ExitButton";
-			this->EquipmentListPage_ExitButton->Size = System::Drawing::Size(205, 70);
+			this->EquipmentListPage_ExitButton->Size = System::Drawing::Size(154, 38);
 			this->EquipmentListPage_ExitButton->TabIndex = 14;
 			this->EquipmentListPage_ExitButton->Text = L"Назад";
 			this->EquipmentListPage_ExitButton->UseVisualStyleBackColor = false;
@@ -546,10 +534,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->EquipmentListPage_Title->AutoSize = true;
 			this->EquipmentListPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->EquipmentListPage_Title->Location = System::Drawing::Point(12, 18);
-			this->EquipmentListPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EquipmentListPage_Title->Location = System::Drawing::Point(9, 15);
 			this->EquipmentListPage_Title->Name = L"EquipmentListPage_Title";
-			this->EquipmentListPage_Title->Size = System::Drawing::Size(455, 46);
+			this->EquipmentListPage_Title->Size = System::Drawing::Size(347, 37);
 			this->EquipmentListPage_Title->TabIndex = 10;
 			this->EquipmentListPage_Title->Text = L"Список оборудования";
 			this->EquipmentListPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -562,11 +549,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3
 			});
-			this->EquipmentListPage_DataGrid->Location = System::Drawing::Point(19, 133);
-			this->EquipmentListPage_DataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage_DataGrid->Location = System::Drawing::Point(14, 108);
 			this->EquipmentListPage_DataGrid->Name = L"EquipmentListPage_DataGrid";
 			this->EquipmentListPage_DataGrid->RowHeadersWidth = 51;
-			this->EquipmentListPage_DataGrid->Size = System::Drawing::Size(484, 216);
+			this->EquipmentListPage_DataGrid->Size = System::Drawing::Size(363, 176);
 			this->EquipmentListPage_DataGrid->TabIndex = 0;
 			// 
 			// dataGridViewTextBoxColumn1
@@ -593,15 +579,27 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
 			this->dataGridViewTextBoxColumn3->Width = 125;
 			// 
+			// DetailsListPage_SavingButton
+			// 
+			this->DetailsListPage_SavingButton->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->DetailsListPage_SavingButton->BackColor = System::Drawing::Color::DodgerBlue;
+			this->DetailsListPage_SavingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
+			this->DetailsListPage_SavingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->DetailsListPage_SavingButton->Location = System::Drawing::Point(383, 193);
+			this->DetailsListPage_SavingButton->Name = L"DetailsListPage_SavingButton";
+			this->DetailsListPage_SavingButton->Size = System::Drawing::Size(154, 52);
+			this->DetailsListPage_SavingButton->TabIndex = 19;
+			this->DetailsListPage_SavingButton->Text = L"Сохранить";
+			this->DetailsListPage_SavingButton->UseVisualStyleBackColor = false;
+			// 
 			// EquipmentPriceCalculator
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1612, 1055);
+			this->ClientSize = System::Drawing::Size(1209, 857);
 			this->Controls->Add(this->EquipmentListPage);
 			this->Controls->Add(this->DetailsListPage);
 			this->Controls->Add(this->HomePage);
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"EquipmentPriceCalculator";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EquipmentPriceCalculator";
@@ -650,5 +648,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 		EquipmentListPage->Hide();
 		HomePage->Show();
 	}
+
+	//EquipmentList
+	private: System::Void ShowEquipmentListInEquipmentGrid();
+	private: System::Void OnLoad_EquipmentListPage(System::Object^ sender, System::EventArgs^ e);
 };
 }
