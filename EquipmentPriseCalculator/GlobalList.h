@@ -133,7 +133,7 @@ public:
                     curDetail.Name = curName;
 
 
-                    curDetail.costs = stod(curNameAndOtherInfo.substr(curName.size() + 2));
+                    curDetail.costs = stod(curNameAndOtherInfo.substr(curName.size() + 1));
                     DetailsNameMap[curName] = curDetail;
                     DetailList.push_back(curDetail);
                 }
@@ -150,7 +150,7 @@ public:
                     string curName = unescapeName(curNameAndOtherInfo);
                     curEquipment.Name = curName;
 
-                    string curOtherInfo = curNameAndOtherInfo.substr(curName.size() + 2);
+                    string curOtherInfo = curNameAndOtherInfo.substr(curName.size()+1);
 
                     //string curInfo;
                     //getline(iss, curInfo);
@@ -162,16 +162,39 @@ public:
 
                     string detail;
                     string detailCount;
-                    while (!detail.empty()) {
+                    //while (!detailsInfo.empty()) {
+                    //    detail = unescapeName(detailsInfo);
+                    //    detailsInfo = detailsInfo.substr(detail.size() + 2);
+                    //    
+                    //    detailCount = unescapeCount(detailsInfo);
+                    //    detailsInfo = detailCount.substr(detail.size() + 2);
+                    //    int NeedCount = stoi(detailCount);
+                    //    curEquipment.DetailsCount[detail] = NeedCount;
+                    //};
+                    while (!detailsInfo.empty()) {
                         detail = unescapeName(detailsInfo);
-                        detailsInfo = detailsInfo.substr(detail.size() + 2);
-                        
-                        detailCount = unescapeCount(detailsInfo);
-                        detailsInfo = detailCount.substr(detail.size() + 2);
-                        int NeedCount = stoi(detailCount);
+                        if (detailsInfo.size() > detail.size() + 1) {
+                            detailsInfo = detailsInfo.substr(detail.size() + 1);
+                        }
+                        else {
+                            detailsInfo.clear();
+                        }
 
-                        curEquipment.DetailsCount[detail] = NeedCount;
-                    };
+                        if (!detailsInfo.empty()) {
+                            detailCount = unescapeCount(detailsInfo);
+                            if (detailsInfo.size() > detailCount.size() + 1) {
+                                detailsInfo = detailsInfo.substr(detailCount.size() + 1);
+                            }
+                            else {
+                                detailsInfo.clear();
+                            }
+                        }
+
+                        if (!detailCount.empty()) {
+                            int NeedCount = stoi(detailCount);
+                            curEquipment.DetailsCount[detail] = NeedCount;
+                        }
+                    }
                     EquipmentNameMap[curName] = curEquipment;
                     EquipmentList.push_back(curEquipment);
                 }
@@ -189,7 +212,10 @@ public:
                     unescapedString.push_back(c);
                     escaped = false;
                 } else {
-                    unescapedString.push_back(escapedString[i - 1]);
+                    if (i > 0)
+                    {
+                        unescapedString.push_back(escapedString[i - 1]);
+                    }
                     unescapedString.push_back(c);
                     escaped = false;
                 }
@@ -209,7 +235,6 @@ public:
 
     string unescapeCount(const string& escapedString) {
         string unescapedString;
-        bool escaped = false;
         for (int i = 0; i < escapedString.size(); i++) {
             char c = escapedString[i];
             if (c == ',') {
@@ -269,11 +294,11 @@ public:
 
             string detail;
             string detailCount;
-            while (getline(iss, detail, ',') && !detail.empty()) {
-                getline(iss, detailCount, ',');
-                int NeedCount = stoi(detailCount);
-                curEquipment.DetailsCount[detail] = NeedCount;
-            }
+            //while (getline(iss, detail, ',') && !detail.empty()) {
+            //    getline(iss, detailCount, ',');
+            //    int NeedCount = stoi(detailCount);
+            //    curEquipment.DetailsCount[detail] = NeedCount;
+            //}
             EquipmentNameMap[curName] = curEquipment;
             EquipmentList.push_back(curEquipment);
 
@@ -288,25 +313,27 @@ public:
     //////////////////////////////////////////////////////////////////////////////
 
 
-    void SortDetailsList(String^ SelectedSortType) {
+    vector<Detail> SortDetailsList(String^ SelectedSortType) {
+        std::vector<Detail> SortDetailList = this->DetailList;
         if (SelectedSortType == "Id детали")
         {
-            std::sort(DetailList.begin(), DetailList.end(), [](Detail a, Detail b) {
+            std::sort(SortDetailList.begin(), SortDetailList.end(), [](Detail a, Detail b) {
                 return a.id < b.id;
                 });
         }
         else if (SelectedSortType == "Названию детали")
         {
-            std::sort(DetailList.begin(), DetailList.end(), [](Detail a, Detail b) {
+            std::sort(SortDetailList.begin(), SortDetailList.end(), [](Detail a, Detail b) {
                 return a.Name < b.Name;
                 });
         }
         else if (SelectedSortType == "Стоимости детали")
         {
-            std::sort(DetailList.begin(), DetailList.end(), [](Detail a, Detail b) {
+            std::sort(SortDetailList.begin(), SortDetailList.end(), [](Detail a, Detail b) {
                 return a.costs < b.costs;
                 });
         }
+        return SortDetailList;
     }
 
 
@@ -1347,7 +1374,69 @@ public:
         return UpgradedDetailFile;
     }
     */
-    ofstream& removeDetailById(int elementIndexToDelete) {
+
+    string ecraningStringWithCommas(const string& escapedString) {
+        string unescapedString;
+        for (int i = 0; i < escapedString.size(); i++) {
+            char c = escapedString[i];
+            if (c == ',') {
+                unescapedString.push_back('|');
+                unescapedString.push_back(c);
+            }
+            else {
+                unescapedString.push_back(c);
+            }
+        }
+        return unescapedString;
+    }
+
+    ofstream& SaveAllInFile() {
+        std::ofstream file(fileName);
+        if (file.is_open()) {
+            file << "########################Details##############################\n";
+            for (const auto& detail : DetailList) {
+                file << detail.id << "," << ecraningStringWithCommas(detail.Name) << "," << detail.costs << "\n";
+            }
+            file << "\n########################Equipment############################\n";
+            for (const auto& equip : EquipmentList) {
+                file << equip.id << "," << ecraningStringWithCommas(equip.Name);
+                for (const auto& component : equip.DetailsCount) {
+                    file << "," << ecraningStringWithCommas(component.first) << "," << component.second;
+                }
+                file << "\n";
+            }
+            file.close();
+        }
+        return file;
+        
+    }
+    void removeDetailById(int elementIndexToDelete) {
+        int idToDelete = DetailList.at(elementIndexToDelete).id;
+
+        // Удаляем элемент из DetailList и DetailsNameMap
+        for (auto it = DetailList.begin(); it != DetailList.end(); ++it) {
+            if (it->id == idToDelete) {
+                DetailsNameMap.erase(it->Name);
+                DetailList.erase(it);
+                break;
+            }
+        }
+    }
+
+    void removeEquipmentById(int elementIndexToDelete) {
+        int idToDelete = EquipmentList.at(elementIndexToDelete).id;
+
+        for (auto it = EquipmentList.begin(); it != EquipmentList.end(); ++it) {
+            if (it->id == idToDelete) {
+                EquipmentNameMap.erase(it->Name);
+                EquipmentList.erase(it);
+                break;
+            }
+        }
+    }
+
+    /*
+    *     ofstream& removeDetailById(int elementIndexToDelete) {
         int idToDelete = DetailList.at(elementIndexToDelete).id;
         ofstream UpgradedDetailFile;
         UpgradedDetailFile.open("DetailSpisok.csv");
@@ -1371,6 +1460,7 @@ public:
 
         return UpgradedDetailFile;
     }
+    */
 
     fstream& removeDetailByNameAlg(fstream& out) {
         string DetailNameToEdit;

@@ -24,15 +24,19 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowDeta
 
     DataGridView^ DetailsGrid = this->DetailsListPage_DataGrid;
     
+    GlobalList Storage = this->GlobalStorage;
+    std::vector<Detail> DetailList;
 
     String^ selectedItem = dynamic_cast<String^>(this->DetailsListPage_SortTypeComboBox->SelectedItem);
     if (selectedItem != nullptr)
     {
-        this->GlobalStorage.SortDetailsList(selectedItem);
+        DetailList = this->GlobalStorage.SortDetailsList(selectedItem);
+    }
+    else
+    {
+        DetailList = Storage.getDetailList();
     }
 
-    GlobalList Storage = this->GlobalStorage;
-    std::vector<Detail> DetailList = Storage.getDetailList();
 
     for (int i = 0; i < DetailList.size(); i++)
     {
@@ -64,7 +68,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsG
             menu->Items->Add(deleteDetail);
 
             // Обработчик события Opening для обновления Tag
-            menu->Opening += gcnew System::ComponentModel::CancelEventHandler(this, &EquipmentPriceCalculator::menu_Opening);
+            menu->Opening += gcnew System::ComponentModel::CancelEventHandler(this, &EquipmentPriceCalculator::DetailsList_deletingContextMenu_Opening);
 
             // Присваиваем новое контекстное меню
             DetailsGrid->ContextMenuStrip = menu;
@@ -73,7 +77,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsG
     }
 }
 
-inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::menu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e)
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsList_deletingContextMenu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e)
 {
     System::Windows::Forms::ContextMenuStrip^ menu = dynamic_cast<System::Windows::Forms::ContextMenuStrip^>(sender);
     if (menu != nullptr) {
@@ -151,6 +155,12 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsG
     }
 
     
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsListPage_DataGrid_OpeningDetailsSavingWindow(System::Object^ sender, System::EventArgs^ e)
+{
+    this->GlobalStorage.SaveAllInFile();
     return System::Void();
 }
 
