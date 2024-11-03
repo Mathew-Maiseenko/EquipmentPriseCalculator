@@ -77,7 +77,7 @@ public:
         //this->readDetailsFile(DetailFile, *this, "DetailSpisok.csv");
         //this->readEquipmentFile(EquipmentFile, *this, "EquipmentSpisok.csv");
 
-        readFile(fileName);
+        readFile();
         DetailFile.close();
         EquipmentFile.close();
 
@@ -104,9 +104,20 @@ public:
         return count;
     }
 
-    void readFile(string fileName) {
+    void readExternalFile(string externalFileName) {
+        fileName = externalFileName;
+        DetailList.clear();
+        DetailsNameMap.clear();
+        EquipmentList.clear();
+        EquipmentNameMap.clear();
+        readFile();
+    }
+
+    void readFile() {
         fstream GlobalFile;
+        
         GlobalFile.open(fileName);
+
 
         string line;
         bool isDetailsSection = false;
@@ -931,6 +942,18 @@ public:
 
     bool containsSubString(string str, string substr) {
         return str.find(substr) != std::string::npos;
+    }
+
+    vector<Detail> getFilteredListBySubStr(string subStr, vector<Detail> details) {
+        vector<Detail> CorrectDetails;
+        for (Detail det : details) {
+
+            if (containsSubString(det.Name, subStr)) {
+                CorrectDetails.push_back(det);
+            }
+        }
+
+        return CorrectDetails;
     }
 
     vector<string> findEquipmentsByName(string subStr, vector<string> strings) {

@@ -38,6 +38,16 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowDeta
     }
 
 
+    if (this->DetailsListPage_SearchInput->Text != nullptr)
+    {
+        msclr::interop::marshal_context context;
+        std::string filterDetailsStr = context.marshal_as<std::string>(this->DetailsListPage_SearchInput->Text);
+        DetailList = Storage.getFilteredListBySubStr(filterDetailsStr, DetailList);
+    }
+    //std::string filterDetailsStr = msclr::interop::marshal_as<std::string>(this->detailsNameFilterString->ToString());
+
+
+
     for (int i = 0; i < DetailList.size(); i++)
     {
         String^ DetailId = DetailList.at(i).id.ToString();
@@ -198,10 +208,9 @@ inline void EquipmentPriseCalculator::EquipmentPriceCalculator::OnGivingNewDetai
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsListPage_SearchInput_TextChanged(System::Object^ sender, System::EventArgs^ e)
 {
-    String^ text = this->DetailsListPage_SearchInput->Text; 
+    ShowDetailsListInDetailsGrid();
+    //this->detailsNameFilterString = this->DetailsListPage_SearchInput->Text;
 
-
-    MessageBox::Show("Current text: " + text);
     return System::Void();
 }
 

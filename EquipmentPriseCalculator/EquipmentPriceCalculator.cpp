@@ -4,12 +4,15 @@
 #include "DetailsPage.h"
 #include "DetailsListPage.h"
 #include "EquipmentListPage.h"
+#include "MainTopMenu.h"
+
 
 using namespace System;
 using namespace System::Windows::Forms;
 
 [STAThreadAttribute]
 int main(array<String^>^ args) {
+	setlocale(LC_ALL, "Russian");
     system("chcp 1251");
     system("cls");
 	GlobalList globalStorage;

@@ -134,9 +134,6 @@ namespace EquipmentPriseCalculator {
 
 
 
-
-
-
 	private: System::Windows::Forms::Panel^ DetailsListPage;
 	private: System::Windows::Forms::DataGridView^ DetailsListPage_DataGrid;
 
@@ -195,6 +192,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ äåòàëèToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ îáîðóäîâàíèåToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem;
+private: System::Windows::Forms::OpenFileDialog^ OpenFileDialog;
+
 
 
 
@@ -257,6 +256,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ ðóêîâîäñòâîÏîëüçîâàòåëÿToolS
 			this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->OpenFileDialog = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->HomePage->SuspendLayout();
 			this->DetailsListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->BeginInit();
@@ -628,19 +628,20 @@ private: System::Windows::Forms::ToolStripMenuItem^ ðóêîâîäñòâîÏîëüçîâàòåëÿToolS
 			// îòêðûòüToolStripMenuItem
 			// 
 			this->îòêðûòüToolStripMenuItem->Name = L"îòêðûòüToolStripMenuItem";
-			this->îòêðûòüToolStripMenuItem->Size = System::Drawing::Size(154, 22);
+			this->îòêðûòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->îòêðûòüToolStripMenuItem->Text = L"Îòêðûòü";
+			this->îòêðûòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_OpenExtraFileDialog);
 			// 
 			// ñîõðàíèòüToolStripMenuItem
 			// 
 			this->ñîõðàíèòüToolStripMenuItem->Name = L"ñîõðàíèòüToolStripMenuItem";
-			this->ñîõðàíèòüToolStripMenuItem->Size = System::Drawing::Size(154, 22);
+			this->ñîõðàíèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->ñîõðàíèòüToolStripMenuItem->Text = L"Ñîõðàíèòü";
 			// 
 			// ñîõðàíèòüÊàêToolStripMenuItem
 			// 
 			this->ñîõðàíèòüÊàêToolStripMenuItem->Name = L"ñîõðàíèòüÊàêToolStripMenuItem";
-			this->ñîõðàíèòüÊàêToolStripMenuItem->Size = System::Drawing::Size(154, 22);
+			this->ñîõðàíèòüÊàêToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->ñîõðàíèòüÊàêToolStripMenuItem->Text = L"Ñîõðàíèòü êàê";
 			// 
 			// îêíîToolStripMenuItem
@@ -687,6 +688,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ðóêîâîäñòâîÏîëüçîâàòåëÿToolS
 			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Size = System::Drawing::Size(221, 22);
 			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Text = L"Ðóêîâîäñòâî ïîëüçîâàòåëÿ";
 			// 
+			// OpenFileDialog
+			// 
+			this->OpenFileDialog->FileName = L"openFileDialog1";
+			// 
 			// EquipmentPriceCalculator
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -725,6 +730,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ ðóêîâîäñòâîÏîëüçîâàòåëÿToolS
 		//DetailsGrid->ContextMenuStrip = DetailsGridmenu;
 	};
 	//MainTopMenu
+
+	private: System::Void MainTopMenu_OpenExtraFileDialog(System::Object^ sender, System::EventArgs^ e);
 	
 	//MainPage
 	private: System::Void ShowGuidOnClick(System::Object^ sender, System::EventArgs^ e);
