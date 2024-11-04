@@ -9,7 +9,7 @@ using namespace System::Windows::Forms;
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OnLoad_DetailsListPage(System::Object^ sender, System::EventArgs^ e)
 {
     this->ShowDetailsListInDetailsGrid();
-	return System::Void();
+    return System::Void();
 }
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::onSelectDetailsListSortType(System::Object^ sender, System::EventArgs^ e)
@@ -23,7 +23,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowDeta
     this->DetailsListPage_DataGrid->Rows->Clear();
 
     DataGridView^ DetailsGrid = this->DetailsListPage_DataGrid;
-    
+
     GlobalList Storage = this->GlobalStorage;
     std::vector<Detail> DetailList;
 
@@ -140,7 +140,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsG
             string errorMessage = "Цена обязана быть числом";
             MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
         }
-        else if (newValueStd.size() >= 30 ) {
+        else if (newValueStd.size() >= 30) {
             isCorrect = false;
             string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
             System::String^ oldValueCs = msclr::interop::marshal_as<System::String^>(oldValue);
@@ -164,15 +164,10 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsG
         MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
     }
 
-    
+
     return System::Void();
 }
 
-inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsListPage_DataGrid_OpeningDetailsSavingWindow(System::Object^ sender, System::EventArgs^ e)
-{
-    this->GlobalStorage.SaveAllInFile();
-    return System::Void();
-}
 
 //inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsGrid_AddingDetail(System::Object^ sender, System::Windows::Forms::DataGridViewRowEventArgs^ e)
 //{
@@ -198,7 +193,7 @@ inline void EquipmentPriseCalculator::EquipmentPriceCalculator::OnGivingNewDetai
 {
     std::string newDetailsNameStr = msclr::interop::marshal_as<std::string>(e->Name);
     double newDetailsCost = e->Cost;
-   
+
     this->GlobalStorage.addDetailByNameAndCost(newDetailsNameStr, newDetailsCost);
 
     ShowDetailsListInDetailsGrid();

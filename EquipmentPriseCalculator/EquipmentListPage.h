@@ -22,10 +22,12 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEqui
     this->EquipmentListPage_DataGrid->Columns->Clear();
 
     this->EquipmentListPage_DataGrid->ColumnCount = 2 + (maxDetailsCount * 2);
-    this->EquipmentListPage_DataGrid->Columns[0]->HeaderText = "Id оборудования";
+    this->EquipmentListPage_DataGrid->Columns[0]->HeaderText = "Id";
     this->EquipmentListPage_DataGrid->Columns[1]->HeaderText = "Название оборудования";
 
     DataGridView^ EquipmentGrid = this->EquipmentListPage_DataGrid;
+
+
     for (int i = 0; i < maxDetailsCount; i++)
     {
         this->EquipmentListPage_DataGrid->Columns[2 + 2*i]->HeaderText = 
@@ -34,14 +36,18 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEqui
             "Кол-во детали" + " " + (i + 1).ToString();
     }
 
-    String^ selectedItem = dynamic_cast<String^>(this->DetailsListPage_SortTypeComboBox->SelectedItem);
+    
+    std::vector<Equipment> EquipmentList;
+
+    String^ selectedItem = dynamic_cast<String^>(this->EquipmentListPage__SortTypeComboBox->SelectedItem);
     if (selectedItem != nullptr)
     {
-        this->GlobalStorage.SortDetailsList(selectedItem);
+        EquipmentList = this->GlobalStorage.SortEquipmentList(selectedItem);
     }
-
-    
-    std::vector<Equipment> EquipmentList = Storage.getEquipmentList();
+    else
+    {
+        EquipmentList = Storage.getEquipmentList();
+    }
 
     for (int i = 0; i < EquipmentList.size(); i++)
     {
@@ -143,5 +149,11 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::deleteEq
         // Отписываемся от события
         //menuItem->Click -= gcnew EventHandler(this, &EquipmentPriceCalculator::deleteDetail_onClick);
     }
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::onSelectEquipmentsListSortType(System::Object^ sender, System::EventArgs^ e)
+{
+    ShowEquipmentListInEquipmentGrid();
     return System::Void();
 }

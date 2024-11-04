@@ -18,5 +18,26 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::MainTopM
         ShowDetailsListInDetailsGrid();
         ShowEquipmentListInEquipmentGrid();
     }
-	return System::Void();
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::MainTopMenu_SaveFile(System::Object^ sender, System::EventArgs^ e)
+{
+    this->GlobalStorage.SaveAllInFile();
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::MainTopMenu_SaveFileAs(System::Object^ sender, System::EventArgs^ e)
+{
+    if (saveFileAsDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+        // Получение пути к выбранному файлу
+        String^ filePath = saveFileAsDialog->FileName;
+
+        // Преобразование пути к файлу из String^ в std::string
+        msclr::interop::marshal_context context;
+        std::string stdFilePath = context.marshal_as<std::string>(filePath);
+
+        this->GlobalStorage.SaveAllInFileAs(stdFilePath);
+    }
+    return System::Void();
 }

@@ -115,7 +115,7 @@ public:
 
     void readFile() {
         fstream GlobalFile;
-        
+
         GlobalFile.open(fileName);
 
 
@@ -161,13 +161,13 @@ public:
                     string curName = unescapeName(curNameAndOtherInfo);
                     curEquipment.Name = curName;
 
-                    string curOtherInfo = curNameAndOtherInfo.substr(curName.size()+1);
+                    string curOtherInfo = curNameAndOtherInfo.substr(curName.size() + 1);
 
                     //string curInfo;
                     //getline(iss, curInfo);
                     istringstream issEquip(curOtherInfo);
 
-                    
+
                     string detailsInfo;
                     getline(issEquip, detailsInfo);
 
@@ -222,7 +222,8 @@ public:
                 if (c == ',') {
                     unescapedString.push_back(c);
                     escaped = false;
-                } else {
+                }
+                else {
                     if (i > 0)
                     {
                         unescapedString.push_back(escapedString[i - 1]);
@@ -347,7 +348,42 @@ public:
         return SortDetailList;
     }
 
+    vector<Equipment> SortEquipmentList(String^ SelectedSortType) {
+        std::vector<Equipment> SortEquipmentList = this->EquipmentList;
+        if (SelectedSortType == "Id оборудования")
+        {
+            std::sort(SortEquipmentList.begin(), SortEquipmentList.end(), [](Equipment a, Equipment b) {
+                return a.id < b.id;
+                });
+        }
+        else if (SelectedSortType == "Названию оборудования")
+        {
+            std::sort(SortEquipmentList.begin(), SortEquipmentList.end(), [](Equipment a, Equipment b) {
+                return a.Name < b.Name;
+                });
+        }
+        else if (SelectedSortType == "Стоимости оборудования")
+        {
+            std::sort(SortEquipmentList.begin(), SortEquipmentList.end(), [this](const Equipment& a, const Equipment& b) {
+                return sortEquipmentByPricePred(a, b, this);
+                });
+        }
+        return SortEquipmentList;
+    }
 
+    static double getTotalEquipmentPrice(Equipment curEquipment, GlobalList* manager) {
+        double totalPrice = 0;
+        for (auto det : curEquipment.DetailsCount)
+        {
+            totalPrice += manager->DetailsNameMap[det.first].costs * det.second;
+        }
+        return totalPrice;
+    }
+
+    static bool sortEquipmentByPricePred(Equipment a, Equipment b, GlobalList* manager) {
+        return getTotalEquipmentPrice(a, manager) < getTotalEquipmentPrice(b, manager);
+    }
+public:
     //void mainPage() {
     //    cout << "Введите номер пункта:\n";
     //    cout << "1. Материалы\n";
@@ -622,28 +658,28 @@ public:
             });
 
 
- /*       cout << left << "|" << "Id оборудования"
-            << "|" << setw(30) << "Название оборудования"
-            << "|" << "Стоимость оборудования, p" << "|" << endl;
+        /*       cout << left << "|" << "Id оборудования"
+                   << "|" << setw(30) << "Название оборудования"
+                   << "|" << "Стоимость оборудования, p" << "|" << endl;
 
-        for (Equipment element : EquipmentList)
-        {
+               for (Equipment element : EquipmentList)
+               {
 
-            cout << left
-                << "|" << setw(15) << element.id
-                << "|" << setw(30) << element.Name
-                << "|" << setw(25) << GetEquipmentPrice(element) << "|" << endl;
+                   cout << left
+                       << "|" << setw(15) << element.id
+                       << "|" << setw(30) << element.Name
+                       << "|" << setw(25) << GetEquipmentPrice(element) << "|" << endl;
 
-        }
+               }
 
-        cout << "Нажмите на любую клавишу для выхода в гланое меню...";
-        while (true) {
-            if (_kbhit()) {
-                system("cls");
-                mainPage();
-                break;
-            }
-        }*/
+               cout << "Нажмите на любую клавишу для выхода в гланое меню...";
+               while (true) {
+                   if (_kbhit()) {
+                       system("cls");
+                       mainPage();
+                       break;
+                   }
+               }*/
 
     }
 
@@ -1413,6 +1449,11 @@ public:
         return unescapedString;
     }
 
+    void SaveAllInFileAs(string externalFileName) {
+        fileName = externalFileName;
+        SaveAllInFile();
+    }
+
     ofstream& SaveAllInFile() {
         std::ofstream file(fileName);
         if (file.is_open()) {
@@ -1431,7 +1472,7 @@ public:
             file.close();
         }
         return file;
-        
+
     }
     void removeDetailById(int elementIndexToDelete) {
         int idToDelete = DetailList.at(elementIndexToDelete).id;
