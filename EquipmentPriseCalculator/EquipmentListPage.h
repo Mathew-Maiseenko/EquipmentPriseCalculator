@@ -130,7 +130,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::Equipmen
         ToolStripMenuItem^ deleteDetail = dynamic_cast<ToolStripMenuItem^>(menu->Items[0]);
         if (deleteDetail != nullptr) {
             // Обновляем Tag элемента меню
-            DataGridView^ DetailsGrid = this->DetailsListPage_DataGrid;
+            DataGridView^ DetailsGrid = this->EquipmentListPage_DataGrid;
             System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(DetailsGrid->PointToClient(Cursor->Position).X, DetailsGrid->PointToClient(Cursor->Position).Y);
             if (hit->RowIndex >= 0) {
                 deleteDetail->Tag = hit->RowIndex;

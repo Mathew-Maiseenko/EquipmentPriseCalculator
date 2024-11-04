@@ -774,6 +774,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->AddingEquipmentPage->Name = L"AddingEquipmentPage";
 			this->AddingEquipmentPage->Size = System::Drawing::Size(1100, 237);
 			this->AddingEquipmentPage->TabIndex = 21;
+			this->AddingEquipmentPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_AddingEquipmentPage);
 			// 
 			// AddingEquipmentPage_DetailsListSearchInput
 			// 
@@ -797,6 +798,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Name = L"AddingEquipmentPage_DetailsListSortTypeComboBox";
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Size = System::Drawing::Size(146, 21);
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->TabIndex = 22;
+			this->AddingEquipmentPage_DetailsListSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListSortTypeComboBox_SelectedIndexChanged);
 			// 
 			// AddingEquipmentPage_DetailsListSortTypeLabel
 			// 
@@ -836,6 +838,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->AddingEquipmentPage_DetailsListDataGrid->RowHeadersWidth = 51;
 			this->AddingEquipmentPage_DetailsListDataGrid->Size = System::Drawing::Size(331, 135);
 			this->AddingEquipmentPage_DetailsListDataGrid->TabIndex = 19;
+			this->AddingEquipmentPage_DetailsListDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListDataGrid_MouseClick);
 			// 
 			// dataGridViewTextBoxColumn7
 			// 
@@ -1055,5 +1058,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			//AddingEquipmentPage
 	private: System::Void AddingEquipmentPage_ShowDetailsListInDetailsGrid();
 	private: System::Void AddingEquipmentPage_DetailsListSearchInput_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OnLoad_AddingEquipmentPage(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void AddingEquipmentPage_DetailsListSortTypeComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void setDetailEquipmentsComponent_onClick(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void AddingEquipmentPage_DetailsListDataGrid_AddingComponentContextMenu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+	private: System::Void AddingEquipmentPage_DetailsListDataGrid_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	private: System::Void AddingEquipmentPage_ShowComponentsListInGrid();
 };
 }

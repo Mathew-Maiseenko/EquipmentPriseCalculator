@@ -39,6 +39,11 @@ struct Equipment {                      //оборудование
     map<string, int> DetailsCount;      //взаимосвя
 };
 
+struct EquipmentComponents {
+    Detail detail;
+    int detailCount;
+};
+
 struct Detail {     //Деталь
     int id;         //id детали
     string Name;    //название детали
@@ -62,6 +67,8 @@ class GlobalList {
     std::vector<Detail> DetailList;
     map<string, Detail> DetailsNameMap;
     map<string, Equipment> EquipmentNameMap;
+
+    Equipment curEquipmentToAdd;
 
 public:
     GlobalList() {
@@ -243,6 +250,75 @@ public:
             }
         }
         return unescapedString;
+    }
+
+    vector<EquipmentComponents> getCurEquipmentToAddComponents() {
+        vector<EquipmentComponents> components;
+        for (auto det : curEquipmentToAdd.DetailsCount)
+        {
+            EquipmentComponents curComponent;
+            curComponent.detail = DetailsNameMap[det.first];
+            curComponent.detailCount = det.second;
+            components.push_back(curComponent);
+        }
+        return components;
+    }
+
+    vector<EquipmentComponents> getSortedCurEquipmentToAddComponents(String^ SelectedSortType) {
+        vector<EquipmentComponents> SortComponentList = getCurEquipmentToAddComponents();
+        if (SelectedSortType == "Id компонента")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](EquipmentComponents a, EquipmentComponents b) {
+                return a.detail.id < b.detail.id;
+                });
+        }
+        else if (SelectedSortType == "Названию компонета")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](EquipmentComponents a, EquipmentComponents b) {
+                return a.detail.Name < b.detail.Name;
+                });
+        }
+        else if (SelectedSortType == "Стоимости компонета")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](EquipmentComponents a, EquipmentComponents b) {
+                return a.detail.costs < b.detail.costs;
+                });
+        }
+        else if (SelectedSortType == "Количеству компонетов")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](EquipmentComponents a, EquipmentComponents b) {
+                return a.detailCount < b.detailCount;
+                });
+        }
+        return SortComponentList;
+    }
+
+    vector<EquipmentComponents> getFilteredComponentsListBySubStr(string subStr, vector<EquipmentComponents> details) {
+        vector<EquipmentComponents> CorrectComponents;
+        for (EquipmentComponents det : details) {
+
+            if (containsSubString(convertToLowerCase(det.detail.Name), convertToLowerCase(subStr))) {
+                CorrectComponents.push_back(det);
+            }
+        }
+
+        return CorrectComponents;
+    }
+
+    void addNewComponentToCurEquipmentToAdd(int index) {
+        curEquipmentToAdd.DetailsCount[DetailList.at(index).Name] = 1;
+    }
+
+    void removeComponentFromCurEquipmentToAdd(int index) {
+        curEquipmentToAdd.DetailsCount.erase(DetailList.at(index).Name);
+    }
+
+    void changeComponentsCountInCurEquipmentToAdd(int index, int count) {
+        curEquipmentToAdd.DetailsCount[DetailList.at(index).Name] = count;
+    }
+
+    void setNameToCurEquipmentToAdd(string newName) {
+        curEquipmentToAdd.Name = newName;
     }
 
     string unescapeCount(const string& escapedString) {
