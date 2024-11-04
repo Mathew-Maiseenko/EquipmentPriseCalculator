@@ -49,6 +49,14 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEqui
         EquipmentList = Storage.getEquipmentList();
     }
 
+
+    if (this->EquipmentListPage_SearchInput->Text != nullptr)
+    {
+        msclr::interop::marshal_context context;
+        std::string filterDetailsStr = context.marshal_as<std::string>(this->EquipmentListPage_SearchInput->Text);
+        EquipmentList = Storage.getFilteredEquipmentListBySubStr(filterDetailsStr, EquipmentList);
+    }
+
     for (int i = 0; i < EquipmentList.size(); i++)
     {
         String^ DetailId = EquipmentList.at(i).id.ToString();
@@ -153,6 +161,12 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::deleteEq
 }
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::onSelectEquipmentsListSortType(System::Object^ sender, System::EventArgs^ e)
+{
+    ShowEquipmentListInEquipmentGrid();
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::EquipmentListPage_SearchInput_TextChanged(System::Object^ sender, System::EventArgs^ e)
 {
     ShowEquipmentListInEquipmentGrid();
     return System::Void();

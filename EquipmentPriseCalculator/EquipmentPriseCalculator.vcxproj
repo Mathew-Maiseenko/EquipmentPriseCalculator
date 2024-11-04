@@ -125,6 +125,7 @@
     <ClCompile Include="EquipmentPriceCalculator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddingEquipmentPage.h" />
     <ClInclude Include="DetailAddingWindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>

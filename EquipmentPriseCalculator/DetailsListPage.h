@@ -42,7 +42,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowDeta
     {
         msclr::interop::marshal_context context;
         std::string filterDetailsStr = context.marshal_as<std::string>(this->DetailsListPage_SearchInput->Text);
-        DetailList = Storage.getFilteredListBySubStr(filterDetailsStr, DetailList);
+        DetailList = Storage.getFilteredDetailsListBySubStr(filterDetailsStr, DetailList);
     }
     //std::string filterDetailsStr = msclr::interop::marshal_as<std::string>(this->detailsNameFilterString->ToString());
 

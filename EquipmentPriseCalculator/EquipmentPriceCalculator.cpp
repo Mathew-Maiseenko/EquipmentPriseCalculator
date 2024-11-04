@@ -5,6 +5,7 @@
 #include "DetailsListPage.h"
 #include "EquipmentListPage.h"
 #include "MainTopMenu.h"
+#include "AddingEquipmentPage.h"
 
 
 using namespace System;

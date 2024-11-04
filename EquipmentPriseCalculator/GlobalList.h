@@ -383,6 +383,8 @@ public:
     static bool sortEquipmentByPricePred(Equipment a, Equipment b, GlobalList* manager) {
         return getTotalEquipmentPrice(a, manager) < getTotalEquipmentPrice(b, manager);
     }
+
+
 public:
     //void mainPage() {
     //    cout << "Введите номер пункта:\n";
@@ -560,40 +562,6 @@ public:
 
 
     //////////////////////////////////////////////
-
-    //void LookWholeEquipmentListPage() {
-    //    cout << "Введите номер пункта:\n";
-    //    cout << "1. Отсортироват по id\n";
-    //    cout << "2. Отсортироват по названию\n";
-    //    cout << "3. Отсортироват по стоимости\n";
-    //    cout << "4. Выход\n";
-    //    while (true) {
-    //        if (_kbhit()) {
-    //            char ch = _getch();
-    //            if (ch == 49) { //1
-    //                system("cls");
-    //                LookWholeEquipmentListById();
-    //                break;
-    //            }
-    //            else if (ch == 50) { //2
-    //                system("cls");
-    //                LookWholeEquipmentListByName();
-    //                break;
-    //            }
-    //            else if (ch == 51) { //3
-    //                system("cls");
-    //                LookWholeEquipmentListByPrice();
-    //                break;
-    //            }
-    //            else if (ch == 52) { //3
-    //                system("cls");
-    //                exit(0);
-    //                break;
-    //            }
-    //        }
-    //    }
-
-    //}
 
     void LookWholeEquipmentListById() {
         sort(EquipmentList.begin(), EquipmentList.end(), [](Equipment a, Equipment b) {
@@ -980,11 +948,23 @@ public:
         return str.find(substr) != std::string::npos;
     }
 
-    vector<Detail> getFilteredListBySubStr(string subStr, vector<Detail> details) {
+    vector<Equipment> getFilteredEquipmentListBySubStr(string subStr, vector<Equipment> equipments) {
+        vector<Equipment> CorrectDetails;
+        for (Equipment equip : equipments) {
+
+            if (containsSubString(convertToLowerCase(equip.Name), convertToLowerCase(subStr))) {
+                CorrectDetails.push_back(equip);
+            }
+        }
+
+        return CorrectDetails;
+    }
+
+    vector<Detail> getFilteredDetailsListBySubStr(string subStr, vector<Detail> details) {
         vector<Detail> CorrectDetails;
         for (Detail det : details) {
 
-            if (containsSubString(det.Name, subStr)) {
+            if (containsSubString(convertToLowerCase(det.Name), convertToLowerCase(subStr))) {
                 CorrectDetails.push_back(det);
             }
         }
@@ -2164,23 +2144,3 @@ public:
         //askToGoToMainMenu();
     }
 };
-
-//int main()
-//{
-//    setlocale(LC_ALL, "rus");
-//    system("chcp 1251");
-//    system("cls");
-//
-//    fstream DetailFile;                         //ifstream при проблемах
-//    DetailFile.open("DetailSpisok.csv");
-//
-//    fstream EquipmentFile;
-//    EquipmentFile.open("EquipmentSpisok.csv");
-//
-//    GlobalList List;
-//    List.readDetailsFile(DetailFile, List, "DetailSpisok.csv");
-//    List.readEquipmentFile(EquipmentFile, List, "EquipmentSpisok.csv");
-//
-//    List.mainPage();
-//    system("pause");
-//}
