@@ -39,17 +39,17 @@ struct Equipment {                      //оборудование
     map<string, int> DetailsCount;      //взаимосвя
 };
 
-struct EquipmentComponents {
-    Detail detail;
-    int detailCount;
-};
-
 struct Detail {     //Деталь
     int id;         //id детали
     string Name;    //название детали
     double costs;   //цена детали
 };
 
+
+struct EquipmentComponents {
+    Detail detail;
+    int detailCount;
+};
 
 class GlobalList {
 
@@ -290,6 +290,12 @@ public:
                 return a.detailCount < b.detailCount;
                 });
         }
+        else if (SelectedSortType == "Полной стоимоти компонетов")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](EquipmentComponents a, EquipmentComponents b) {
+                return  (a.detailCount * a.detail.costs) < (b.detailCount * b.detail.costs);
+                });
+        }
         return SortComponentList;
     }
 
@@ -305,12 +311,19 @@ public:
         return CorrectComponents;
     }
 
-    void addNewComponentToCurEquipmentToAdd(int index) {
-        curEquipmentToAdd.DetailsCount[DetailList.at(index).Name] = 1;
+    void addNewComponentToCurEquipmentToAdd(string name) {
+        curEquipmentToAdd.DetailsCount[name] = 1;
     }
 
-    void removeComponentFromCurEquipmentToAdd(int index) {
-        curEquipmentToAdd.DetailsCount.erase(DetailList.at(index).Name);
+    void removeComponentFromCurEquipmentToAddByName(string compName) {
+        curEquipmentToAdd.DetailsCount.erase(compName);
+
+        //for (auto it = curEquipmentToAdd.DetailsCount.begin(); it != curEquipmentToAdd.DetailsCount.end(); ++it) {
+        //    if (it->first == compName) {
+        //        curEquipmentToAdd.DetailsCount.erase(it);
+        //        break;
+        //    }
+        //}
     }
 
     void changeComponentsCountInCurEquipmentToAdd(int index, int count) {
@@ -319,6 +332,10 @@ public:
 
     void setNameToCurEquipmentToAdd(string newName) {
         curEquipmentToAdd.Name = newName;
+    }
+
+    Equipment getCurEquipmentToAdd() {
+        return curEquipmentToAdd;
     }
 
     string unescapeCount(const string& escapedString) {
@@ -1530,12 +1547,11 @@ public:
         return file;
 
     }
-    void removeDetailById(int elementIndexToDelete) {
-        int idToDelete = DetailList.at(elementIndexToDelete).id;
+    void removeDetailByName(string elementNameToDelete) {
 
         // Удаляем элемент из DetailList и DetailsNameMap
         for (auto it = DetailList.begin(); it != DetailList.end(); ++it) {
-            if (it->id == idToDelete) {
+            if (it->Name == elementNameToDelete) {
                 DetailsNameMap.erase(it->Name);
                 DetailList.erase(it);
                 break;
@@ -1543,11 +1559,10 @@ public:
         }
     }
 
-    void removeEquipmentById(int elementIndexToDelete) {
-        int idToDelete = EquipmentList.at(elementIndexToDelete).id;
+    void removeEquipmentByName(string elementNameToDelete) {
 
         for (auto it = EquipmentList.begin(); it != EquipmentList.end(); ++it) {
-            if (it->id == idToDelete) {
+            if (it->Name == elementNameToDelete) {
                 EquipmentNameMap.erase(it->Name);
                 EquipmentList.erase(it);
                 break;

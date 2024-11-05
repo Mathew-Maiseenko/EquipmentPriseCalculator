@@ -144,12 +144,16 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::deleteEq
 {
     ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
     if (menuItem != nullptr) {
+        DataGridView^ DetailsGrid = this->EquipmentListPage_DataGrid;
         int rowIndex = safe_cast<int>(menuItem->Tag);
+        String^ name = DetailsGrid->Rows[rowIndex]->Cells[1]->Value->ToString();
+        msclr::interop::marshal_context context;
+        std::string EquipmentNameStr = context.marshal_as<std::string>(name);
         // Ваш код для удаления детали по rowIndex
         //MessageBox::Show("Удаление строки: " + rowIndex.ToString());
 
 
-        this->GlobalStorage.removeEquipmentById(rowIndex);
+        this->GlobalStorage.removeEquipmentByName(EquipmentNameStr);
         ShowEquipmentListInEquipmentGrid();
 
 
