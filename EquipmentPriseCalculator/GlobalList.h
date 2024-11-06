@@ -264,6 +264,18 @@ public:
         return components;
     }
 
+    void clearEquipmentToAdd() {
+        curEquipmentToAdd.id = 0;
+        curEquipmentToAdd.Name = "";
+        curEquipmentToAdd.DetailsCount.clear();
+    }
+
+    void addNewEquipmentToList() {
+        curEquipmentToAdd.id = EquipmentList.size() + 1;
+        EquipmentList.push_back(curEquipmentToAdd);
+        clearEquipmentToAdd();
+    }
+
     vector<EquipmentComponents> getSortedCurEquipmentToAddComponents(String^ SelectedSortType) {
         vector<EquipmentComponents> SortComponentList = getCurEquipmentToAddComponents();
         if (SelectedSortType == "Id компонента")
@@ -1366,6 +1378,18 @@ public:
         return str;
     }
 
+    void editCountOfTheEquipmentsComponentByName(string componentsName, int componentsCount) {
+        curEquipmentToAdd.DetailsCount[componentsName] = componentsCount;
+    }
+
+    void incrementCountOfTheEquipmentsComponentByName(string componentsName) {
+        curEquipmentToAdd.DetailsCount[componentsName] = curEquipmentToAdd.DetailsCount[componentsName] + 1;
+    }
+
+    void decrementCountOfTheEquipmentsComponentByName(string componentsName) {
+        curEquipmentToAdd.DetailsCount[componentsName] = curEquipmentToAdd.DetailsCount[componentsName] - 1;
+    }
+
     std::string getOldDetailsValue(int collumnIndex, int rowIndex) {
         Detail curDetail = DetailList.at(rowIndex);
         if (collumnIndex == 0)
@@ -1377,6 +1401,19 @@ public:
         }
         else if (collumnIndex == 2) {
             return formatDouble(curDetail.costs);
+        }
+    }
+
+    std::string getOldComponentsValue(string componentName, int collumnIndex) {
+        Detail curComponent = DetailsNameMap[componentName];
+        if (collumnIndex == 2) {
+            return std::to_string(curComponent.id);
+        }
+        else if (collumnIndex == 3) {
+            return curComponent.Name;
+        }
+        else if (collumnIndex == 5) {
+            return formatDouble(curComponent.costs);
         }
     }
     /*

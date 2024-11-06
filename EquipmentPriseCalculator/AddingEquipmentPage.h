@@ -166,7 +166,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
         String^ DetailCount = ComponentsList.at(i).detailCount.ToString();
         String^ DetailTotalPrice = (ComponentsList.at(i).detail.costs * ComponentsList.at(i).detailCount).ToString();
 
-        array<String^>^ DetailInfoRow = { DetailId,  DetailName , DetailCost, DetailCount, DetailTotalPrice };
+        array<String^>^ DetailInfoRow = { "-", "+" ,DetailId,  DetailName , DetailCount, DetailCost, DetailTotalPrice};
         DetailsGrid->Rows->Add(DetailInfoRow);
     }
 
@@ -266,13 +266,146 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
 
     if (curAddingEquipment.Name.empty())
     {
+        isCorrect = false;
         string errorMessage = "Имя оборудования не может быть пустым!";
         MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK));
     }
     else if (is_number(curAddingEquipment.Name))
     {
+        isCorrect = false;
         string errorMessage = "Имя оборудования не может быть числом!";
         MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK));
     } 
+    else if (this->GlobalStorage.getCurEquipmentToAddComponents().empty())
+    {
+        isCorrect = false;
+        string errorMessage = "Оборудования не может не седержать деталей в себе!";
+        MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK));
+    }
+
+    if (isCorrect)
+    {
+        msclr::interop::marshal_context context;
+        std::string EquipmentName = context.marshal_as<std::string>(this->AddingEquipmentPage_EquipmentNameInput->Text->ToString());
+
+        this->GlobalStorage.addNewEquipmentToList();
+        this->AddingEquipmentPage_ComponentsListDataGrid->Rows->Clear();
+        this->AddingEquipmentPage_EquipmentNameInput->Text = "";
+        ShowEquipmentListInEquipmentGrid();
+
+        string Message = "Оборудование " + EquipmentName + " успешно добавлено!";
+        MessageBox::Show(gcnew String(Message.c_str()), "Успех", static_cast<MessageBoxButtons>(MessageBoxButtons::OK));
+    }
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+{
+    DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
+
+    int curColumnIndex = e->ColumnIndex;
+    int curRowIndex = e->RowIndex;
+
+    if (DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value != nullptr)
+    {
+        String^ newValue = DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value->ToString();
+
+        msclr::interop::marshal_context context;
+
+        std::string newValueStd = context.marshal_as<std::string>(newValue);
+        String^ newComponentsName = safe_cast<String^>(DetailsGrid->Rows[curRowIndex]->Cells[3]->Value);
+        std::string newComponentsNameStd = msclr::interop::marshal_as<std::string>(newComponentsName);
+        //std::string newValueStd = msclr::interop::marshal_as<std::string>(newValue);
+        //std::string newComponentsNameStd = msclr::interop::marshal_as<std::string>(DetailsGrid->Rows[curRowIndex]->Cells[3]->Value);
+        //int newComponentsCount = context.marshal_as<int>(DetailsGrid->Rows[curRowIndex]->Cells[4]->Value);
+     
+        String^ ComponentsCountSTRING = safe_cast<String^>(DetailsGrid->Rows[curRowIndex]->Cells[4]->Value);
+        std::string ComponentsCountStd = msclr::interop::marshal_as<std::string>(ComponentsCountSTRING);
+
+        boolean isCorrect = true; ///доделать
+
+        if (curColumnIndex != 4)
+        {
+            isCorrect = false;
+            msclr::interop::marshal_context context;
+            string oldValue = this->GlobalStorage.getOldComponentsValue(newComponentsNameStd, curColumnIndex);
+            System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
+            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+
+            string errorMessage = "Можно изменить только необходимое количество компонентов!";
+            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+        }
+        else if (!this->GlobalStorage.is_number(ComponentsCountStd))
+        {
+            isCorrect = false;
+            msclr::interop::marshal_context context;
+            string oldValue = this->GlobalStorage.getOldComponentsValue(newComponentsNameStd, curColumnIndex);
+            System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
+            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+
+            string errorMessage = "Количество обязано быть числом";
+            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+        }
+        else if (newValueStd.size() >= 15) {
+            isCorrect = false;
+            msclr::interop::marshal_context context;
+            string oldValue = this->GlobalStorage.getOldComponentsValue(newComponentsNameStd, curColumnIndex);
+            System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
+            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+            string errorMessage = "Введенное значение слишком велико";
+            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+        }
+
+
+        if (isCorrect)
+        {
+            //MessageBox::Show(gcnew String(DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value->ToString()));
+            int newComponentsCount = Convert::ToInt64(DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value);
+            this->GlobalStorage.editCountOfTheEquipmentsComponentByName(newComponentsNameStd, newComponentsCount);
+            AddingEquipmentPage_ShowComponentsListInGrid();
+        }
+    }
+    else
+    {
+        msclr::interop::marshal_context context;
+        string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
+        System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
+        DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+        string errorMessage = "Значение в ячейке не может быть пустым!\n Есди вы хотите удалить какой-либо элемент - нажмите по нему правой кнопкой мыши и выберите пункт \"Удалить\"";
+        MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+    }
+
+    return System::Void();
+}
+
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+{
+    DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
+
+    if (e->ColumnIndex == 0)
+    {
+        int curComponentsCount = Convert::ToInt64(DetailsGrid->Rows[e->RowIndex]->Cells[4]->Value);
+        String^ ComponentsNameSTRING = safe_cast<String^>(DetailsGrid->Rows[e->RowIndex]->Cells[3]->Value);
+        std::string ComponentsName = msclr::interop::marshal_as<std::string>(ComponentsNameSTRING);
+        if (curComponentsCount > 1)
+        {
+            this->GlobalStorage.decrementCountOfTheEquipmentsComponentByName(ComponentsName);
+            AddingEquipmentPage_ShowComponentsListInGrid();
+        }
+        else {
+            this->GlobalStorage.removeComponentFromCurEquipmentToAddByName(ComponentsName);
+            AddingEquipmentPage_ShowComponentsListInGrid();
+        }
+     
+    }
+    if (e->ColumnIndex == 1)
+    {
+        String^ ComponentsNameSTRING = safe_cast<String^>(DetailsGrid->Rows[e->RowIndex]->Cells[3]->Value);
+        std::string ComponentsName = msclr::interop::marshal_as<std::string>(ComponentsNameSTRING);
+        this->GlobalStorage.incrementCountOfTheEquipmentsComponentByName(ComponentsName);
+        AddingEquipmentPage_ShowComponentsListInGrid();
+    }
+
     return System::Void();
 }
