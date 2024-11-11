@@ -251,6 +251,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn6;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+private: System::Windows::Forms::ToolStripMenuItem^ ñîçäàòüToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ çàêàçToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ äîáàâèòüÄåòàëèToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem;
 
 
 
@@ -360,6 +364,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ñîçäàòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çàêàçToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->äîáàâèòüÄåòàëèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->HomePage->SuspendLayout();
 			this->DetailsListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->BeginInit();
@@ -707,9 +715,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 			// 
 			// fileToolStripMenuItem
 			// 
-			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->MainTopMenu_OpenFileButton,
-					this->MainTopMenu_SaveFileButton, this->MainTopMenu_SaveFileAsButton
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->ñîçäàòüToolStripMenuItem,
+					this->MainTopMenu_OpenFileButton, this->MainTopMenu_SaveFileButton, this->MainTopMenu_SaveFileAsButton
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
 			this->fileToolStripMenuItem->Size = System::Drawing::Size(48, 20);
@@ -718,29 +726,29 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 			// MainTopMenu_OpenFileButton
 			// 
 			this->MainTopMenu_OpenFileButton->Name = L"MainTopMenu_OpenFileButton";
-			this->MainTopMenu_OpenFileButton->Size = System::Drawing::Size(154, 22);
+			this->MainTopMenu_OpenFileButton->Size = System::Drawing::Size(180, 22);
 			this->MainTopMenu_OpenFileButton->Text = L"Îòêğûòü";
 			this->MainTopMenu_OpenFileButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_OpenExtraFileDialog);
 			// 
 			// MainTopMenu_SaveFileButton
 			// 
 			this->MainTopMenu_SaveFileButton->Name = L"MainTopMenu_SaveFileButton";
-			this->MainTopMenu_SaveFileButton->Size = System::Drawing::Size(154, 22);
+			this->MainTopMenu_SaveFileButton->Size = System::Drawing::Size(180, 22);
 			this->MainTopMenu_SaveFileButton->Text = L"Ñîõğàíèòü";
 			this->MainTopMenu_SaveFileButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_SaveFile);
 			// 
 			// MainTopMenu_SaveFileAsButton
 			// 
 			this->MainTopMenu_SaveFileAsButton->Name = L"MainTopMenu_SaveFileAsButton";
-			this->MainTopMenu_SaveFileAsButton->Size = System::Drawing::Size(154, 22);
+			this->MainTopMenu_SaveFileAsButton->Size = System::Drawing::Size(180, 22);
 			this->MainTopMenu_SaveFileAsButton->Text = L"Ñîõğàíèòü êàê";
 			this->MainTopMenu_SaveFileAsButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_SaveFileAs);
 			// 
 			// îêíîToolStripMenuItem
 			// 
-			this->îêíîToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->îêíîToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->äåòàëèToolStripMenuItem,
-					this->îáîğóäîâàíèåToolStripMenuItem
+					this->äîáàâèòüÄåòàëèToolStripMenuItem, this->îáîğóäîâàíèåToolStripMenuItem, this->äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem, this->çàêàçToolStripMenuItem
 			});
 			this->îêíîToolStripMenuItem->Name = L"îêíîToolStripMenuItem";
 			this->îêíîToolStripMenuItem->Size = System::Drawing::Size(48, 20);
@@ -749,13 +757,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 			// äåòàëèToolStripMenuItem
 			// 
 			this->äåòàëèToolStripMenuItem->Name = L"äåòàëèToolStripMenuItem";
-			this->äåòàëèToolStripMenuItem->Size = System::Drawing::Size(155, 22);
+			this->äåòàëèToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->äåòàëèToolStripMenuItem->Text = L"Äåòàëè";
 			// 
 			// îáîğóäîâàíèåToolStripMenuItem
 			// 
 			this->îáîğóäîâàíèåToolStripMenuItem->Name = L"îáîğóäîâàíèåToolStripMenuItem";
-			this->îáîğóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(155, 22);
+			this->îáîğóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->îáîğóäîâàíèåToolStripMenuItem->Text = L"Îáîğóäîâàíèå";
 			// 
 			// îÏğîãğàììåToolStripMenuItem
@@ -1061,6 +1069,30 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 			this->Column2->Name = L"Column2";
 			this->Column2->ReadOnly = true;
 			this->Column2->Width = 125;
+			// 
+			// ñîçäàòüToolStripMenuItem
+			// 
+			this->ñîçäàòüToolStripMenuItem->Name = L"ñîçäàòüToolStripMenuItem";
+			this->ñîçäàòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->ñîçäàòüToolStripMenuItem->Text = L"Ñîçäàòü";
+			// 
+			// çàêàçToolStripMenuItem
+			// 
+			this->çàêàçToolStripMenuItem->Name = L"çàêàçToolStripMenuItem";
+			this->çàêàçToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->çàêàçToolStripMenuItem->Text = L"Çàêàç";
+			// 
+			// äîáàâèòüÄåòàëèToolStripMenuItem
+			// 
+			this->äîáàâèòüÄåòàëèToolStripMenuItem->Name = L"äîáàâèòüÄåòàëèToolStripMenuItem";
+			this->äîáàâèòüÄåòàëèToolStripMenuItem->Size = System::Drawing::Size(208, 22);
+			this->äîáàâèòüÄåòàëèToolStripMenuItem->Text = L"Äîáàâèòü äåòàëè";
+			// 
+			// äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem
+			// 
+			this->äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem->Name = L"äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem";
+			this->äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(208, 22);
+			this->äîáàâèòüÎáîğóäîâàíèåToolStripMenuItem->Text = L"Äîáàâèòü îáîğóäîâàíèå";
 			// 
 			// EquipmentPriceCalculator
 			// 
