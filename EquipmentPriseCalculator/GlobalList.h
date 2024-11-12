@@ -264,6 +264,21 @@ public:
         return components;
     }
 
+    vector<EquipmentComponents> getEquipmentsComponentList(Equipment curEquipment) {
+        vector<EquipmentComponents> components;
+        for (auto det : curEquipment.DetailsCount)
+        {
+            EquipmentComponents curComponent;
+            curComponent.detail = DetailsNameMap[det.first];
+            curComponent.detailCount = det.second;
+            components.push_back(curComponent);
+        }
+        std::sort(components.begin(), components.end(), [](EquipmentComponents a, EquipmentComponents b) {
+            return a.detail.id < b.detail.id;
+            });
+        return components;
+    }
+
     void clearEquipmentToAdd() {
         curEquipmentToAdd.id = 0;
         curEquipmentToAdd.Name = "";
@@ -1416,6 +1431,27 @@ public:
             return formatDouble(curComponent.costs);
         }
     }
+
+    std::string getOldEquipmentsValue(int collumnIndex, int rowIndex) {
+        Equipment curEquipment = EquipmentList.at(rowIndex);
+        if (collumnIndex == 0)
+        {
+            return std::to_string(curEquipment.id);
+        }
+        else if (collumnIndex == 1) {
+            return curEquipment.Name;
+        }
+    }
+
+    //std::string getOldEquipmentsValueByComponentName(int collumnIndex, int rowIndex, string ComponentName){
+    //    Equipment curEquipment = EquipmentList.at(rowIndex);
+    //    if ((collumnIndex - 2) % 2 == 0) {
+    //        return formatDouble(c;
+    //    }
+    //}
+
+
+
     /*
      fstream& editDetailsInfoByOldName(int collumnIndex, int rowIndex, string newValue) {
         std::fstream OldDetailFile("DetailSpisok.csv", std::ios::in | std::ios::out);

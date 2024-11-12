@@ -178,7 +178,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::Equipmen
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
 {
-    DataGridView^ EquipmentsGrid = this->DetailsListPage_DataGrid;
+    DataGridView^ EquipmentsGrid = this->EquipmentListPage_DataGrid;
 
     int curColumnIndex = e->ColumnIndex;
     int curRowIndex = e->RowIndex;
@@ -208,18 +208,20 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::Equipmen
             MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
         }
 
-
-        ///////////////
-        DialogResult result = MessageBox::Show("Текст сообщения", "Заголовок сообщения", MessageBoxButtons::OKCancel, MessageBoxIcon::Question);
-        if (result == DialogResult::OK)
+        if (curColumnIndex >= 2 && (curColumnIndex-2) % 2 == 0)
         {
-            // обработка нажатия кнопки ОК
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уверены, что хотите измененить название детали?", "Изменение детали", MessageBoxButtons::OKCancel, MessageBoxIcon::Question);
+            if (result == System::Windows::Forms::DialogResult::OK)
+            {
+                string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
+                isCorrect = false;
+            }
+            else if (result == System::Windows::Forms::DialogResult::Cancel)
+            {
+                isCorrect = false;
+                // обработка нажатия кнопки ОТМЕНА
+            }
         }
-        else if (result == DialogResult::Cancel)
-        {
-            // обработка нажатия кнопки ОТМЕНА
-        }
-        ///////////////
 
         if (isCorrect)
         {
