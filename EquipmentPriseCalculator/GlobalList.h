@@ -1419,6 +1419,25 @@ public:
         }
     }
 
+    void setNewComponentsValue(int collumnIndex, int rowIndex, string oldValue, string newValue) {
+        Equipment curEquipment = EquipmentList.at(rowIndex);
+        if (collumnIndex == 0) {
+            curEquipment.id = stoi(newValue);
+        }
+        else if (collumnIndex == 1) {
+            curEquipment.Name = newValue;
+        }
+        else if (collumnIndex >= 2 && (collumnIndex - 2) % 2 == 0) {
+            int countOfEquipmentComp = curEquipment.DetailsCount[oldValue];
+            curEquipment.DetailsCount.erase(oldValue);
+
+            curEquipment.DetailsCount[newValue] = countOfEquipmentComp;
+        }
+        else if (collumnIndex >= 3 && (collumnIndex - 2) % 2 == 1) {
+            curEquipment.DetailsCount[oldValue] = stoi(newValue);
+        }
+    }
+
     std::string getOldComponentsValue(string componentName, int collumnIndex) {
         Detail curComponent = DetailsNameMap[componentName];
         if (collumnIndex == 2) {
