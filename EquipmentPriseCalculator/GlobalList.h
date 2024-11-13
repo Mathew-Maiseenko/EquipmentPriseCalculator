@@ -72,11 +72,11 @@ class GlobalList {
 
 public:
     GlobalList() {
-        fstream DetailFile;
-        DetailFile.open("DetailSpisok.csv");
+        //fstream DetailFile;
+        //DetailFile.open("DetailSpisok.csv");
 
-        fstream EquipmentFile;
-        EquipmentFile.open("EquipmentSpisok.csv");
+        //fstream EquipmentFile;
+        //EquipmentFile.open("EquipmentSpisok.csv");
 
         fileName = "GlobalSpisok.csv";
 
@@ -85,8 +85,9 @@ public:
         //this->readEquipmentFile(EquipmentFile, *this, "EquipmentSpisok.csv");
 
         readFile();
-        DetailFile.close();
-        EquipmentFile.close();
+
+        //DetailFile.close();
+        //EquipmentFile.close();
 
     }
     ~GlobalList() {};
@@ -344,13 +345,6 @@ public:
 
     void removeComponentFromCurEquipmentToAddByName(string compName) {
         curEquipmentToAdd.DetailsCount.erase(compName);
-
-        //for (auto it = curEquipmentToAdd.DetailsCount.begin(); it != curEquipmentToAdd.DetailsCount.end(); ++it) {
-        //    if (it->first == compName) {
-        //        curEquipmentToAdd.DetailsCount.erase(it);
-        //        break;
-        //    }
-        //}
     }
 
     void changeComponentsCountInCurEquipmentToAdd(int index, int count) {
@@ -1432,10 +1426,17 @@ public:
             curEquipment.DetailsCount.erase(oldValue);
 
             curEquipment.DetailsCount[newValue] = countOfEquipmentComp;
+
+            Detail editedComponent = DetailsNameMap[oldValue];
+            DetailsNameMap.erase(oldValue);
+
+            editedComponent.Name = newValue;
+            DetailsNameMap[newValue] = editedComponent;
         }
         else if (collumnIndex >= 3 && (collumnIndex - 2) % 2 == 1) {
             curEquipment.DetailsCount[oldValue] = stoi(newValue);
         }
+        EquipmentList.at(rowIndex) = curEquipment;
     }
 
     std::string getOldComponentsValue(string componentName, int collumnIndex) {

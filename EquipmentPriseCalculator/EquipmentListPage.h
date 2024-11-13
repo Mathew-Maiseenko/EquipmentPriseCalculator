@@ -72,9 +72,9 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEqui
         EquipmentInfoRow->Add(DetailId);
         EquipmentInfoRow->Add(DetailName);
 
-        for (auto curDetail : Storage.getEquipmentsComponentList(EquipmentList.at(i))) {
-            EquipmentInfoRow->Add(gcnew String(curDetail.detail.Name.c_str()));
-            EquipmentInfoRow->Add(gcnew String(curDetail.detailCount.ToString()));
+        for (auto curDetail : EquipmentList.at(i).DetailsCount) {
+            EquipmentInfoRow->Add(gcnew String(curDetail.first.c_str()));
+            EquipmentInfoRow->Add(gcnew String(curDetail.second.ToString()));
         }
 
         array<String^>^ EquipmentInfoArray = EquipmentInfoRow->ToArray();
@@ -190,80 +190,83 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::Equipmen
     return System::Void();
 }
 
-//inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
-//{
-//    DataGridView^ EquipmentsGrid = this->EquipmentListPage_DataGrid;
-//
-//    int curColumnIndex = e->ColumnIndex;
-//    int curRowIndex = e->RowIndex;
-//
-//    if (EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value != nullptr)
-//    {
-//        String^ newValue = EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value->ToString();
-//        std::string newValueStd = msclr::interop::marshal_as<std::string>(newValue);
-//
-//        boolean isCorrect = true;
-//
-//        if (curColumnIndex == 2 && !this->GlobalStorage.is_number(newValueStd))
-//        {
-//            isCorrect = false;
-//            EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
-//            string errorMessage = "Цена обязана быть числом";
-//            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
-//        }
-//        else if (newValueStd.size() >= 30) {
-//            isCorrect = false;
-//            EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
-//            string errorMessage = "Введенное значение слишком велико";
-//            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
-//        }
-//
-//
-//        
-//        if (curColumnIndex >= 2 && (curColumnIndex-2) % 2 == 0)
-//        {
-//            System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уверены, что хотите измененить название детали?", "Изменение детали", MessageBoxButtons::OKCancel, MessageBoxIcon::Question);
-//            if (result == System::Windows::Forms::DialogResult::OK)
-//            {
-//                isCorrect = false;
-//
-//            }
-//            else if (result == System::Windows::Forms::DialogResult::Cancel)
-//            {
-//                isCorrect = false;
-//                EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
-//            }
-//        }
-//        else if (curColumnIndex >= 3 && (curColumnIndex - 2) % 2 == 1) {
-//            System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уверены, что хотите измененить название детали?", "Изменение детали", MessageBoxButtons::OKCancel, MessageBoxIcon::Question);
-//            if (result == System::Windows::Forms::DialogResult::OK)
-//            {
-//                isCorrect = false;
-//                string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
-//            }
-//            else if (result == System::Windows::Forms::DialogResult::Cancel)
-//            {
-//                isCorrect = false;
-//                EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
-//            }
-//        }
-//
-//
-//
-//        if (isCorrect)
-//        {
-//            this->GlobalStorage.editDetailsInfoByOldName(curColumnIndex, curRowIndex, newValueStd);
-//        }
-//    }
-//    else
-//    {
-//        string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
-//        System::String^ oldValueCs = msclr::interop::marshal_as<System::String^>(oldValue);
-//        EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
-//        string errorMessage = "Значение в ячейке не может быть пустым!\n Есди вы хотите удалить какой-либо элемент - нажмите по нему правой кнопкой мыши и выберите пункт \"Удалить\"";
-//        MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
-//    }
-//
-//
-//    return System::Void();
-//}
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+{
+    DataGridView^ EquipmentsGrid = this->EquipmentListPage_DataGrid;
+
+    int curColumnIndex = e->ColumnIndex;
+    int curRowIndex = e->RowIndex;
+
+    if (EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value != nullptr)
+    {
+        std::string oldValueStd = msclr::interop::marshal_as<std::string>(ValueBeforeEdit_EquipmentListPage_DataGrid->ToString());
+
+        String^ newValue = EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value->ToString();
+        std::string newValueStd = msclr::interop::marshal_as<std::string>(newValue);
+
+        boolean isCorrect = true;
+
+        if (curColumnIndex >= 3 && (curColumnIndex - 2) % 2 == 1 && !this->GlobalStorage.is_number(newValueStd)) {
+            isCorrect = false;
+            EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
+            string errorMessage = "Количество обязано быть числом";
+            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+        }
+        else if (newValueStd.size() >= 30) {
+            isCorrect = false;
+            EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
+            string errorMessage = "Введенное значение слишком велико";
+            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+        }
+
+
+        
+        if (curColumnIndex >= 2 && (curColumnIndex-2) % 2 == 0)
+        {
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уверены, что хотите измененить название детали?", "Изменение детали", MessageBoxButtons::OKCancel, MessageBoxIcon::Question);
+            if (result == System::Windows::Forms::DialogResult::OK)
+            {
+                isCorrect = false;
+
+            }
+            else if (result == System::Windows::Forms::DialogResult::Cancel)
+            {
+                isCorrect = false;
+                EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
+            }
+        }
+        //else if (curColumnIndex >= 3 && (curColumnIndex - 2) % 2 == 1) {
+        //    System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уверены, что хотите измененить название детали?", "Изменение детали", MessageBoxButtons::OKCancel, MessageBoxIcon::Question);
+        //    if (result == System::Windows::Forms::DialogResult::OK)
+        //    {
+        //        isCorrect = false;
+        //        string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
+        //    }
+        //    else if (result == System::Windows::Forms::DialogResult::Cancel)
+        //    {
+        //        isCorrect = false;
+        //        EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_EquipmentListPage_DataGrid;
+        //    }
+        //}
+
+
+
+        if (isCorrect)
+        {
+            this->GlobalStorage.setNewComponentsValue(curColumnIndex, curRowIndex,oldValueStd, newValueStd);
+            string errorMessage = "Значение в ячейке изменено " + oldValueStd + newValueStd ;
+            MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+        }
+    }
+    else
+    {
+        string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
+        System::String^ oldValueCs = msclr::interop::marshal_as<System::String^>(oldValue);
+        EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+        string errorMessage = "Значение в ячейке не может быть пустым!\n Есди вы хотите удалить какой-либо элемент - нажмите по нему правой кнопкой мыши и выберите пункт \"Удалить\"";
+        MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+    }
+
+
+    return System::Void();
+}

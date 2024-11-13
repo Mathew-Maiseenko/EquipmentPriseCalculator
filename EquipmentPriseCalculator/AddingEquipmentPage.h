@@ -409,3 +409,18 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
 
     return System::Void();
 }
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::EquipmentListPage__AddingButton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    EquipmentListPage->Hide();
+    AddingEquipmentPage->Show();
+    return System::Void();
+}
+
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEquipmentPage_ExitfromAddingEquipmentPageButton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    EquipmentListPage->Show();
+    AddingEquipmentPage->Hide();
+    return System::Void();
+}
