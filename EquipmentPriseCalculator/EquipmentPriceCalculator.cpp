@@ -6,6 +6,7 @@
 #include "EquipmentListPage.h"
 #include "MainTopMenu.h"
 #include "AddingEquipmentPage.h"
+#include "OrderPage.h"
 
 
 using namespace System;

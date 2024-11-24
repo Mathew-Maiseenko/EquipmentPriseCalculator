@@ -53,6 +53,9 @@
     <ClInclude Include="AddingEquipmentPage.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="OrderPage.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DetailSpisok.csv" />

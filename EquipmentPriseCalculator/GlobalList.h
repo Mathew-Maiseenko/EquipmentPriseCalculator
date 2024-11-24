@@ -51,6 +51,11 @@ struct EquipmentComponents {
     int detailCount;
 };
 
+struct OrderedEquipment {
+    Equipment equip;
+    int equipmentsCount;
+};
+
 class GlobalList {
 
     string fileName;
@@ -69,6 +74,8 @@ class GlobalList {
     map<string, Equipment> EquipmentNameMap;
 
     Equipment curEquipmentToAdd;
+
+    vector<OrderedEquipment> OrderedEquipmentList;
 
 public:
     GlobalList() {
@@ -98,6 +105,10 @@ public:
 
     vector<Equipment> getEquipmentList() {
         return this->EquipmentList;
+    }
+
+    vector<OrderedEquipment> getOrderedEquipmentList(){
+        return this->OrderedEquipmentList;
     }
 
     int getMaxEquipmentsDetailsCount() {
@@ -327,11 +338,57 @@ public:
         return SortComponentList;
     }
 
+    vector<OrderedEquipment> getSortedOrderedEquipmentList(String^ SelectedSortType) {
+        vector<OrderedEquipment> SortComponentList = OrderedEquipmentList;
+        if (SelectedSortType == "Id оборудования")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](OrderedEquipment a, OrderedEquipment b) {
+                return a.equip.id < b.equip.id;
+                });
+        }
+        else if (SelectedSortType == "Названию оборудования")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](OrderedEquipment a, OrderedEquipment b) {
+                return a.equip.Name < b.equip.Name;
+                });
+        }
+        else if (SelectedSortType == "Стоимости одного оборудования")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [this](OrderedEquipment a, OrderedEquipment b) {
+                return sortEquipmentByPricePred(a.equip, b.equip, this);
+                });
+        }
+        else if (SelectedSortType == "Количеству заказанного оборудования")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [](OrderedEquipment a, OrderedEquipment b) {
+                return a.equipmentsCount < b.equipmentsCount;
+                });
+        }
+        else if (SelectedSortType == "Полной стоимоти оборудования")
+        {
+            std::sort(SortComponentList.begin(), SortComponentList.end(), [this](OrderedEquipment a, OrderedEquipment b) {
+                return  (getTotalEquipmentPrice(a.equip, this) * a.equipmentsCount) < (getTotalEquipmentPrice(b.equip, this) * b.equipmentsCount);
+                });
+        }
+        return SortComponentList;
+    }
+
     vector<EquipmentComponents> getFilteredComponentsListBySubStr(string subStr, vector<EquipmentComponents> details) {
         vector<EquipmentComponents> CorrectComponents;
         for (EquipmentComponents det : details) {
 
             if (containsSubString(convertToLowerCase(det.detail.Name), convertToLowerCase(subStr))) {
+                CorrectComponents.push_back(det);
+            }
+        }
+
+        return CorrectComponents;
+    }
+
+    vector<OrderedEquipment> getFilteredOrderedEquipmentListBySubStr(string subStr, vector<OrderedEquipment> OrderedEquipmentList) {
+        vector<OrderedEquipment> CorrectComponents;
+        for (OrderedEquipment det : OrderedEquipmentList) {
+            if (containsSubString(convertToLowerCase(det.equip.Name), convertToLowerCase(subStr))) {
                 CorrectComponents.push_back(det);
             }
         }
@@ -1658,6 +1715,27 @@ public:
             if (it->Name == elementNameToDelete) {
                 EquipmentNameMap.erase(it->Name);
                 EquipmentList.erase(it);
+                break;
+            }
+        }
+    }
+
+    void addEquipmentToOrderListByName(string equipmentNameToAdd) {
+
+        for (auto curEquipment : EquipmentList) {
+            if (curEquipment.Name == equipmentNameToAdd) {
+
+                for (auto curOrderedEquipment : OrderedEquipmentList) {
+                    if (curEquipment.Name == curOrderedEquipment.equip.Name) {
+                        ++curOrderedEquipment.equipmentsCount;
+                        break;
+                    }
+                }
+
+                OrderedEquipment equipmentToAdd;
+                equipmentToAdd.equip = curEquipment;
+                equipmentToAdd.equipmentsCount = 1;
+                OrderedEquipmentList.push_back(equipmentToAdd);
                 break;
             }
         }

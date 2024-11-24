@@ -257,6 +257,58 @@ private: System::Windows::Forms::ToolStripMenuItem^ ÒÓÁ‰‡Ú¸ToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ Á‡Í‡ÁToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem;
+private: System::Windows::Forms::Panel^ OrderPage;
+private: System::Windows::Forms::TextBox^ OrderPage_EquipmentSearchTextBox;
+
+
+
+private: System::Windows::Forms::ComboBox^ OrderPage_EquipmentSortTypeComboBox;
+
+private: System::Windows::Forms::Label^ OrderPage_EquipmentSortTypeTitle;
+
+private: System::Windows::Forms::Label^ OrderPage_WholeEquipmentListLabel;
+private: System::Windows::Forms::TextBox^ OrderPage_OrderedEquipmentSearchTextBox;
+
+
+
+
+
+
+private: System::Windows::Forms::Button^ OrderPage_MakeOrderButton;
+private: System::Windows::Forms::ComboBox^ OrderPage_OrderedEquipmentSortTypeComboBox;
+
+
+private: System::Windows::Forms::Label^ OrderPage_OrderedEquipmentSortTypeTitle;
+
+private: System::Windows::Forms::Button^ OrderPage_GoToMainMenuButton;
+private: System::Windows::Forms::Label^ OrderPage_OrderedEquipmentListLabel;
+private: System::Windows::Forms::DataGridView^ OrderPage_OrderedEquipmentDataGrid;
+private: System::Windows::Forms::DataGridView^ OrderPage_EquipmentDataGrid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::Label^ OrderPage_TotalPrice;
+
+private: System::Windows::Forms::DataGridViewButtonColumn^ dataGridViewButtonColumn1;
+private: System::Windows::Forms::DataGridViewButtonColumn^ dataGridViewButtonColumn2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn12;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn13;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn14;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn15;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn16;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn10;
 
 
 
@@ -370,6 +422,30 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->OrderPage = (gcnew System::Windows::Forms::Panel());
+			this->OrderPage_TotalPrice = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_EquipmentDataGrid = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->OrderPage_EquipmentSearchTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->OrderPage_EquipmentSortTypeComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->OrderPage_EquipmentSortTypeTitle = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_WholeEquipmentListLabel = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_OrderedEquipmentSearchTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->OrderPage_MakeOrderButton = (gcnew System::Windows::Forms::Button());
+			this->OrderPage_OrderedEquipmentSortTypeComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->OrderPage_OrderedEquipmentSortTypeTitle = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_GoToMainMenuButton = (gcnew System::Windows::Forms::Button());
+			this->OrderPage_OrderedEquipmentListLabel = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_OrderedEquipmentDataGrid = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewButtonColumn1 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewButtonColumn2 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewTextBoxColumn12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn13 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->HomePage->SuspendLayout();
 			this->DetailsListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->BeginInit();
@@ -379,6 +455,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AddingEquipmentPage_DetailsListDataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AddingEquipmentPage_ComponentsListDataGrid))->BeginInit();
+			this->OrderPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_EquipmentDataGrid))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_OrderedEquipmentDataGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// HomePage
@@ -387,10 +466,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->HomePage->Controls->Add(this->HomePage_EquipmentButton);
 			this->HomePage->Controls->Add(this->label1);
 			this->HomePage->Controls->Add(this->HomePage_DetailsButton);
-			this->HomePage->Location = System::Drawing::Point(429, 52);
-			this->HomePage->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage->Location = System::Drawing::Point(106, 617);
 			this->HomePage->Name = L"HomePage";
-			this->HomePage->Size = System::Drawing::Size(787, 322);
+			this->HomePage->Size = System::Drawing::Size(547, 262);
 			this->HomePage->TabIndex = 1;
 			// 
 			// HomePage_UsersGuidButton
@@ -398,10 +476,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->HomePage_UsersGuidButton->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->HomePage_UsersGuidButton->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->HomePage_UsersGuidButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->HomePage_UsersGuidButton->Location = System::Drawing::Point(71, 244);
-			this->HomePage_UsersGuidButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_UsersGuidButton->Location = System::Drawing::Point(31, 198);
 			this->HomePage_UsersGuidButton->Name = L"HomePage_UsersGuidButton";
-			this->HomePage_UsersGuidButton->Size = System::Drawing::Size(652, 54);
+			this->HomePage_UsersGuidButton->Size = System::Drawing::Size(489, 44);
 			this->HomePage_UsersGuidButton->TabIndex = 8;
 			this->HomePage_UsersGuidButton->Text = L"–ÛÍÓ‚Ó‰ÒÚ‚Ó ÔÓÎ¸ÁÓ‚‡ÚÂÎˇ";
 			this->HomePage_UsersGuidButton->UseVisualStyleBackColor = false;
@@ -413,10 +490,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->HomePage_EquipmentButton->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->HomePage_EquipmentButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->HomePage_EquipmentButton->Location = System::Drawing::Point(403, 124);
-			this->HomePage_EquipmentButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_EquipmentButton->Location = System::Drawing::Point(280, 101);
 			this->HomePage_EquipmentButton->Name = L"HomePage_EquipmentButton";
-			this->HomePage_EquipmentButton->Size = System::Drawing::Size(320, 111);
+			this->HomePage_EquipmentButton->Size = System::Drawing::Size(240, 90);
 			this->HomePage_EquipmentButton->TabIndex = 7;
 			this->HomePage_EquipmentButton->Text = L"Œ·ÓÛ‰Ó‚‡ÌËÂ";
 			this->HomePage_EquipmentButton->UseVisualStyleBackColor = false;
@@ -427,10 +503,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->label1->Location = System::Drawing::Point(64, 42);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(26, 34);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(597, 31);
+			this->label1->Size = System::Drawing::Size(494, 26);
 			this->label1->TabIndex = 6;
 			this->label1->Text = L" ‡Î¸ÍÛÎˇÚÓ ÒÂ·ÂÒÚÓËÏÓÒÚË Ó·ÓÛ‰Ó‚‡ÌËˇ";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -440,10 +515,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->HomePage_DetailsButton->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->HomePage_DetailsButton->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->HomePage_DetailsButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->HomePage_DetailsButton->Location = System::Drawing::Point(71, 124);
-			this->HomePage_DetailsButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_DetailsButton->Location = System::Drawing::Point(31, 101);
 			this->HomePage_DetailsButton->Name = L"HomePage_DetailsButton";
-			this->HomePage_DetailsButton->Size = System::Drawing::Size(320, 111);
+			this->HomePage_DetailsButton->Size = System::Drawing::Size(240, 90);
 			this->HomePage_DetailsButton->TabIndex = 5;
 			this->HomePage_DetailsButton->Text = L"ƒÂÚ‡ÎË";
 			this->HomePage_DetailsButton->UseVisualStyleBackColor = false;
@@ -458,10 +532,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_ExitButton);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_Title);
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_DataGrid);
-			this->DetailsListPage->Location = System::Drawing::Point(4, 382);
-			this->DetailsListPage->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage->Location = System::Drawing::Point(3, 310);
 			this->DetailsListPage->Name = L"DetailsListPage";
-			this->DetailsListPage->Size = System::Drawing::Size(729, 370);
+			this->DetailsListPage->Size = System::Drawing::Size(547, 301);
 			this->DetailsListPage->TabIndex = 15;
 			this->DetailsListPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_DetailsListPage);
 			// 
@@ -469,10 +542,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			// 
 			this->DetailsListPage_SearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->DetailsListPage_SearchInput->Location = System::Drawing::Point(19, 89);
-			this->DetailsListPage_SearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->DetailsListPage_SearchInput->Location = System::Drawing::Point(14, 72);
+			this->DetailsListPage_SearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->DetailsListPage_SearchInput->Name = L"DetailsListPage_SearchInput";
-			this->DetailsListPage_SearchInput->Size = System::Drawing::Size(484, 32);
+			this->DetailsListPage_SearchInput->Size = System::Drawing::Size(364, 27);
 			this->DetailsListPage_SearchInput->TabIndex = 18;
 			this->DetailsListPage_SearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::DetailsListPage_SearchInput_TextChanged);
 			// 
@@ -482,10 +555,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->DetailsListPage_AddingButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->DetailsListPage_AddingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->DetailsListPage_AddingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsListPage_AddingButton->Location = System::Drawing::Point(511, 166);
-			this->DetailsListPage_AddingButton->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_AddingButton->Location = System::Drawing::Point(383, 135);
 			this->DetailsListPage_AddingButton->Name = L"DetailsListPage_AddingButton";
-			this->DetailsListPage_AddingButton->Size = System::Drawing::Size(205, 64);
+			this->DetailsListPage_AddingButton->Size = System::Drawing::Size(154, 52);
 			this->DetailsListPage_AddingButton->TabIndex = 17;
 			this->DetailsListPage_AddingButton->Text = L"ƒÓ·‡‚ËÚ¸";
 			this->DetailsListPage_AddingButton->UseVisualStyleBackColor = false;
@@ -498,10 +570,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				L"Id ‰ÂÚ‡ÎË", L"Õ‡Á‚‡ÌË˛ ‰ÂÚ‡ÎË",
 					L"—ÚÓËÏÓÒÚË ‰ÂÚ‡ÎË"
 			});
-			this->DetailsListPage_SortTypeComboBox->Location = System::Drawing::Point(513, 133);
-			this->DetailsListPage_SortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_SortTypeComboBox->Location = System::Drawing::Point(385, 108);
 			this->DetailsListPage_SortTypeComboBox->Name = L"DetailsListPage_SortTypeComboBox";
-			this->DetailsListPage_SortTypeComboBox->Size = System::Drawing::Size(204, 24);
+			this->DetailsListPage_SortTypeComboBox->Size = System::Drawing::Size(154, 21);
 			this->DetailsListPage_SortTypeComboBox->TabIndex = 16;
 			this->DetailsListPage_SortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::onSelectDetailsListSortType);
 			// 
@@ -510,10 +581,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->DetailsListPage_SortTypeMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->DetailsListPage_SortTypeMessage->AutoSize = true;
 			this->DetailsListPage_SortTypeMessage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->DetailsListPage_SortTypeMessage->Location = System::Drawing::Point(508, 89);
-			this->DetailsListPage_SortTypeMessage->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DetailsListPage_SortTypeMessage->Location = System::Drawing::Point(381, 72);
 			this->DetailsListPage_SortTypeMessage->Name = L"DetailsListPage_SortTypeMessage";
-			this->DetailsListPage_SortTypeMessage->Size = System::Drawing::Size(199, 29);
+			this->DetailsListPage_SortTypeMessage->Size = System::Drawing::Size(158, 24);
 			this->DetailsListPage_SortTypeMessage->TabIndex = 15;
 			this->DetailsListPage_SortTypeMessage->Text = L"—ÓÚËÓ‚Í‡ ÔÓ";
 			this->DetailsListPage_SortTypeMessage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -524,10 +594,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->DetailsListPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
 			this->DetailsListPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->DetailsListPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsListPage_ExitButton->Location = System::Drawing::Point(513, 303);
-			this->DetailsListPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_ExitButton->Location = System::Drawing::Point(385, 246);
 			this->DetailsListPage_ExitButton->Name = L"DetailsListPage_ExitButton";
-			this->DetailsListPage_ExitButton->Size = System::Drawing::Size(205, 47);
+			this->DetailsListPage_ExitButton->Size = System::Drawing::Size(154, 38);
 			this->DetailsListPage_ExitButton->TabIndex = 14;
 			this->DetailsListPage_ExitButton->Text = L"Õ‡Á‡‰";
 			this->DetailsListPage_ExitButton->UseVisualStyleBackColor = false;
@@ -539,10 +608,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->DetailsListPage_Title->AutoSize = true;
 			this->DetailsListPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->DetailsListPage_Title->Location = System::Drawing::Point(12, 18);
-			this->DetailsListPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DetailsListPage_Title->Location = System::Drawing::Point(9, 15);
 			this->DetailsListPage_Title->Name = L"DetailsListPage_Title";
-			this->DetailsListPage_Title->Size = System::Drawing::Size(336, 46);
+			this->DetailsListPage_Title->Size = System::Drawing::Size(259, 37);
 			this->DetailsListPage_Title->TabIndex = 10;
 			this->DetailsListPage_Title->Text = L"—ÔËÒÓÍ ‰ÂÚ‡ÎÂÈ";
 			this->DetailsListPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -556,11 +624,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				this->DetailId,
 					this->DetailName, this->DetailPrice
 			});
-			this->DetailsListPage_DataGrid->Location = System::Drawing::Point(19, 133);
-			this->DetailsListPage_DataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_DataGrid->Location = System::Drawing::Point(14, 108);
 			this->DetailsListPage_DataGrid->Name = L"DetailsListPage_DataGrid";
 			this->DetailsListPage_DataGrid->RowHeadersWidth = 51;
-			this->DetailsListPage_DataGrid->Size = System::Drawing::Size(484, 217);
+			this->DetailsListPage_DataGrid->Size = System::Drawing::Size(363, 176);
 			this->DetailsListPage_DataGrid->TabIndex = 0;
 			this->DetailsListPage_DataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::DetailsGrid_CellEndEdit);
 			this->DetailsListPage_DataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::DetailsGrid_MouseClick);
@@ -598,10 +665,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_ExitButton);
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_Title);
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_DataGrid);
-			this->EquipmentListPage->Location = System::Drawing::Point(741, 382);
-			this->EquipmentListPage->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage->Location = System::Drawing::Point(556, 310);
 			this->EquipmentListPage->Name = L"EquipmentListPage";
-			this->EquipmentListPage->Size = System::Drawing::Size(729, 370);
+			this->EquipmentListPage->Size = System::Drawing::Size(547, 301);
 			this->EquipmentListPage->TabIndex = 19;
 			this->EquipmentListPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_EquipmentListPage);
 			// 
@@ -609,10 +675,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			// 
 			this->EquipmentListPage_SearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->EquipmentListPage_SearchInput->Location = System::Drawing::Point(19, 89);
-			this->EquipmentListPage_SearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->EquipmentListPage_SearchInput->Location = System::Drawing::Point(14, 72);
+			this->EquipmentListPage_SearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->EquipmentListPage_SearchInput->Name = L"EquipmentListPage_SearchInput";
-			this->EquipmentListPage_SearchInput->Size = System::Drawing::Size(484, 32);
+			this->EquipmentListPage_SearchInput->Size = System::Drawing::Size(364, 27);
 			this->EquipmentListPage_SearchInput->TabIndex = 18;
 			this->EquipmentListPage_SearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::EquipmentListPage_SearchInput_TextChanged);
 			// 
@@ -622,10 +688,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->EquipmentListPage__AddingButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->EquipmentListPage__AddingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->EquipmentListPage__AddingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentListPage__AddingButton->Location = System::Drawing::Point(513, 166);
-			this->EquipmentListPage__AddingButton->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage__AddingButton->Location = System::Drawing::Point(385, 135);
 			this->EquipmentListPage__AddingButton->Name = L"EquipmentListPage__AddingButton";
-			this->EquipmentListPage__AddingButton->Size = System::Drawing::Size(205, 64);
+			this->EquipmentListPage__AddingButton->Size = System::Drawing::Size(154, 52);
 			this->EquipmentListPage__AddingButton->TabIndex = 17;
 			this->EquipmentListPage__AddingButton->Text = L"ƒÓ·‡‚ËÚ¸";
 			this->EquipmentListPage__AddingButton->UseVisualStyleBackColor = false;
@@ -638,10 +703,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				L"Id Ó·ÓÛ‰Ó‚‡ÌËˇ", L"Õ‡Á‚‡ÌË˛ Ó·ÓÛ‰Ó‚‡ÌËˇ",
 					L"—ÚÓËÏÓÒÚË Ó·ÓÛ‰Ó‚‡ÌËˇ"
 			});
-			this->EquipmentListPage__SortTypeComboBox->Location = System::Drawing::Point(513, 133);
-			this->EquipmentListPage__SortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage__SortTypeComboBox->Location = System::Drawing::Point(385, 108);
 			this->EquipmentListPage__SortTypeComboBox->Name = L"EquipmentListPage__SortTypeComboBox";
-			this->EquipmentListPage__SortTypeComboBox->Size = System::Drawing::Size(204, 24);
+			this->EquipmentListPage__SortTypeComboBox->Size = System::Drawing::Size(154, 21);
 			this->EquipmentListPage__SortTypeComboBox->TabIndex = 16;
 			this->EquipmentListPage__SortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::onSelectEquipmentsListSortType);
 			// 
@@ -650,10 +714,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->EquipmentListPage_SortTypeMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->EquipmentListPage_SortTypeMessage->AutoSize = true;
 			this->EquipmentListPage_SortTypeMessage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->EquipmentListPage_SortTypeMessage->Location = System::Drawing::Point(508, 89);
-			this->EquipmentListPage_SortTypeMessage->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EquipmentListPage_SortTypeMessage->Location = System::Drawing::Point(381, 72);
 			this->EquipmentListPage_SortTypeMessage->Name = L"EquipmentListPage_SortTypeMessage";
-			this->EquipmentListPage_SortTypeMessage->Size = System::Drawing::Size(199, 29);
+			this->EquipmentListPage_SortTypeMessage->Size = System::Drawing::Size(158, 24);
 			this->EquipmentListPage_SortTypeMessage->TabIndex = 15;
 			this->EquipmentListPage_SortTypeMessage->Text = L"—ÓÚËÓ‚Í‡ ÔÓ";
 			this->EquipmentListPage_SortTypeMessage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -664,10 +727,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->EquipmentListPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
 			this->EquipmentListPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->EquipmentListPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentListPage_ExitButton->Location = System::Drawing::Point(513, 303);
-			this->EquipmentListPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage_ExitButton->Location = System::Drawing::Point(385, 246);
 			this->EquipmentListPage_ExitButton->Name = L"EquipmentListPage_ExitButton";
-			this->EquipmentListPage_ExitButton->Size = System::Drawing::Size(205, 47);
+			this->EquipmentListPage_ExitButton->Size = System::Drawing::Size(154, 38);
 			this->EquipmentListPage_ExitButton->TabIndex = 14;
 			this->EquipmentListPage_ExitButton->Text = L"Õ‡Á‡‰";
 			this->EquipmentListPage_ExitButton->UseVisualStyleBackColor = false;
@@ -679,10 +741,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->EquipmentListPage_Title->AutoSize = true;
 			this->EquipmentListPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->EquipmentListPage_Title->Location = System::Drawing::Point(12, 18);
-			this->EquipmentListPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EquipmentListPage_Title->Location = System::Drawing::Point(9, 15);
 			this->EquipmentListPage_Title->Name = L"EquipmentListPage_Title";
-			this->EquipmentListPage_Title->Size = System::Drawing::Size(455, 46);
+			this->EquipmentListPage_Title->Size = System::Drawing::Size(347, 37);
 			this->EquipmentListPage_Title->TabIndex = 10;
 			this->EquipmentListPage_Title->Text = L"—ÔËÒÓÍ Ó·ÓÛ‰Ó‚‡ÌËˇ";
 			this->EquipmentListPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -696,11 +757,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2
 			});
-			this->EquipmentListPage_DataGrid->Location = System::Drawing::Point(19, 133);
-			this->EquipmentListPage_DataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage_DataGrid->Location = System::Drawing::Point(14, 108);
 			this->EquipmentListPage_DataGrid->Name = L"EquipmentListPage_DataGrid";
 			this->EquipmentListPage_DataGrid->RowHeadersWidth = 51;
-			this->EquipmentListPage_DataGrid->Size = System::Drawing::Size(484, 217);
+			this->EquipmentListPage_DataGrid->Size = System::Drawing::Size(363, 176);
 			this->EquipmentListPage_DataGrid->TabIndex = 0;
 			this->EquipmentListPage_DataGrid->CellBeginEdit += gcnew System::Windows::Forms::DataGridViewCellCancelEventHandler(this, &EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellBeginEdit);
 			this->EquipmentListPage_DataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellEndEdit);
@@ -731,8 +791,8 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			});
 			this->MainTopMenu->Location = System::Drawing::Point(0, 0);
 			this->MainTopMenu->Name = L"MainTopMenu";
-			this->MainTopMenu->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->MainTopMenu->Size = System::Drawing::Size(1612, 28);
+			this->MainTopMenu->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->MainTopMenu->Size = System::Drawing::Size(1209, 24);
 			this->MainTopMenu->TabIndex = 20;
 			this->MainTopMenu->Text = L"menuStrip1";
 			// 
@@ -743,33 +803,33 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 					this->MainTopMenu_OpenFileButton, this->MainTopMenu_SaveFileButton, this->MainTopMenu_SaveFileAsButton
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->fileToolStripMenuItem->Text = L"‘‡ÈÎ";
 			// 
 			// ÒÓÁ‰‡Ú¸ToolStripMenuItem
 			// 
 			this->ÒÓÁ‰‡Ú¸ToolStripMenuItem->Name = L"ÒÓÁ‰‡Ú¸ToolStripMenuItem";
-			this->ÒÓÁ‰‡Ú¸ToolStripMenuItem->Size = System::Drawing::Size(192, 26);
+			this->ÒÓÁ‰‡Ú¸ToolStripMenuItem->Size = System::Drawing::Size(154, 22);
 			this->ÒÓÁ‰‡Ú¸ToolStripMenuItem->Text = L"—ÓÁ‰‡Ú¸";
 			// 
 			// MainTopMenu_OpenFileButton
 			// 
 			this->MainTopMenu_OpenFileButton->Name = L"MainTopMenu_OpenFileButton";
-			this->MainTopMenu_OpenFileButton->Size = System::Drawing::Size(192, 26);
+			this->MainTopMenu_OpenFileButton->Size = System::Drawing::Size(154, 22);
 			this->MainTopMenu_OpenFileButton->Text = L"ŒÚÍ˚Ú¸";
 			this->MainTopMenu_OpenFileButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_OpenExtraFileDialog);
 			// 
 			// MainTopMenu_SaveFileButton
 			// 
 			this->MainTopMenu_SaveFileButton->Name = L"MainTopMenu_SaveFileButton";
-			this->MainTopMenu_SaveFileButton->Size = System::Drawing::Size(192, 26);
+			this->MainTopMenu_SaveFileButton->Size = System::Drawing::Size(154, 22);
 			this->MainTopMenu_SaveFileButton->Text = L"—Óı‡ÌËÚ¸";
 			this->MainTopMenu_SaveFileButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_SaveFile);
 			// 
 			// MainTopMenu_SaveFileAsButton
 			// 
 			this->MainTopMenu_SaveFileAsButton->Name = L"MainTopMenu_SaveFileAsButton";
-			this->MainTopMenu_SaveFileAsButton->Size = System::Drawing::Size(192, 26);
+			this->MainTopMenu_SaveFileAsButton->Size = System::Drawing::Size(154, 22);
 			this->MainTopMenu_SaveFileAsButton->Text = L"—Óı‡ÌËÚ¸ Í‡Í";
 			this->MainTopMenu_SaveFileAsButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_SaveFileAs);
 			// 
@@ -780,37 +840,37 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 					this->‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem, this->Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem, this->‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem, this->Á‡Í‡ÁToolStripMenuItem
 			});
 			this->ÓÍÌÓToolStripMenuItem->Name = L"ÓÍÌÓToolStripMenuItem";
-			this->ÓÍÌÓToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->ÓÍÌÓToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->ÓÍÌÓToolStripMenuItem->Text = L"ŒÍÌÓ";
 			// 
 			// ‰ÂÚ‡ÎËToolStripMenuItem
 			// 
 			this->‰ÂÚ‡ÎËToolStripMenuItem->Name = L"‰ÂÚ‡ÎËToolStripMenuItem";
-			this->‰ÂÚ‡ÎËToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->‰ÂÚ‡ÎËToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->‰ÂÚ‡ÎËToolStripMenuItem->Text = L"ƒÂÚ‡ÎË";
 			// 
 			// ‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem
 			// 
 			this->‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem->Name = L"‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem";
-			this->‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->‰Ó·‡‚ËÚ¸ƒÂÚ‡ÎËToolStripMenuItem->Text = L"ƒÓ·‡‚ËÚ¸ ‰ÂÚ‡ÎË";
 			// 
 			// Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem
 			// 
 			this->Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Name = L"Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem";
-			this->Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->Ó·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Text = L"Œ·ÓÛ‰Ó‚‡ÌËÂ";
 			// 
 			// ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem
 			// 
 			this->‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Name = L"‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem";
-			this->‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStripMenuItem->Text = L"ƒÓ·‡‚ËÚ¸ Ó·ÓÛ‰Ó‚‡ÌËÂ";
 			// 
 			// Á‡Í‡ÁToolStripMenuItem
 			// 
 			this->Á‡Í‡ÁToolStripMenuItem->Name = L"Á‡Í‡ÁToolStripMenuItem";
-			this->Á‡Í‡ÁToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->Á‡Í‡ÁToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->Á‡Í‡ÁToolStripMenuItem->Text = L"«‡Í‡Á";
 			// 
 			// ÓœÓ„‡ÏÏÂToolStripMenuItem
@@ -820,19 +880,19 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 					this->ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem
 			});
 			this->ÓœÓ„‡ÏÏÂToolStripMenuItem->Name = L"ÓœÓ„‡ÏÏÂToolStripMenuItem";
-			this->ÓœÓ„‡ÏÏÂToolStripMenuItem->Size = System::Drawing::Size(118, 24);
+			this->ÓœÓ„‡ÏÏÂToolStripMenuItem->Size = System::Drawing::Size(94, 20);
 			this->ÓœÓ„‡ÏÏÂToolStripMenuItem->Text = L"Œ ÔÓ„‡ÏÏÂ";
 			// 
 			// „Î‡‚Ì‡ˇ»ÌÙÓÏ‡ˆËˇToolStripMenuItem
 			// 
 			this->„Î‡‚Ì‡ˇ»ÌÙÓÏ‡ˆËˇToolStripMenuItem->Name = L"„Î‡‚Ì‡ˇ»ÌÙÓÏ‡ˆËˇToolStripMenuItem";
-			this->„Î‡‚Ì‡ˇ»ÌÙÓÏ‡ˆËˇToolStripMenuItem->Size = System::Drawing::Size(278, 26);
+			this->„Î‡‚Ì‡ˇ»ÌÙÓÏ‡ˆËˇToolStripMenuItem->Size = System::Drawing::Size(221, 22);
 			this->„Î‡‚Ì‡ˇ»ÌÙÓÏ‡ˆËˇToolStripMenuItem->Text = L"√Î‡‚Ì‡ˇ ËÌÙÓÏ‡ˆËˇ";
 			// 
 			// ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem
 			// 
 			this->ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem->Name = L"ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem";
-			this->ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem->Size = System::Drawing::Size(278, 26);
+			this->ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem->Size = System::Drawing::Size(221, 22);
 			this->ÛÍÓ‚Ó‰ÒÚ‚ÓœÓÎ¸ÁÓ‚‡ÚÂÎˇToolStripMenuItem->Text = L"–ÛÍÓ‚Ó‰ÒÚ‚Ó ÔÓÎ¸ÁÓ‚‡ÚÂÎˇ";
 			// 
 			// OpenFileDialog
@@ -861,10 +921,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage->Controls->Add(this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton);
 			this->AddingEquipmentPage->Controls->Add(this->AddingEquipmentPage_ComponentsListLabel);
 			this->AddingEquipmentPage->Controls->Add(this->AddingEquipmentPage_ComponentsListDataGrid);
-			this->AddingEquipmentPage->Location = System::Drawing::Point(4, 759);
-			this->AddingEquipmentPage->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage->Location = System::Drawing::Point(3, 617);
 			this->AddingEquipmentPage->Name = L"AddingEquipmentPage";
-			this->AddingEquipmentPage->Size = System::Drawing::Size(1467, 292);
+			this->AddingEquipmentPage->Size = System::Drawing::Size(1100, 237);
 			this->AddingEquipmentPage->TabIndex = 21;
 			this->AddingEquipmentPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_AddingEquipmentPage);
 			// 
@@ -872,10 +931,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			// 
 			this->AddingEquipmentPage_EquipmentNameInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->AddingEquipmentPage_EquipmentNameInput->Location = System::Drawing::Point(404, 23);
-			this->AddingEquipmentPage_EquipmentNameInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddingEquipmentPage_EquipmentNameInput->Location = System::Drawing::Point(303, 19);
+			this->AddingEquipmentPage_EquipmentNameInput->Margin = System::Windows::Forms::Padding(2);
 			this->AddingEquipmentPage_EquipmentNameInput->Name = L"AddingEquipmentPage_EquipmentNameInput";
-			this->AddingEquipmentPage_EquipmentNameInput->Size = System::Drawing::Size(341, 32);
+			this->AddingEquipmentPage_EquipmentNameInput->Size = System::Drawing::Size(257, 27);
 			this->AddingEquipmentPage_EquipmentNameInput->TabIndex = 24;
 			this->AddingEquipmentPage_EquipmentNameInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_EquipmentNameInput_TextChanged);
 			// 
@@ -883,10 +942,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			// 
 			this->AddingEquipmentPage_DetailsListSearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->AddingEquipmentPage_DetailsListSearchInput->Location = System::Drawing::Point(11, 66);
-			this->AddingEquipmentPage_DetailsListSearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddingEquipmentPage_DetailsListSearchInput->Location = System::Drawing::Point(8, 54);
+			this->AddingEquipmentPage_DetailsListSearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->AddingEquipmentPage_DetailsListSearchInput->Name = L"AddingEquipmentPage_DetailsListSearchInput";
-			this->AddingEquipmentPage_DetailsListSearchInput->Size = System::Drawing::Size(441, 32);
+			this->AddingEquipmentPage_DetailsListSearchInput->Size = System::Drawing::Size(332, 27);
 			this->AddingEquipmentPage_DetailsListSearchInput->TabIndex = 23;
 			this->AddingEquipmentPage_DetailsListSearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListSearchInput_TextChanged);
 			// 
@@ -897,10 +956,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				L"Id ‰ÂÚ‡ÎË",
 					L"Õ‡Á‚‡ÌË˛ ‰ÂÚ‡ÎË", L"—ÚÓËÏÓÒÚË ‰ÂÚ‡ÎË"
 			});
-			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Location = System::Drawing::Point(471, 105);
-			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Location = System::Drawing::Point(353, 85);
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Name = L"AddingEquipmentPage_DetailsListSortTypeComboBox";
-			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Size = System::Drawing::Size(193, 24);
+			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Size = System::Drawing::Size(146, 21);
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->TabIndex = 22;
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListSortTypeComboBox_SelectedIndexChanged);
 			// 
@@ -909,10 +967,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->AutoSize = true;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_DetailsListSortTypeLabel->Location = System::Drawing::Point(465, 66);
-			this->AddingEquipmentPage_DetailsListSortTypeLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_DetailsListSortTypeLabel->Location = System::Drawing::Point(349, 54);
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Name = L"AddingEquipmentPage_DetailsListSortTypeLabel";
-			this->AddingEquipmentPage_DetailsListSortTypeLabel->Size = System::Drawing::Size(199, 29);
+			this->AddingEquipmentPage_DetailsListSortTypeLabel->Size = System::Drawing::Size(158, 24);
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->TabIndex = 21;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Text = L"—ÓÚËÓ‚Í‡ ÔÓ";
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -922,10 +979,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage_DetailsListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_DetailsListLabel->AutoSize = true;
 			this->AddingEquipmentPage_DetailsListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_DetailsListLabel->Location = System::Drawing::Point(27, 18);
-			this->AddingEquipmentPage_DetailsListLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_DetailsListLabel->Location = System::Drawing::Point(20, 15);
 			this->AddingEquipmentPage_DetailsListLabel->Name = L"AddingEquipmentPage_DetailsListLabel";
-			this->AddingEquipmentPage_DetailsListLabel->Size = System::Drawing::Size(370, 36);
+			this->AddingEquipmentPage_DetailsListLabel->Size = System::Drawing::Size(305, 29);
 			this->AddingEquipmentPage_DetailsListLabel->TabIndex = 20;
 			this->AddingEquipmentPage_DetailsListLabel->Text = L"Œ·˘ËÈ ÒÔËÒÓÍ ‰ÂÚ‡ÎÂÈ";
 			this->AddingEquipmentPage_DetailsListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -939,12 +995,11 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				this->dataGridViewTextBoxColumn7,
 					this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9
 			});
-			this->AddingEquipmentPage_DetailsListDataGrid->Location = System::Drawing::Point(11, 105);
-			this->AddingEquipmentPage_DetailsListDataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_DetailsListDataGrid->Location = System::Drawing::Point(8, 85);
 			this->AddingEquipmentPage_DetailsListDataGrid->Name = L"AddingEquipmentPage_DetailsListDataGrid";
 			this->AddingEquipmentPage_DetailsListDataGrid->ReadOnly = true;
 			this->AddingEquipmentPage_DetailsListDataGrid->RowHeadersWidth = 51;
-			this->AddingEquipmentPage_DetailsListDataGrid->Size = System::Drawing::Size(441, 166);
+			this->AddingEquipmentPage_DetailsListDataGrid->Size = System::Drawing::Size(331, 135);
 			this->AddingEquipmentPage_DetailsListDataGrid->TabIndex = 19;
 			this->AddingEquipmentPage_DetailsListDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListDataGrid_MouseClick);
 			// 
@@ -979,10 +1034,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			// 
 			this->AddingEquipmentPage_ComponentsListSearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->AddingEquipmentPage_ComponentsListSearchInput->Location = System::Drawing::Point(683, 66);
-			this->AddingEquipmentPage_ComponentsListSearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddingEquipmentPage_ComponentsListSearchInput->Location = System::Drawing::Point(512, 54);
+			this->AddingEquipmentPage_ComponentsListSearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->AddingEquipmentPage_ComponentsListSearchInput->Name = L"AddingEquipmentPage_ComponentsListSearchInput";
-			this->AddingEquipmentPage_ComponentsListSearchInput->Size = System::Drawing::Size(484, 32);
+			this->AddingEquipmentPage_ComponentsListSearchInput->Size = System::Drawing::Size(364, 27);
 			this->AddingEquipmentPage_ComponentsListSearchInput->TabIndex = 18;
 			this->AddingEquipmentPage_ComponentsListSearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListSearchInput_TextChanged);
 			// 
@@ -992,10 +1047,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage_AddingEquipmentButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->AddingEquipmentPage_AddingEquipmentButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->AddingEquipmentPage_AddingEquipmentButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->AddingEquipmentPage_AddingEquipmentButton->Location = System::Drawing::Point(1211, 162);
-			this->AddingEquipmentPage_AddingEquipmentButton->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_AddingEquipmentButton->Location = System::Drawing::Point(908, 132);
 			this->AddingEquipmentPage_AddingEquipmentButton->Name = L"AddingEquipmentPage_AddingEquipmentButton";
-			this->AddingEquipmentPage_AddingEquipmentButton->Size = System::Drawing::Size(205, 64);
+			this->AddingEquipmentPage_AddingEquipmentButton->Size = System::Drawing::Size(154, 52);
 			this->AddingEquipmentPage_AddingEquipmentButton->TabIndex = 17;
 			this->AddingEquipmentPage_AddingEquipmentButton->Text = L"ƒÓ·‡‚ËÚ¸";
 			this->AddingEquipmentPage_AddingEquipmentButton->UseVisualStyleBackColor = false;
@@ -1008,10 +1062,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 				L"Id ÍÓÏÔÓÌÂÌÚ‡",
 					L"Õ‡Á‚‡ÌË˛ ÍÓÏÔÓÌÂÌÚ‡", L"—ÚÓËÏÓÒÚË ÍÓÏÔÓÌÂÌÚ‡", L" ÓÎË˜ÂÒÚ‚Û ÍÓÏÔÓÌÂÚÓ‚", L"œÓÎÌÓÈ ÒÚÓËÏÓÚË ÍÓÏÔÓÌÂÚÓ‚"
 			});
-			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Location = System::Drawing::Point(1205, 105);
-			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Location = System::Drawing::Point(904, 85);
 			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Name = L"AddingEquipmentPage_ComponemtsListSortTypeComboBox";
-			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Size = System::Drawing::Size(204, 24);
+			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Size = System::Drawing::Size(154, 21);
 			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->TabIndex = 16;
 			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponemtsListSortTypeComboBox_SelectedIndexChanged);
 			// 
@@ -1020,10 +1073,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->AutoSize = true;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Location = System::Drawing::Point(1205, 71);
-			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Location = System::Drawing::Point(904, 58);
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Name = L"AddingEquipmentPage_ComponentsListSortTypeLabel";
-			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Size = System::Drawing::Size(199, 29);
+			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Size = System::Drawing::Size(158, 24);
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->TabIndex = 15;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Text = L"—ÓÚËÓ‚Í‡ ÔÓ";
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1035,10 +1087,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F,
 				System::Drawing::FontStyle::Bold));
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Location = System::Drawing::Point(1211, 235);
-			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Location = System::Drawing::Point(908, 191);
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Name = L"AddingEquipmentPage_ExitfromAddingEquipmentPageButton";
-			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Size = System::Drawing::Size(205, 47);
+			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Size = System::Drawing::Size(154, 38);
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->TabIndex = 14;
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Text = L"Õ‡Á‡‰";
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->UseVisualStyleBackColor = false;
@@ -1049,10 +1100,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage_ComponentsListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_ComponentsListLabel->AutoSize = true;
 			this->AddingEquipmentPage_ComponentsListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_ComponentsListLabel->Location = System::Drawing::Point(752, 18);
-			this->AddingEquipmentPage_ComponentsListLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_ComponentsListLabel->Location = System::Drawing::Point(564, 15);
 			this->AddingEquipmentPage_ComponentsListLabel->Name = L"AddingEquipmentPage_ComponentsListLabel";
-			this->AddingEquipmentPage_ComponentsListLabel->Size = System::Drawing::Size(561, 36);
+			this->AddingEquipmentPage_ComponentsListLabel->Size = System::Drawing::Size(462, 29);
 			this->AddingEquipmentPage_ComponentsListLabel->TabIndex = 10;
 			this->AddingEquipmentPage_ComponentsListLabel->Text = L"—ÔËÒÓÍ ÍÓÏÔÓÌÂÌÚÓ‚ Ó·ÓÛ‰Ó‚‡ÌËˇ";
 			this->AddingEquipmentPage_ComponentsListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1067,11 +1117,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 					this->Column3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6, this->Column1,
 					this->Column2
 			});
-			this->AddingEquipmentPage_ComponentsListDataGrid->Location = System::Drawing::Point(684, 105);
-			this->AddingEquipmentPage_ComponentsListDataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_ComponentsListDataGrid->Location = System::Drawing::Point(513, 85);
 			this->AddingEquipmentPage_ComponentsListDataGrid->Name = L"AddingEquipmentPage_ComponentsListDataGrid";
 			this->AddingEquipmentPage_ComponentsListDataGrid->RowHeadersWidth = 51;
-			this->AddingEquipmentPage_ComponentsListDataGrid->Size = System::Drawing::Size(484, 166);
+			this->AddingEquipmentPage_ComponentsListDataGrid->Size = System::Drawing::Size(363, 135);
 			this->AddingEquipmentPage_ComponentsListDataGrid->TabIndex = 0;
 			this->AddingEquipmentPage_ComponentsListDataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellContentClick);
 			this->AddingEquipmentPage_ComponentsListDataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellEndEdit);
@@ -1132,18 +1181,286 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->Column2->ReadOnly = true;
 			this->Column2->Width = 125;
 			// 
+			// OrderPage
+			// 
+			this->OrderPage->Controls->Add(this->OrderPage_TotalPrice);
+			this->OrderPage->Controls->Add(this->OrderPage_EquipmentDataGrid);
+			this->OrderPage->Controls->Add(this->OrderPage_EquipmentSearchTextBox);
+			this->OrderPage->Controls->Add(this->OrderPage_EquipmentSortTypeComboBox);
+			this->OrderPage->Controls->Add(this->OrderPage_EquipmentSortTypeTitle);
+			this->OrderPage->Controls->Add(this->OrderPage_WholeEquipmentListLabel);
+			this->OrderPage->Controls->Add(this->OrderPage_OrderedEquipmentSearchTextBox);
+			this->OrderPage->Controls->Add(this->OrderPage_MakeOrderButton);
+			this->OrderPage->Controls->Add(this->OrderPage_OrderedEquipmentSortTypeComboBox);
+			this->OrderPage->Controls->Add(this->OrderPage_OrderedEquipmentSortTypeTitle);
+			this->OrderPage->Controls->Add(this->OrderPage_GoToMainMenuButton);
+			this->OrderPage->Controls->Add(this->OrderPage_OrderedEquipmentListLabel);
+			this->OrderPage->Controls->Add(this->OrderPage_OrderedEquipmentDataGrid);
+			this->OrderPage->Location = System::Drawing::Point(3, 46);
+			this->OrderPage->Name = L"OrderPage";
+			this->OrderPage->Size = System::Drawing::Size(1100, 237);
+			this->OrderPage->TabIndex = 22;
+			this->OrderPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_VisibleChanged);
+			// 
+			// OrderPage_TotalPrice
+			// 
+			this->OrderPage_TotalPrice->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_TotalPrice->AutoSize = true;
+			this->OrderPage_TotalPrice->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
+			this->OrderPage_TotalPrice->Location = System::Drawing::Point(363, 182);
+			this->OrderPage_TotalPrice->Name = L"OrderPage_TotalPrice";
+			this->OrderPage_TotalPrice->Size = System::Drawing::Size(136, 29);
+			this->OrderPage_TotalPrice->TabIndex = 25;
+			this->OrderPage_TotalPrice->Text = L"00.00 BYN";
+			this->OrderPage_TotalPrice->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OrderPage_EquipmentDataGrid
+			// 
+			this->OrderPage_EquipmentDataGrid->AllowUserToAddRows = false;
+			this->OrderPage_EquipmentDataGrid->BackgroundColor = System::Drawing::Color::White;
+			this->OrderPage_EquipmentDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->OrderPage_EquipmentDataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->dataGridViewTextBoxColumn3,
+					this->Column5, this->dataGridViewTextBoxColumn10
+			});
+			this->OrderPage_EquipmentDataGrid->Location = System::Drawing::Point(8, 86);
+			this->OrderPage_EquipmentDataGrid->Name = L"OrderPage_EquipmentDataGrid";
+			this->OrderPage_EquipmentDataGrid->RowHeadersWidth = 51;
+			this->OrderPage_EquipmentDataGrid->Size = System::Drawing::Size(331, 134);
+			this->OrderPage_EquipmentDataGrid->TabIndex = 24;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->Frozen = true;
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Id";
+			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			this->dataGridViewTextBoxColumn3->Width = 50;
+			// 
+			// Column5
+			// 
+			this->Column5->Frozen = true;
+			this->Column5->HeaderText = L"—ÚÓËÏÓÒÚ¸ Á‡ ¯ÚÛÍÛ, /¯Ú";
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this->dataGridViewTextBoxColumn10->Frozen = true;
+			this->dataGridViewTextBoxColumn10->HeaderText = L"Õ‡Á‚‡ÌËÂ Œ·ÓÛ‰Ó‚‡ÌËˇ";
+			this->dataGridViewTextBoxColumn10->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
+			this->dataGridViewTextBoxColumn10->ReadOnly = true;
+			this->dataGridViewTextBoxColumn10->Width = 170;
+			// 
+			// OrderPage_EquipmentSearchTextBox
+			// 
+			this->OrderPage_EquipmentSearchTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->OrderPage_EquipmentSearchTextBox->Location = System::Drawing::Point(8, 54);
+			this->OrderPage_EquipmentSearchTextBox->Margin = System::Windows::Forms::Padding(2);
+			this->OrderPage_EquipmentSearchTextBox->Name = L"OrderPage_EquipmentSearchTextBox";
+			this->OrderPage_EquipmentSearchTextBox->Size = System::Drawing::Size(332, 27);
+			this->OrderPage_EquipmentSearchTextBox->TabIndex = 23;
+			this->OrderPage_EquipmentSearchTextBox->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentSearchTextBox_TextChanged);
+			// 
+			// OrderPage_EquipmentSortTypeComboBox
+			// 
+			this->OrderPage_EquipmentSortTypeComboBox->FormattingEnabled = true;
+			this->OrderPage_EquipmentSortTypeComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"Id ‰ÂÚ‡ÎË", L"Õ‡Á‚‡ÌË˛ ‰ÂÚ‡ÎË",
+					L"—ÚÓËÏÓÒÚË ‰ÂÚ‡ÎË"
+			});
+			this->OrderPage_EquipmentSortTypeComboBox->Location = System::Drawing::Point(353, 85);
+			this->OrderPage_EquipmentSortTypeComboBox->Name = L"OrderPage_EquipmentSortTypeComboBox";
+			this->OrderPage_EquipmentSortTypeComboBox->Size = System::Drawing::Size(146, 21);
+			this->OrderPage_EquipmentSortTypeComboBox->TabIndex = 22;
+			this->OrderPage_EquipmentSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentSortTypeComboBox_SelectedIndexChanged);
+			// 
+			// OrderPage_EquipmentSortTypeTitle
+			// 
+			this->OrderPage_EquipmentSortTypeTitle->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_EquipmentSortTypeTitle->AutoSize = true;
+			this->OrderPage_EquipmentSortTypeTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
+			this->OrderPage_EquipmentSortTypeTitle->Location = System::Drawing::Point(349, 54);
+			this->OrderPage_EquipmentSortTypeTitle->Name = L"OrderPage_EquipmentSortTypeTitle";
+			this->OrderPage_EquipmentSortTypeTitle->Size = System::Drawing::Size(158, 24);
+			this->OrderPage_EquipmentSortTypeTitle->TabIndex = 21;
+			this->OrderPage_EquipmentSortTypeTitle->Text = L"—ÓÚËÓ‚Í‡ ÔÓ";
+			this->OrderPage_EquipmentSortTypeTitle->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OrderPage_WholeEquipmentListLabel
+			// 
+			this->OrderPage_WholeEquipmentListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_WholeEquipmentListLabel->AutoSize = true;
+			this->OrderPage_WholeEquipmentListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
+			this->OrderPage_WholeEquipmentListLabel->Location = System::Drawing::Point(20, 15);
+			this->OrderPage_WholeEquipmentListLabel->Name = L"OrderPage_WholeEquipmentListLabel";
+			this->OrderPage_WholeEquipmentListLabel->Size = System::Drawing::Size(378, 29);
+			this->OrderPage_WholeEquipmentListLabel->TabIndex = 20;
+			this->OrderPage_WholeEquipmentListLabel->Text = L"Œ·˘ËÈ ÒÔËÒÓÍ Ó·ÓÛ‰Ó‚‡ÌËˇ";
+			this->OrderPage_WholeEquipmentListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OrderPage_OrderedEquipmentSearchTextBox
+			// 
+			this->OrderPage_OrderedEquipmentSearchTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.2F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->OrderPage_OrderedEquipmentSearchTextBox->Location = System::Drawing::Point(512, 54);
+			this->OrderPage_OrderedEquipmentSearchTextBox->Margin = System::Windows::Forms::Padding(2);
+			this->OrderPage_OrderedEquipmentSearchTextBox->Name = L"OrderPage_OrderedEquipmentSearchTextBox";
+			this->OrderPage_OrderedEquipmentSearchTextBox->Size = System::Drawing::Size(364, 27);
+			this->OrderPage_OrderedEquipmentSearchTextBox->TabIndex = 18;
+			this->OrderPage_OrderedEquipmentSearchTextBox->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentSearchTextBox_TextChanged);
+			// 
+			// OrderPage_MakeOrderButton
+			// 
+			this->OrderPage_MakeOrderButton->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_MakeOrderButton->BackColor = System::Drawing::Color::DarkOliveGreen;
+			this->OrderPage_MakeOrderButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
+			this->OrderPage_MakeOrderButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->OrderPage_MakeOrderButton->Location = System::Drawing::Point(908, 132);
+			this->OrderPage_MakeOrderButton->Name = L"OrderPage_MakeOrderButton";
+			this->OrderPage_MakeOrderButton->Size = System::Drawing::Size(154, 52);
+			this->OrderPage_MakeOrderButton->TabIndex = 17;
+			this->OrderPage_MakeOrderButton->Text = L"«‡Í‡Á‡Ú¸";
+			this->OrderPage_MakeOrderButton->UseVisualStyleBackColor = false;
+			// 
+			// OrderPage_OrderedEquipmentSortTypeComboBox
+			// 
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->AccessibleRole = System::Windows::Forms::AccessibleRole::MenuBar;
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->FormattingEnabled = true;
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+				L"Id Ó·ÓÛ‰Ó‚‡ÌËˇ",
+					L"Õ‡Á‚‡ÌË˛ Ó·ÓÛ‰Ó‚‡ÌËˇ", L"—ÚÓËÏÓÒÚË Ó‰ÌÓ„Ó Ó·ÓÛ‰Ó‚‡ÌËˇ", L" ÓÎË˜ÂÒÚ‚Û Á‡Í‡Á‡ÌÌÓ„Ó Ó·ÓÛ‰Ó‚‡ÌËˇ", L"œÓÎÌÓÈ ÒÚÓËÏÓÚË Ó·ÓÛ‰Ó‚‡ÌËˇ"
+			});
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->Location = System::Drawing::Point(904, 85);
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->Name = L"OrderPage_OrderedEquipmentSortTypeComboBox";
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->Size = System::Drawing::Size(154, 21);
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->TabIndex = 16;
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentSortTypeComboBox_SelectedIndexChanged);
+			// 
+			// OrderPage_OrderedEquipmentSortTypeTitle
+			// 
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_OrderedEquipmentSortTypeTitle->AutoSize = true;
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Location = System::Drawing::Point(904, 58);
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Name = L"OrderPage_OrderedEquipmentSortTypeTitle";
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Size = System::Drawing::Size(158, 24);
+			this->OrderPage_OrderedEquipmentSortTypeTitle->TabIndex = 15;
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Text = L"—ÓÚËÓ‚Í‡ ÔÓ";
+			this->OrderPage_OrderedEquipmentSortTypeTitle->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OrderPage_GoToMainMenuButton
+			// 
+			this->OrderPage_GoToMainMenuButton->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_GoToMainMenuButton->BackColor = System::Drawing::Color::DarkRed;
+			this->OrderPage_GoToMainMenuButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
+			this->OrderPage_GoToMainMenuButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->OrderPage_GoToMainMenuButton->Location = System::Drawing::Point(908, 191);
+			this->OrderPage_GoToMainMenuButton->Name = L"OrderPage_GoToMainMenuButton";
+			this->OrderPage_GoToMainMenuButton->Size = System::Drawing::Size(154, 38);
+			this->OrderPage_GoToMainMenuButton->TabIndex = 14;
+			this->OrderPage_GoToMainMenuButton->Text = L"Õ‡Á‡‰";
+			this->OrderPage_GoToMainMenuButton->UseVisualStyleBackColor = false;
+			// 
+			// OrderPage_OrderedEquipmentListLabel
+			// 
+			this->OrderPage_OrderedEquipmentListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_OrderedEquipmentListLabel->AutoSize = true;
+			this->OrderPage_OrderedEquipmentListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
+			this->OrderPage_OrderedEquipmentListLabel->Location = System::Drawing::Point(508, 15);
+			this->OrderPage_OrderedEquipmentListLabel->Name = L"OrderPage_OrderedEquipmentListLabel";
+			this->OrderPage_OrderedEquipmentListLabel->Size = System::Drawing::Size(452, 29);
+			this->OrderPage_OrderedEquipmentListLabel->TabIndex = 10;
+			this->OrderPage_OrderedEquipmentListLabel->Text = L"—ÔËÒÓÍ Á‡Í‡Á‡ÌÌÓ„Ó Ó·ÓÛ‰Ó‚‡ÌËˇ";
+			this->OrderPage_OrderedEquipmentListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OrderPage_OrderedEquipmentDataGrid
+			// 
+			this->OrderPage_OrderedEquipmentDataGrid->AllowUserToAddRows = false;
+			this->OrderPage_OrderedEquipmentDataGrid->BackgroundColor = System::Drawing::Color::White;
+			this->OrderPage_OrderedEquipmentDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->OrderPage_OrderedEquipmentDataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+				this->dataGridViewButtonColumn1,
+					this->dataGridViewButtonColumn2, this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13, this->dataGridViewTextBoxColumn14,
+					this->dataGridViewTextBoxColumn15, this->dataGridViewTextBoxColumn16
+			});
+			this->OrderPage_OrderedEquipmentDataGrid->Location = System::Drawing::Point(513, 85);
+			this->OrderPage_OrderedEquipmentDataGrid->Name = L"OrderPage_OrderedEquipmentDataGrid";
+			this->OrderPage_OrderedEquipmentDataGrid->RowHeadersWidth = 51;
+			this->OrderPage_OrderedEquipmentDataGrid->Size = System::Drawing::Size(363, 135);
+			this->OrderPage_OrderedEquipmentDataGrid->TabIndex = 0;
+			// 
+			// dataGridViewButtonColumn1
+			// 
+			this->dataGridViewButtonColumn1->HeaderText = L"-";
+			this->dataGridViewButtonColumn1->MinimumWidth = 6;
+			this->dataGridViewButtonColumn1->Name = L"dataGridViewButtonColumn1";
+			this->dataGridViewButtonColumn1->ReadOnly = true;
+			this->dataGridViewButtonColumn1->Width = 30;
+			// 
+			// dataGridViewButtonColumn2
+			// 
+			this->dataGridViewButtonColumn2->HeaderText = L"+";
+			this->dataGridViewButtonColumn2->MinimumWidth = 6;
+			this->dataGridViewButtonColumn2->Name = L"dataGridViewButtonColumn2";
+			this->dataGridViewButtonColumn2->ReadOnly = true;
+			this->dataGridViewButtonColumn2->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn12
+			// 
+			this->dataGridViewTextBoxColumn12->HeaderText = L"Id";
+			this->dataGridViewTextBoxColumn12->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn12->Name = L"dataGridViewTextBoxColumn12";
+			this->dataGridViewTextBoxColumn12->ReadOnly = true;
+			this->dataGridViewTextBoxColumn12->Width = 50;
+			// 
+			// dataGridViewTextBoxColumn13
+			// 
+			this->dataGridViewTextBoxColumn13->HeaderText = L"Õ‡Á‚‡ÌËÂ Ó·ÓÛ‰Ó‚‡ÌËˇ";
+			this->dataGridViewTextBoxColumn13->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn13->Name = L"dataGridViewTextBoxColumn13";
+			this->dataGridViewTextBoxColumn13->ReadOnly = true;
+			this->dataGridViewTextBoxColumn13->Width = 170;
+			// 
+			// dataGridViewTextBoxColumn14
+			// 
+			this->dataGridViewTextBoxColumn14->HeaderText = L" ÓÎË˜ÂÒÚ‚Ó Ó·ÓÛ‰Ó‚‡ÌËˇ, ¯Ú.";
+			this->dataGridViewTextBoxColumn14->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn14->Name = L"dataGridViewTextBoxColumn14";
+			this->dataGridViewTextBoxColumn14->Width = 180;
+			// 
+			// dataGridViewTextBoxColumn15
+			// 
+			this->dataGridViewTextBoxColumn15->HeaderText = L"—ÚÓËÏÓÚ¸ Á‡ ¯ÚÛÍÛ, /¯Ú";
+			this->dataGridViewTextBoxColumn15->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn15->Name = L"dataGridViewTextBoxColumn15";
+			this->dataGridViewTextBoxColumn15->ReadOnly = true;
+			this->dataGridViewTextBoxColumn15->Width = 125;
+			// 
+			// dataGridViewTextBoxColumn16
+			// 
+			this->dataGridViewTextBoxColumn16->HeaderText = L"œÓÎÌ‡ˇ ÒÚÓËÏÓÚ¸ ‰ÂÚ‡ÎÂÈ";
+			this->dataGridViewTextBoxColumn16->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
+			this->dataGridViewTextBoxColumn16->ReadOnly = true;
+			this->dataGridViewTextBoxColumn16->Width = 125;
+			// 
 			// EquipmentPriceCalculator
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1612, 1055);
+			this->ClientSize = System::Drawing::Size(1209, 857);
+			this->Controls->Add(this->OrderPage);
+			this->Controls->Add(this->HomePage);
 			this->Controls->Add(this->AddingEquipmentPage);
 			this->Controls->Add(this->EquipmentListPage);
 			this->Controls->Add(this->DetailsListPage);
-			this->Controls->Add(this->HomePage);
 			this->Controls->Add(this->MainTopMenu);
 			this->MainMenuStrip = this->MainTopMenu;
-			this->Margin = System::Windows::Forms::Padding(5);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"EquipmentPriceCalculator";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EquipmentPriceCalculator";
@@ -1162,6 +1479,10 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 			this->AddingEquipmentPage->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AddingEquipmentPage_DetailsListDataGrid))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AddingEquipmentPage_ComponentsListDataGrid))->EndInit();
+			this->OrderPage->ResumeLayout(false);
+			this->OrderPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_EquipmentDataGrid))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_OrderedEquipmentDataGrid))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1259,5 +1580,18 @@ private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸Œ·ÓÛ‰Ó‚‡ÌËÂToolStri
 	private: System::Void EquipmentListPage_DataGrid_CellBeginEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellCancelEventArgs^ e);
 	private: System::Void EquipmentListPage__AddingButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void AddingEquipmentPage_ExitfromAddingEquipmentPageButton_Click(System::Object^ sender, System::EventArgs^ e);
+
+			//OrderPage
+	private: System::Void ShowEquipmentListInOrderPageEquipmentGrid();
+	private: System::Void OrderPage_EquipmentSearchTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OrderPage_EquipmentSortTypeComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OrderPage_VisibleChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OrderPage_OrderEquipment_onClick(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OrderPage_EquipmentList_deletingContextMenu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+	private: System::Void OrderPage_EquipmentGrid_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	private: System::Void OrderPage_ShowEquipmentListInOrderedEquipmentGrid();
+	private: System::Void OrderPage_OrderedEquipmentSearchTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OrderPage_OrderedEquipmentSortTypeComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+	  
 };
 }

@@ -139,6 +139,7 @@
     <ClInclude Include="GlobalList.h" />
     <ClInclude Include="HomePage.h" />
     <ClInclude Include="MainTopMenu.h" />
+    <ClInclude Include="OrderPage.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DetailAddingWindow.resx">
