@@ -105,19 +105,28 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsL
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::deleteDetail_onClick(System::Object^ sender, System::EventArgs^ e)
 {
-    ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
-    if (menuItem != nullptr) {
-        DataGridView^ DetailsGrid = this->DetailsListPage_DataGrid;
-        int rowIndex = safe_cast<int>(menuItem->Tag);
-        String^ name = DetailsGrid->Rows[rowIndex]->Cells[1]->Value->ToString();
-        msclr::interop::marshal_context context;
-        std::string DetailNameStr = context.marshal_as<std::string>(name);
-        // Ваш код для удаления детали по rowIndex
-        //MessageBox::Show("Удаление строки: " + rowIndex.ToString());
-        this->GlobalStorage.removeDetailByName(DetailNameStr);
-        ShowDetailsListInDetailsGrid();
-        // Отписываемся от события
-        //menuItem->Click -= gcnew EventHandler(this, &EquipmentPriceCalculator::deleteDetail_onClick);
+
+
+    System::Windows::Forms::DialogResult result;
+    result = System::Windows::Forms::MessageBox::Show("Do you want to proceed?", "Confirmation", System::Windows::Forms::MessageBoxButtons::OKCancel);
+    if (result == System::Windows::Forms::DialogResult::OK) {
+        ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
+        if (menuItem != nullptr) {
+            DataGridView^ DetailsGrid = this->DetailsListPage_DataGrid;
+            int rowIndex = safe_cast<int>(menuItem->Tag);
+            String^ name = DetailsGrid->Rows[rowIndex]->Cells[1]->Value->ToString();
+            msclr::interop::marshal_context context;
+            std::string DetailNameStr = context.marshal_as<std::string>(name);
+            // Ваш код для удаления детали по rowIndex
+            //MessageBox::Show("Удаление строки: " + rowIndex.ToString());
+            this->GlobalStorage.removeDetailByName(DetailNameStr);
+            ShowDetailsListInDetailsGrid();
+            // Отписываемся от события
+            //menuItem->Click -= gcnew EventHandler(this, &EquipmentPriceCalculator::deleteDetail_onClick);
+        }
+    }
+    else {
+
     }
 }
 

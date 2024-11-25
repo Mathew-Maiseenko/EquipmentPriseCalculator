@@ -217,6 +217,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_RemovingComponentContextMenu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e)
 {
+
     System::Windows::Forms::ContextMenuStrip^ menu = dynamic_cast<System::Windows::Forms::ContextMenuStrip^>(sender);
     if (menu != nullptr) {
         ToolStripMenuItem^ deleteDetail = dynamic_cast<ToolStripMenuItem^>(menu->Items[0]);
@@ -233,18 +234,26 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
 
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::removeEquipmentsComponent_onClick(System::Object^ sender, System::EventArgs^ e)
 {
-    ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
-    if (menuItem != nullptr) {
-        DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
-        int rowIndex = safe_cast<int>(menuItem->Tag);
-        String^ name = DetailsGrid->Rows[rowIndex]->Cells[1]->Value->ToString();
-        msclr::interop::marshal_context context;
-        std::string ComponentNameStr = context.marshal_as<std::string>(name);
-        // Ваш код для удаления детали по rowIndex
-        //MessageBox::Show("Удаление строки: " + rowIndex.ToString());
-        this->GlobalStorage.removeComponentFromCurEquipmentToAddByName(ComponentNameStr);
-        AddingEquipmentPage_ShowComponentsListInGrid();
-        //ShowDetailsListInDetailsGrid();
+
+    System::Windows::Forms::DialogResult result;
+    result = System::Windows::Forms::MessageBox::Show("Вы уверены что хотите удалить объект?", "Подтверждение", System::Windows::Forms::MessageBoxButtons::OKCancel);
+    if (result == System::Windows::Forms::DialogResult::OK) {
+        ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
+        if (menuItem != nullptr) {
+            DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
+            int rowIndex = safe_cast<int>(menuItem->Tag);
+            String^ name = DetailsGrid->Rows[rowIndex]->Cells[3]->Value->ToString();
+            msclr::interop::marshal_context context;
+            std::string ComponentNameStr = context.marshal_as<std::string>(name);
+            // Ваш код для удаления детали по rowIndex
+            //MessageBox::Show("Удаление строки: " + rowIndex.ToString());
+            this->GlobalStorage.removeComponentFromCurEquipmentToAddByName(ComponentNameStr);
+            AddingEquipmentPage_ShowComponentsListInGrid();
+            //ShowDetailsListInDetailsGrid();
+
+        }
+    }
+    else {
 
     }
     return System::Void();

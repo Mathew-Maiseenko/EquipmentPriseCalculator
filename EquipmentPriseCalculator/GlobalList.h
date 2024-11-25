@@ -1448,6 +1448,16 @@ public:
         curEquipmentToAdd.DetailsCount[componentsName] = componentsCount;
     }
 
+    void editCountOfOrderedEquipmentByName(string componentsName, int componentsCount) {
+        for (auto curEquip : OrderedEquipmentList)
+        {
+            if (curEquip.equip.Name == componentsName)
+            {
+                curEquip.equipmentsCount = componentsCount;
+            }
+        }
+    }
+
     void incrementCountOfTheEquipmentsComponentByName(string componentsName) {
         curEquipmentToAdd.DetailsCount[componentsName] = curEquipmentToAdd.DetailsCount[componentsName] + 1;
     }
@@ -1461,7 +1471,7 @@ public:
         {
             if (curEquip.equip.Name == equipmentName)
             {
-                curEquip.equipmentsCount = curEquip.equipmentsCount - 1;
+                curEquip.equipmentsCount = (curEquip.equipmentsCount - 1);
             }
         }
     }
@@ -1471,7 +1481,7 @@ public:
         {
             if (curEquip.equip.Name == equipmentName)
             {
-                curEquip.equipmentsCount = curEquip.equipmentsCount + 1;
+                curEquip.equipmentsCount = (curEquip.equipmentsCount + 1);
             }
         }
     }
@@ -1753,18 +1763,27 @@ public:
 
         for (auto curEquipment : EquipmentList) {
             if (curEquipment.Name == equipmentNameToAdd) {
+                bool isAlreadyOrdered = false;
 
                 for (auto curOrderedEquipment : OrderedEquipmentList) {
-                    if (curEquipment.Name == curOrderedEquipment.equip.Name) {
+                    if (curOrderedEquipment.equip.Name == equipmentNameToAdd) {
+                        isAlreadyOrdered = true;
                         ++curOrderedEquipment.equipmentsCount;
+                        //string errorMessage = to_string(curOrderedEquipment.equipmentsCount);
+                        //MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
                         break;
                     }
                 }
 
-                OrderedEquipment equipmentToAdd;
-                equipmentToAdd.equip = curEquipment;
-                equipmentToAdd.equipmentsCount = 1;
-                OrderedEquipmentList.push_back(equipmentToAdd);
+                if (!isAlreadyOrdered)
+                {
+                    OrderedEquipment equipmentToAdd;
+                    equipmentToAdd.equip = curEquipment;
+                    equipmentToAdd.equipmentsCount = 1;
+                    OrderedEquipmentList.push_back(equipmentToAdd);
+                }
+               
+
                 break;
             }
         }

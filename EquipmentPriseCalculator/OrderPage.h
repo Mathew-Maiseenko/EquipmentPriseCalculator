@@ -110,7 +110,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
         ToolStripMenuItem^ deleteDetail = dynamic_cast<ToolStripMenuItem^>(menu->Items[0]);
         if (deleteDetail != nullptr) {
             // Обновляем Tag элемента меню
-            DataGridView^ DetailsGrid = this->EquipmentListPage_DataGrid;
+            DataGridView^ DetailsGrid = this->OrderPage_EquipmentDataGrid;
             System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(DetailsGrid->PointToClient(Cursor->Position).X, DetailsGrid->PointToClient(Cursor->Position).Y);
             if (hit->RowIndex >= 0) {
                 deleteDetail->Tag = hit->RowIndex;
@@ -124,7 +124,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
 {
     ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
     if (menuItem != nullptr) {
-        DataGridView^ DetailsGrid = this->EquipmentListPage_DataGrid;
+        DataGridView^ DetailsGrid = this->OrderPage_EquipmentDataGrid;
         int rowIndex = safe_cast<int>(menuItem->Tag);
         String^ name = DetailsGrid->Rows[rowIndex]->Cells[1]->Value->ToString();
         msclr::interop::marshal_context context;
@@ -135,7 +135,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
 
         this->GlobalStorage.addEquipmentToOrderListByName(EquipmentNameStr);
         ShowEquipmentListInOrderPageEquipmentGrid();
-
+        OrderPage_ShowEquipmentListInOrderedEquipmentGrid();
 
 
         // Отписываемся от события
@@ -203,7 +203,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
     return System::Void();
 }
 
-inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
 {
     DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
 
@@ -234,11 +234,21 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
     return System::Void();
 }
 
-
-
-inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_CellBeginEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellCancelEventArgs^ e)
 {
-    DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
+    DataGridView^ EquipmentsGrid = this->OrderPage_OrderedEquipmentDataGrid;
+
+    int curColumnIndex = e->ColumnIndex;
+    int curRowIndex = e->RowIndex;
+
+    ValueBeforeEdit_OrderPage_OrderedEquipment_DataGrid = EquipmentsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value->ToString();
+
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_OrderedEquipmentGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+{
+    DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
 
     int curColumnIndex = e->ColumnIndex;
     int curRowIndex = e->RowIndex;
@@ -264,31 +274,22 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
         if (curColumnIndex != 4)
         {
             isCorrect = false;
-            msclr::interop::marshal_context context;
-            string oldValue = this->GlobalStorage.getOldComponentsValue(newComponentsNameStd, curColumnIndex);
-            System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
-            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_OrderPage_OrderedEquipment_DataGrid;
 
-            string errorMessage = "Можно изменить только необходимое количество компонентов!";
+            string errorMessage = "Можно изменить только количество заказанного оборудования!";
             MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
         }
         else if (!this->GlobalStorage.is_number(ComponentsCountStd))
         {
             isCorrect = false;
-            msclr::interop::marshal_context context;
-            string oldValue = this->GlobalStorage.getOldComponentsValue(newComponentsNameStd, curColumnIndex);
-            System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
-            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_OrderPage_OrderedEquipment_DataGrid;
 
             string errorMessage = "Количество обязано быть числом";
             MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
         }
         else if (newValueStd.size() >= 15) {
             isCorrect = false;
-            msclr::interop::marshal_context context;
-            string oldValue = this->GlobalStorage.getOldComponentsValue(newComponentsNameStd, curColumnIndex);
-            System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
-            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+            DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_OrderPage_OrderedEquipment_DataGrid;
             string errorMessage = "Введенное значение слишком велико";
             MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
         }
@@ -298,19 +299,87 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
         {
             //MessageBox::Show(gcnew String(DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value->ToString()));
             int newComponentsCount = Convert::ToInt64(DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value);
-            this->GlobalStorage.editCountOfTheEquipmentsComponentByName(newComponentsNameStd, newComponentsCount);
-            AddingEquipmentPage_ShowComponentsListInGrid();
+            this->GlobalStorage.editCountOfOrderedEquipmentByName(newComponentsNameStd, newComponentsCount);
+            OrderPage_ShowEquipmentListInOrderedEquipmentGrid();
         }
     }
     else
     {
-        msclr::interop::marshal_context context;
-        string oldValue = this->GlobalStorage.getOldDetailsValue(curColumnIndex, curRowIndex);
-        System::String^ oldValueCs = context.marshal_as<System::String^>(oldValue);
-        DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = oldValueCs;
+        DetailsGrid->Rows[curRowIndex]->Cells[curColumnIndex]->Value = ValueBeforeEdit_OrderPage_OrderedEquipment_DataGrid;
         string errorMessage = "Значение в ячейке не может быть пустым!\n Есди вы хотите удалить какой-либо элемент - нажмите по нему правой кнопкой мыши и выберите пункт \"Удалить\"";
         MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
     }
 
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    if (e->Button == System::Windows::Forms::MouseButtons::Right) {
+        DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
+        System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(e->X, e->Y);
+        if (hit->RowIndex >= 0 && hit->ColumnIndex >= 0) {
+            int rowIndex = hit->RowIndex;
+
+            // Создаем новое контекстное меню
+            System::Windows::Forms::ContextMenuStrip^ menu1 = gcnew System::Windows::Forms::ContextMenuStrip();
+
+            ToolStripMenuItem^ deleteDetail = gcnew ToolStripMenuItem("Удалить компонент");
+            deleteDetail->Tag = rowIndex; // Сохраняем индекс строки в Tag
+            deleteDetail->Click += gcnew EventHandler(this, &EquipmentPriceCalculator::removeEquipmentsFromOrder_onClick);
+            menu1->Items->Add(deleteDetail);
+
+            // Обработчик события Opening для обновления Tag
+            menu1->Opening += gcnew System::ComponentModel::CancelEventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_RemovingEquipmentFromOrderContextMenu_Opening);
+
+            // Присваиваем новое контекстное меню
+            DetailsGrid->ContextMenuStrip = menu1;
+            menu1->Show(DetailsGrid, e->Location); // Показываем контекстное меню
+        }
+    }
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_RemovingEquipmentFromOrderContextMenu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e)
+{
+
+    System::Windows::Forms::ContextMenuStrip^ menu = dynamic_cast<System::Windows::Forms::ContextMenuStrip^>(sender);
+    if (menu != nullptr) {
+        ToolStripMenuItem^ deleteDetail = dynamic_cast<ToolStripMenuItem^>(menu->Items[0]);
+        if (deleteDetail != nullptr) {
+            // Обновляем Tag элемента меню
+            DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
+            System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(DetailsGrid->PointToClient(Cursor->Position).X, DetailsGrid->PointToClient(Cursor->Position).Y);
+            if (hit->RowIndex >= 0) {
+                deleteDetail->Tag = hit->RowIndex;
+            }
+        }
+    }
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::removeEquipmentsFromOrder_onClick(System::Object^ sender, System::EventArgs^ e)
+{
+
+    System::Windows::Forms::DialogResult result;
+    result = System::Windows::Forms::MessageBox::Show("Вы уверены что хотите удалить объект?", "Подтверждение", System::Windows::Forms::MessageBoxButtons::OKCancel);
+    if (result == System::Windows::Forms::DialogResult::OK) {
+        ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
+        if (menuItem != nullptr) {
+            DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
+            int rowIndex = safe_cast<int>(menuItem->Tag);
+            String^ name = DetailsGrid->Rows[rowIndex]->Cells[3]->Value->ToString();
+            msclr::interop::marshal_context context;
+            std::string ComponentNameStr = context.marshal_as<std::string>(name);
+            // Ваш код для удаления детали по rowIndex
+            //MessageBox::Show("Удаление строки: " + rowIndex.ToString());
+            this->GlobalStorage.removeOrderedEquipmentByName(ComponentNameStr);
+            OrderPage_ShowEquipmentListInOrderedEquipmentGrid();
+            //ShowDetailsListInDetailsGrid();
+
+        }
+    }
+    else {
+
+    }
     return System::Void();
 }

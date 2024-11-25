@@ -466,7 +466,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage->Controls->Add(this->HomePage_EquipmentButton);
 			this->HomePage->Controls->Add(this->label1);
 			this->HomePage->Controls->Add(this->HomePage_DetailsButton);
-			this->HomePage->Location = System::Drawing::Point(106, 617);
+			this->HomePage->Location = System::Drawing::Point(306, 13);
 			this->HomePage->Name = L"HomePage";
 			this->HomePage->Size = System::Drawing::Size(547, 262);
 			this->HomePage->TabIndex = 1;
@@ -1228,6 +1228,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->OrderPage_EquipmentDataGrid->RowHeadersWidth = 51;
 			this->OrderPage_EquipmentDataGrid->Size = System::Drawing::Size(331, 134);
 			this->OrderPage_EquipmentDataGrid->TabIndex = 24;
+			this->OrderPage_EquipmentDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentGrid_MouseClick);
 			// 
 			// dataGridViewTextBoxColumn3
 			// 
@@ -1392,6 +1393,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->OrderPage_OrderedEquipmentDataGrid->RowHeadersWidth = 51;
 			this->OrderPage_OrderedEquipmentDataGrid->Size = System::Drawing::Size(363, 135);
 			this->OrderPage_OrderedEquipmentDataGrid->TabIndex = 0;
+			this->OrderPage_OrderedEquipmentDataGrid->CellBeginEdit += gcnew System::Windows::Forms::DataGridViewCellCancelEventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_CellBeginEdit);
+			this->OrderPage_OrderedEquipmentDataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_CellContentClick);
+			this->OrderPage_OrderedEquipmentDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_MouseClick);
 			// 
 			// dataGridViewButtonColumn1
 			// 
@@ -1453,12 +1457,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1209, 857);
-			this->Controls->Add(this->OrderPage);
 			this->Controls->Add(this->HomePage);
+			this->Controls->Add(this->OrderPage);
 			this->Controls->Add(this->AddingEquipmentPage);
-			this->Controls->Add(this->EquipmentListPage);
-			this->Controls->Add(this->DetailsListPage);
 			this->Controls->Add(this->MainTopMenu);
+			this->Controls->Add(this->DetailsListPage);
+			this->Controls->Add(this->EquipmentListPage);
 			this->MainMenuStrip = this->MainTopMenu;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"EquipmentPriceCalculator";
@@ -1592,6 +1596,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 	private: System::Void OrderPage_ShowEquipmentListInOrderedEquipmentGrid();
 	private: System::Void OrderPage_OrderedEquipmentSearchTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void OrderPage_OrderedEquipmentSortTypeComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
-	  
+
+	String^ ValueBeforeEdit_OrderPage_OrderedEquipment_DataGrid;
+	private: System::Void OrderPage_OrderedEquipmentGrid_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+	private: System::Void OrderPage_OrderedEquipmentDataGrid_CellBeginEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellCancelEventArgs^ e);
+	private: System::Void OrderPage_OrderedEquipmentDataGrid_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	private: System::Void OrderPage_OrderedEquipmentDataGrid_RemovingEquipmentFromOrderContextMenu_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+	private: System::Void removeEquipmentsFromOrder_onClick(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void OrderPage_OrderedEquipmentDataGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 };
 }
