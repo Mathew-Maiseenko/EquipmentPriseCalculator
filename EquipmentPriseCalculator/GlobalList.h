@@ -1456,6 +1456,35 @@ public:
         curEquipmentToAdd.DetailsCount[componentsName] = curEquipmentToAdd.DetailsCount[componentsName] - 1;
     }
 
+    void decrementCountOfOrderedEquipmentByName(string equipmentName) {
+        for (auto curEquip : OrderedEquipmentList)
+        {
+            if (curEquip.equip.Name == equipmentName)
+            {
+                curEquip.equipmentsCount = curEquip.equipmentsCount - 1;
+            }
+        }
+    }
+
+    void incrementCountOfOrderedEquipmentByName(string equipmentName) {
+        for (auto curEquip : OrderedEquipmentList)
+        {
+            if (curEquip.equip.Name == equipmentName)
+            {
+                curEquip.equipmentsCount = curEquip.equipmentsCount + 1;
+            }
+        }
+    }
+
+    void removeOrderedEquipmentByName(string equipmentName) {
+        for (auto it = OrderedEquipmentList.begin(); it != OrderedEquipmentList.end(); ++it) {
+            if (it->equip.Name == equipmentName) {
+                OrderedEquipmentList.erase(it);
+                break;
+            }
+        }
+    }
+
     std::string getOldDetailsValue(int collumnIndex, int rowIndex) {
         Detail curDetail = DetailList.at(rowIndex);
         if (collumnIndex == 0)
