@@ -307,8 +307,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn15;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn16;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn10;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+
+
+
 
 
 
@@ -425,9 +428,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->OrderPage = (gcnew System::Windows::Forms::Panel());
 			this->OrderPage_TotalPrice = (gcnew System::Windows::Forms::Label());
 			this->OrderPage_EquipmentDataGrid = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->OrderPage_EquipmentSearchTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->OrderPage_EquipmentSortTypeComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->OrderPage_EquipmentSortTypeTitle = (gcnew System::Windows::Forms::Label());
@@ -446,6 +446,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->dataGridViewTextBoxColumn14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->HomePage->SuspendLayout();
 			this->DetailsListPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DetailsListPage_DataGrid))->BeginInit();
@@ -466,7 +469,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->HomePage->Controls->Add(this->HomePage_EquipmentButton);
 			this->HomePage->Controls->Add(this->label1);
 			this->HomePage->Controls->Add(this->HomePage_DetailsButton);
-			this->HomePage->Location = System::Drawing::Point(306, 13);
+			this->HomePage->Location = System::Drawing::Point(536, 27);
 			this->HomePage->Name = L"HomePage";
 			this->HomePage->Size = System::Drawing::Size(547, 262);
 			this->HomePage->TabIndex = 1;
@@ -1221,7 +1224,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->OrderPage_EquipmentDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->OrderPage_EquipmentDataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->dataGridViewTextBoxColumn3,
-					this->Column5, this->dataGridViewTextBoxColumn10
+					this->dataGridViewTextBoxColumn10, this->Column5
 			});
 			this->OrderPage_EquipmentDataGrid->Location = System::Drawing::Point(8, 86);
 			this->OrderPage_EquipmentDataGrid->Name = L"OrderPage_EquipmentDataGrid";
@@ -1229,31 +1232,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->OrderPage_EquipmentDataGrid->Size = System::Drawing::Size(331, 134);
 			this->OrderPage_EquipmentDataGrid->TabIndex = 24;
 			this->OrderPage_EquipmentDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentGrid_MouseClick);
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->Frozen = true;
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Id";
-			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 50;
-			// 
-			// Column5
-			// 
-			this->Column5->Frozen = true;
-			this->Column5->HeaderText = L"Стоимость за штуку, р/шт";
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this->dataGridViewTextBoxColumn10->Frozen = true;
-			this->dataGridViewTextBoxColumn10->HeaderText = L"Название Оборудования";
-			this->dataGridViewTextBoxColumn10->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
-			this->dataGridViewTextBoxColumn10->ReadOnly = true;
-			this->dataGridViewTextBoxColumn10->Width = 170;
 			// 
 			// OrderPage_EquipmentSearchTextBox
 			// 
@@ -1270,8 +1248,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			// 
 			this->OrderPage_EquipmentSortTypeComboBox->FormattingEnabled = true;
 			this->OrderPage_EquipmentSortTypeComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"Id детали", L"Названию детали",
-					L"Стоимости детали"
+				L"Id оборудования", L"Названию оборудования",
+					L"Стоимости оборудования"
 			});
 			this->OrderPage_EquipmentSortTypeComboBox->Location = System::Drawing::Point(353, 85);
 			this->OrderPage_EquipmentSortTypeComboBox->Name = L"OrderPage_EquipmentSortTypeComboBox";
@@ -1451,6 +1429,31 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
 			this->dataGridViewTextBoxColumn16->ReadOnly = true;
 			this->dataGridViewTextBoxColumn16->Width = 125;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->Frozen = true;
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Id";
+			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			this->dataGridViewTextBoxColumn3->Width = 50;
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this->dataGridViewTextBoxColumn10->Frozen = true;
+			this->dataGridViewTextBoxColumn10->HeaderText = L"Название Оборудования";
+			this->dataGridViewTextBoxColumn10->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
+			this->dataGridViewTextBoxColumn10->ReadOnly = true;
+			this->dataGridViewTextBoxColumn10->Width = 170;
+			// 
+			// Column5
+			// 
+			this->Column5->Frozen = true;
+			this->Column5->HeaderText = L"Стоимость за штуку, р/шт";
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
 			// 
 			// EquipmentPriceCalculator
 			// 

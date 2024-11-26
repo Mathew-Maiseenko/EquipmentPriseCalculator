@@ -75,7 +75,7 @@ class GlobalList {
 
     Equipment curEquipmentToAdd;
 
-    vector<OrderedEquipment> OrderedEquipmentList;
+    map<string, OrderedEquipment> OrderedEquipmentList;
 
 public:
     GlobalList() {
@@ -108,7 +108,16 @@ public:
     }
 
     vector<OrderedEquipment> getOrderedEquipmentList(){
-        return this->OrderedEquipmentList;
+        vector<OrderedEquipment> components;
+        for (auto equip : OrderedEquipmentList)
+        {
+            components.push_back(equip.second);
+        }
+        std::sort(components.begin(), components.end(), [](OrderedEquipment a, OrderedEquipment b) {
+            return a.equip.id < b.equip.id;
+            });
+
+        return components;
     }
 
     int getMaxEquipmentsDetailsCount() {
@@ -339,7 +348,7 @@ public:
     }
 
     vector<OrderedEquipment> getSortedOrderedEquipmentList(String^ SelectedSortType) {
-        vector<OrderedEquipment> SortComponentList = OrderedEquipmentList;
+        vector<OrderedEquipment> SortComponentList = getOrderedEquipmentList();
         if (SelectedSortType == "Id оборудования")
         {
             std::sort(SortComponentList.begin(), SortComponentList.end(), [](OrderedEquipment a, OrderedEquipment b) {
@@ -1449,13 +1458,14 @@ public:
     }
 
     void editCountOfOrderedEquipmentByName(string componentsName, int componentsCount) {
-        for (auto curEquip : OrderedEquipmentList)
-        {
-            if (curEquip.equip.Name == componentsName)
-            {
-                curEquip.equipmentsCount = componentsCount;
-            }
-        }
+        OrderedEquipmentList[componentsName].equipmentsCount = componentsCount;
+        //for (auto curEquip : OrderedEquipmentList)
+        //{
+        //    if (curEquip.equip.Name == componentsName)
+        //    {
+        //        curEquip.equipmentsCount = componentsCount;
+        //    }
+        //}
     }
 
     void incrementCountOfTheEquipmentsComponentByName(string componentsName) {
@@ -1467,32 +1477,15 @@ public:
     }
 
     void decrementCountOfOrderedEquipmentByName(string equipmentName) {
-        for (auto curEquip : OrderedEquipmentList)
-        {
-            if (curEquip.equip.Name == equipmentName)
-            {
-                curEquip.equipmentsCount = (curEquip.equipmentsCount - 1);
-            }
-        }
+        OrderedEquipmentList[equipmentName].equipmentsCount = OrderedEquipmentList[equipmentName].equipmentsCount - 1;
     }
 
     void incrementCountOfOrderedEquipmentByName(string equipmentName) {
-        for (auto curEquip : OrderedEquipmentList)
-        {
-            if (curEquip.equip.Name == equipmentName)
-            {
-                curEquip.equipmentsCount = (curEquip.equipmentsCount + 1);
-            }
-        }
+        OrderedEquipmentList[equipmentName].equipmentsCount = OrderedEquipmentList[equipmentName].equipmentsCount + 1;
     }
 
     void removeOrderedEquipmentByName(string equipmentName) {
-        for (auto it = OrderedEquipmentList.begin(); it != OrderedEquipmentList.end(); ++it) {
-            if (it->equip.Name == equipmentName) {
-                OrderedEquipmentList.erase(it);
-                break;
-            }
-        }
+        OrderedEquipmentList.erase(equipmentName);
     }
 
     std::string getOldDetailsValue(int collumnIndex, int rowIndex) {
@@ -1764,24 +1757,34 @@ public:
         for (auto curEquipment : EquipmentList) {
             if (curEquipment.Name == equipmentNameToAdd) {
                 bool isAlreadyOrdered = false;
+                
+                //for (auto curOrderedEquipment : OrderedEquipmentList) {
+                //    if (curOrderedEquipment.equip.Name == equipmentNameToAdd) {
+                //        isAlreadyOrdered = true;
+                //        ++curOrderedEquipment.equipmentsCount;
+                //        //string errorMessage = to_string(curOrderedEquipment.equipmentsCount);
+                //        //MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
+                //        break;
+                //    }
+                //}
 
-                for (auto curOrderedEquipment : OrderedEquipmentList) {
-                    if (curOrderedEquipment.equip.Name == equipmentNameToAdd) {
-                        isAlreadyOrdered = true;
-                        ++curOrderedEquipment.equipmentsCount;
-                        //string errorMessage = to_string(curOrderedEquipment.equipmentsCount);
-                        //MessageBox::Show(gcnew String(errorMessage.c_str()), "Error", static_cast<MessageBoxButtons>(MessageBoxButtons::OK), static_cast<MessageBoxIcon>(MessageBoxIcon::Error));
-                        break;
-                    }
+                if (OrderedEquipmentList.find(equipmentNameToAdd) != OrderedEquipmentList.end()) {
+                    OrderedEquipmentList[equipmentNameToAdd].equipmentsCount = OrderedEquipmentList[equipmentNameToAdd].equipmentsCount + 1;
                 }
-
-                if (!isAlreadyOrdered)
-                {
+                else {
                     OrderedEquipment equipmentToAdd;
                     equipmentToAdd.equip = curEquipment;
                     equipmentToAdd.equipmentsCount = 1;
-                    OrderedEquipmentList.push_back(equipmentToAdd);
+                    OrderedEquipmentList[equipmentNameToAdd] = equipmentToAdd;
                 }
+
+                //if (!isAlreadyOrdered)
+                //{
+                //    OrderedEquipment equipmentToAdd;
+                //    equipmentToAdd.equip = curEquipment;
+                //    equipmentToAdd.equipmentsCount = 1;
+                //    OrderedEquipmentList[equipmentNameToAdd] = equipmentToAdd;
+                //}
                
 
                 break;
