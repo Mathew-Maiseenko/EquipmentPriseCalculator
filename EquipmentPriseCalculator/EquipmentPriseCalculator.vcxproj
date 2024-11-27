@@ -132,7 +132,7 @@
     <ClInclude Include="EquipmentListPage.h" />
     <ClInclude Include="MainApplication.h" />
     <ClInclude Include="DetailsListPage.h" />
-    <ClInclude Include="DetailsPage.h" />
+    <ClInclude Include="PagesManipulations.h" />
     <ClInclude Include="EquipmentPriceCalculator.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -6,9 +6,3 @@ System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowGuidOnClick
 	system("guide.pdf");
 	return System::Void();
 }
-inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEquipmentListPage(System::Object^ sender, System::EventArgs^ e)
-{
-	HomePage->Hide();
-	EquipmentListPage->Show();
-	return System::Void();
-}

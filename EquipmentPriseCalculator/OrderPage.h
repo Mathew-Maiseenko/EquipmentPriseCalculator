@@ -339,7 +339,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
         System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(e->X, e->Y);
         if (hit->RowIndex >= 0 && hit->ColumnIndex >= 0) {
             int rowIndex = hit->RowIndex;
-            SelectRow(DetailsGrid, rowIndex);
+          
 
             // Создаем новое контекстное меню
             System::Windows::Forms::ContextMenuStrip^ menu1 = gcnew System::Windows::Forms::ContextMenuStrip();
@@ -368,10 +368,16 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
         ToolStripMenuItem^ deleteDetail = dynamic_cast<ToolStripMenuItem^>(menu->Items[0]);
         if (deleteDetail != nullptr) {
             // Обновляем Tag элемента меню
-            DataGridView^ DetailsGrid = this->AddingEquipmentPage_ComponentsListDataGrid;
+            DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
             System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(DetailsGrid->PointToClient(Cursor->Position).X, DetailsGrid->PointToClient(Cursor->Position).Y);
             if (hit->RowIndex >= 0) {
                 deleteDetail->Tag = hit->RowIndex;
+
+                if (hit->RowIndex >= 0 && hit->RowIndex < DetailsGrid->Rows->Count) {
+                    DetailsGrid->ClearSelection();
+                    DetailsGrid->Rows[hit->RowIndex]->Selected = true;
+                    DetailsGrid->CurrentCell = DetailsGrid->Rows[hit->RowIndex]->Cells[0];
+                }
             }
         }
     }

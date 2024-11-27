@@ -29,7 +29,7 @@
     <ClInclude Include="HomePage.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="DetailsPage.h">
+    <ClInclude Include="PagesManipulations.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="DetailsListPage.h">

@@ -138,6 +138,12 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::Equipmen
             System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(DetailsGrid->PointToClient(Cursor->Position).X, DetailsGrid->PointToClient(Cursor->Position).Y);
             if (hit->RowIndex >= 0) {
                 deleteDetail->Tag = hit->RowIndex;
+
+                if (hit->RowIndex >= 0 && hit->RowIndex < DetailsGrid->Rows->Count) {
+                    DetailsGrid->ClearSelection();
+                    DetailsGrid->Rows[hit->RowIndex]->Selected = true;
+                    DetailsGrid->CurrentCell = DetailsGrid->Rows[hit->RowIndex]->Cells[0];
+                }
             }
         }
     }

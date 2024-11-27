@@ -1,7 +1,7 @@
 #include "EquipmentPriceCalculator.h"
 #include "HomePage.h"
 #include "GlobalList.h"
-#include "DetailsPage.h"
+#include "PagesManipulations.h"
 #include "DetailsListPage.h"
 #include "EquipmentListPage.h"
 #include "MainTopMenu.h"
