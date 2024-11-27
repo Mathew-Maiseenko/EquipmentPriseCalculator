@@ -42,12 +42,19 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEqui
     {
         String^ DetailId = EquipmentList.at(i).id.ToString();
         String^ DetailName = gcnew String(EquipmentList.at(i).Name.c_str());
-        String^ DetailPrice = Storage.getTotalEquipmentPrice(EquipmentList.at(i), &Storage).ToString();
+
+        double DetailCostDouble = Storage.getTotalEquipmentPrice(EquipmentList.at(i), &Storage);
+        double Nacenka = Storage.getNacenkaOnPrice();
+        double NDS = Storage.getNDS();
+        double DetailCostWithNdsAndNacenka = (DetailCostDouble + DetailCostDouble * Nacenka + DetailCostDouble * NDS);
+        String^ DetailCost = DetailCostWithNdsAndNacenka.ToString();
+
+        //String^ DetailPrice = Storage.getTotalEquipmentPrice(EquipmentList.at(i), &Storage).ToString();
 
         List<String^>^ EquipmentInfoRow = gcnew List<String^>();
         EquipmentInfoRow->Add(DetailId);
         EquipmentInfoRow->Add(DetailName);
-        EquipmentInfoRow->Add(DetailPrice);
+        EquipmentInfoRow->Add(DetailCost);
 
         array<String^>^ EquipmentInfoArray = EquipmentInfoRow->ToArray();
         EquipmentGrid->Rows->Add(EquipmentInfoArray);
@@ -114,6 +121,12 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
             System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(DetailsGrid->PointToClient(Cursor->Position).X, DetailsGrid->PointToClient(Cursor->Position).Y);
             if (hit->RowIndex >= 0) {
                 deleteDetail->Tag = hit->RowIndex;
+                DataGridView^ EquipmentGrid = this->OrderPage_EquipmentDataGrid;
+                if (hit->RowIndex >= 0 && hit->RowIndex < EquipmentGrid->Rows->Count) {
+                    EquipmentGrid->ClearSelection();
+                    EquipmentGrid->Rows[hit->RowIndex]->Selected = true;
+                    EquipmentGrid->CurrentCell = EquipmentGrid->Rows[hit->RowIndex]->Cells[0];
+                }
             }
         }
     }
@@ -180,9 +193,15 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
     {
         String^ DetailId = ComponentsList.at(i).equip.id.ToString();
         String^ DetailName = gcnew String(ComponentsList.at(i).equip.Name.c_str());
-        String^ DetailCost = Storage.getTotalEquipmentPrice(ComponentsList.at(i).equip, &Storage).ToString();
+
+        double DetailCostDouble = Storage.getTotalEquipmentPrice(ComponentsList.at(i).equip, &Storage);
+        double Nacenka = Storage.getNacenkaOnPrice();
+        double NDS = Storage.getNDS();
+        double DetailCostWithNdsAndNacenka = (DetailCostDouble + DetailCostDouble * Nacenka + DetailCostDouble * NDS);
+        String^ DetailCost = DetailCostWithNdsAndNacenka.ToString();
+
         String^ DetailCount = ComponentsList.at(i).equipmentsCount.ToString();
-        String^ DetailTotalPrice = (Storage.getTotalEquipmentPrice(ComponentsList.at(i).equip, &Storage) * ComponentsList.at(i).equipmentsCount).ToString();
+        String^ DetailTotalPrice = (DetailCostWithNdsAndNacenka * ComponentsList.at(i).equipmentsCount).ToString();
 
         array<String^>^ DetailInfoRow = { "-", "+" ,DetailId,  DetailName , DetailCount, DetailCost, DetailTotalPrice };
         DetailsGrid->Rows->Add(DetailInfoRow);
@@ -320,6 +339,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
         System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(e->X, e->Y);
         if (hit->RowIndex >= 0 && hit->ColumnIndex >= 0) {
             int rowIndex = hit->RowIndex;
+            SelectRow(DetailsGrid, rowIndex);
 
             // Создаем новое контекстное меню
             System::Windows::Forms::ContextMenuStrip^ menu1 = gcnew System::Windows::Forms::ContextMenuStrip();
@@ -381,5 +401,34 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::removeEq
     else {
 
     }
+    return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_MakeOrderButton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    System::Windows::Forms::DialogResult result;
+    result = System::Windows::Forms::MessageBox::Show("Вы уверены что хотите завершить заказ?", "Подтверждение", System::Windows::Forms::MessageBoxButtons::OKCancel);
+    if (result == System::Windows::Forms::DialogResult::OK) {
+        if (saveFileAsDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+            // Получение пути к выбранному файлу
+            String^ filePath = saveFileAsDialog->FileName;
+            // Преобразование пути к файлу из String^ в std::string
+            msclr::interop::marshal_context context;
+            std::string stdFilePath = context.marshal_as<std::string>(filePath);
+
+
+            if (filePath != nullptr)
+            {
+                this->OrderPage_OrderedEquipmentDataGrid->Rows->Clear();
+
+                DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
+
+                this->GlobalStorage.SaveAllInFileAs(stdFilePath);
+                
+            }
+        }
+        
+    }
+
     return System::Void();
 }

@@ -58,6 +58,9 @@ struct OrderedEquipment {
 
 class GlobalList {
 
+    double NDS = 0.2;
+    double NacenkaOnPrise = 0.1;
+
     string fileName;
 
     double WhalePrice;
@@ -105,6 +108,14 @@ public:
 
     vector<Equipment> getEquipmentList() {
         return this->EquipmentList;
+    }
+
+    double getNacenkaOnPrice() {
+        return this->NacenkaOnPrise;
+    }
+
+    double getNDS() {
+        return this->NDS;
     }
 
     vector<OrderedEquipment> getOrderedEquipmentList(){
@@ -1729,6 +1740,56 @@ public:
         return file;
 
     }
+
+    ofstream& SaveCheckInFileByFilename(string checkSavePath) {
+        std::ofstream file(checkSavePath);
+        if (file.is_open()) {
+            std::vector<std::string> headerTexts = { 
+                "Чек",
+                "Покупки оборудование",
+                "Через приложение",
+                "Equipment Price Calculator",
+                "___________________________________________________________________________________________" 
+            };
+
+            for (const auto& text : headerTexts) {
+                int padding = (92 - text.length()) / 2; 
+                if (padding < 0) padding = 0; 
+                file << std::setw(padding + text.length()) << std::right << text << std::endl; 
+            }
+            
+            file << std::right << "Товар\t Цена\t Кол-во\t Стоимость\t" << std::endl;
+
+            double TotalOrderPrice = 0;
+       
+            for (auto curOrderedEquipment : OrderedEquipmentList) {
+
+                double curEquipmentPrice = GetEquipmentPrice(curOrderedEquipment.second.equip);
+                int countOfOrderedEquipment = curOrderedEquipment.second.equipmentsCount;
+                double curEquipmentTotalPrice = countOfOrderedEquipment * curEquipmentPrice;
+                double curEquipmentTotalPriceWithNDS = countOfOrderedEquipment * curEquipmentPrice + countOfOrderedEquipment * curEquipmentPrice * NDS;
+
+                TotalOrderPrice += curEquipmentTotalPriceWithNDS;
+
+                file << curOrderedEquipment.first << "\t" 
+                    << curEquipmentPrice << "BYN\t" 
+                    << countOfOrderedEquipment << "\t"
+                    << curEquipmentTotalPrice << "BYN\n";
+
+                file << "НДС: " << 100 * NDS << "%\n"
+                    << "Итого: " << curEquipmentTotalPriceWithNDS << "BYN\n";
+                
+            }
+            file << "___________________________________________________________________________________________\n";
+
+            file << "ИТОГО К ОПЛАТЕ: " << TotalOrderPrice;
+
+            file.close();
+        }
+        return file;
+
+    }
+
     void removeDetailByName(string elementNameToDelete) {
 
         // Удаляем элемент из DetailList и DetailsNameMap

@@ -106,6 +106,8 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::Equipmen
         if (hit->RowIndex >= 0 && hit->ColumnIndex >= 0) {
             int rowIndex = hit->RowIndex;
 
+            SelectRow(EquipmentGrid, rowIndex);
+
             // Создаем новое контекстное меню
             System::Windows::Forms::ContextMenuStrip^ menu = gcnew System::Windows::Forms::ContextMenuStrip();
 

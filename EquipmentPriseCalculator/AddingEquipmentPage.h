@@ -69,6 +69,8 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::AddingEq
         if (hit->RowIndex >= 0 && hit->ColumnIndex >= 0) {
             int rowIndex = hit->RowIndex;
 
+            SelectRow(DetailsGrid, rowIndex);
+
             // Создаем новое контекстное меню
             System::Windows::Forms::ContextMenuStrip^ menu1 = gcnew System::Windows::Forms::ContextMenuStrip();
 

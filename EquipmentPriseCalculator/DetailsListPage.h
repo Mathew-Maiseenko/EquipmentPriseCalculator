@@ -65,9 +65,12 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::DetailsG
 {
     if (e->Button == System::Windows::Forms::MouseButtons::Right) {
         DataGridView^ DetailsGrid = this->DetailsListPage_DataGrid;
+
         System::Windows::Forms::DataGridView::HitTestInfo^ hit = DetailsGrid->HitTest(e->X, e->Y);
         if (hit->RowIndex >= 0 && hit->ColumnIndex >= 0) {
             int rowIndex = hit->RowIndex;
+
+            SelectRow(DetailsGrid, rowIndex);
 
             // Создаем новое контекстное меню
             System::Windows::Forms::ContextMenuStrip^ menu = gcnew System::Windows::Forms::ContextMenuStrip();
