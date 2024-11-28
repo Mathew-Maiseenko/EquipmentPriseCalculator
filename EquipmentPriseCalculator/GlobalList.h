@@ -88,13 +88,13 @@ public:
         //fstream EquipmentFile;
         //EquipmentFile.open("EquipmentSpisok.csv");
 
-        fileName = "GlobalSpisok.csv";
+        ///////////////////fileName = "GlobalSpisok.csv"; ///базовый
 
 
         //this->readDetailsFile(DetailFile, *this, "DetailSpisok.csv");
         //this->readEquipmentFile(EquipmentFile, *this, "EquipmentSpisok.csv");
 
-        readFile();
+        ///////////////////////readFile(); ///базовый
 
         //DetailFile.close();
         //EquipmentFile.close();
@@ -150,6 +150,18 @@ public:
         EquipmentList.clear();
         EquipmentNameMap.clear();
         readFile();
+    }
+
+    void createNewProject() {
+        fileName.clear();
+        EquipmentList.clear();
+        DetailList.clear();
+        DetailsNameMap.clear();
+        EquipmentNameMap.clear();
+        OrderedEquipmentList.clear();
+
+        Equipment emptyEquipment;
+        curEquipmentToAdd = emptyEquipment;
     }
 
     void readFile() {
@@ -1718,6 +1730,10 @@ public:
     void SaveAllInFileAs(string externalFileName) {
         fileName = externalFileName;
         SaveAllInFile();
+    }
+
+    bool getIsFilePathEmpty() {
+        return fileName.empty();
     }
 
     ofstream& SaveAllInFile() {
