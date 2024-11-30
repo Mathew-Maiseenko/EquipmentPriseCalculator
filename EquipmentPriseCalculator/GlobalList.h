@@ -17,6 +17,8 @@
 #include <string>
 #include <cctype>
 #include <numeric>
+#include <chrono>
+#include <ctime>
 //using namespace std;
 //#pragma warning(disable : 4996)
 //#define _CRT_SECURE_NO_WARNINGS
@@ -589,167 +591,6 @@ public:
 
 
 public:
-    //void mainPage() {
-    //    cout << "Введите номер пункта:\n";
-    //    cout << "1. Материалы\n";
-    //    cout << "2. Оборудование\n";
-    //    cout << "3. Выход\n";
-    //    while (true) {
-    //        if (_kbhit()) {
-    //            char ch = _getch();
-    //            if (ch == 49) { //1
-    //                system("cls");
-    //                MaterialPage();
-    //                break;
-    //            }
-    //            else if (ch == 50) { //2
-    //                system("cls");
-    //                EquipmentPage();
-    //                break;
-    //            }
-    //            else if (ch == 51) { //3
-    //                system("cls");
-    //                exit(0);
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //void EquipmentPage() {
-    //    cout << "Введите номер пункта:\n";
-    //    cout << "1. Смотреть весь список\n";
-    //    cout << "2. Редактировать список\n";
-    //    cout << "3. Поиск\n";
-    //    cout << "4. Выход\n";
-    //    while (true) {
-    //        if (_kbhit()) {
-    //            char ch = _getch();
-    //            if (ch == 49) { //1
-    //                system("cls");
-    //                LookWholeEquipmentListPage();
-    //                break;
-    //            }
-    //            else if (ch == 50) { //2
-    //                system("cls");
-    //                EditEquipmentListPage();
-    //                break;
-    //            }
-    //            else if (ch == 51) { //3
-    //                system("cls");
-    //                outputFindingEquipment();
-    //                break;
-    //            }
-    //            else if (ch == 52) { //4
-    //                system("cls");
-    //                mainPage();
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //void MaterialPage() {
-    //    cout << "Введите номер пункта:\n";
-    //    cout << "1. Смотреть весь список\n";
-    //    cout << "2. Редактировать список\n";
-    //    cout << "3. Поиск\n";
-    //    cout << "4. Выход\n";
-    //    while (true) {
-    //        if (_kbhit()) {
-    //            char ch = _getch();
-    //            if (ch == 49) { //1
-    //                system("cls");
-    //                LookWholeDetailListPage();
-    //                break;
-    //            }
-    //            else if (ch == 50) { //2
-    //                system("cls");
-    //                EditMaterialListPage();
-    //                break;
-    //            }
-    //            else if (ch == 51) { //3
-    //                system("cls");
-    //                outputFindingDetail();
-    //                break;
-    //            }
-    //            else if (ch == 52) { //4
-    //                system("cls");
-    //                mainPage();
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //void EditMaterialListPage() {
-    //    cout << "Выберете способ редактирования:\n";
-    //    cout << "Введите номер пункта:\n";
-    //    cout << "1. Добавить элемент\n";
-    //    cout << "2. Редактировать элемент по имени\n";
-    //    cout << "3. Удалить элемент по имени\n";
-    //    cout << "4. Выход\n";
-    //    while (true) {
-    //        if (_kbhit()) {
-    //            char ch = _getch();
-    //            if (ch == 49) { //1
-    //                system("cls");
-    //                addDetailByName();
-    //                break;
-    //            }
-    //            else if (ch == 50) { //2
-    //                system("cls");
-    //                editDetailByName();
-    //                break;
-    //            }
-    //            else if (ch == 51) { //3
-    //                system("cls");
-    //                removeDetailByName();
-    //                break;
-    //            }
-    //            else if (ch == 52) { //4
-    //                system("cls");
-    //                mainPage();
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //void EditEquipmentListPage() {
-    //    cout << "Выберете способ редактирования:\n";
-    //    cout << "Введите номер пункта:\n";
-    //    cout << "1. Добавить элемент\n";
-    //    cout << "2. Редактировать элемент по имени\n";
-    //    cout << "3. Удалить элемент по имени\n";
-    //    cout << "4. Выход\n";
-    //    while (true) {
-    //        if (_kbhit()) {
-    //            char ch = _getch();
-    //            if (ch == 49) { //1
-    //                system("cls");
-    //                addEquipmentByName();
-    //                break;
-    //            }
-    //            else if (ch == 50) { //2
-    //                system("cls");
-    //                editEquipmentByName();
-    //                break;
-    //            }
-    //            else if (ch == 51) { //3
-    //                system("cls");
-    //                removeEquipmentByName();
-    //                break;
-    //            }
-    //            else if (ch == 52) { //4
-    //                system("cls");
-    //                EquipmentPage();
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-
 
     double GetEquipmentPrice(Equipment& Equip) {
         double Price = 0;
@@ -1751,6 +1592,101 @@ public:
                 }
                 file << "\n";
             }
+            file.close();
+        }
+        return file;
+
+    }
+
+    string getCurrentTime() {
+        // Получение текущего времени
+        auto now = std::chrono::system_clock::now();
+
+        // Преобразование времени в тип time_t для работы с ctime
+        std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
+
+        // Преобразование времени в человекочитаемый формат
+        std::tm* localTime = std::localtime(&currentTime);
+
+        // Использование stringstream для форматирования времени в std::string
+        std::ostringstream oss;
+        oss << std::put_time(localTime, "%d-%m-%Y_%H-%M");
+        std::string formattedTime = oss.str();
+
+        return formattedTime;
+
+    }
+
+
+    ofstream& SaveOrderInFile(string orderName) {
+        std::ofstream file(orderName);
+        if (file.is_open()) {
+            std::vector<std::string> headerTexts = {
+                "Заказ от " + orderName,
+                "Время:" + getCurrentTime(),
+                "Через приложение",
+                "Equipment Price Calculator",
+                "___________________________________________________________________________________________"
+            };
+
+            for (const auto& text : headerTexts) {
+                int padding = (92 - text.length()) / 2;
+                if (padding < 0) padding = 0;
+                file << std::setw(padding + text.length()) << std::right << text << std::endl;
+            }
+
+            file << std::right << "Товар\t Цена\t Кол-во\t Стоимость\t" << std::endl;
+
+            double TotalOrderPrice = 0;
+
+            for (auto curOrderedEquipment : OrderedEquipmentList) {
+
+                double curEquipmentPrice = GetEquipmentPrice(curOrderedEquipment.second.equip);
+                int countOfOrderedEquipment = curOrderedEquipment.second.equipmentsCount;
+                double curEquipmentTotalPrice = countOfOrderedEquipment * curEquipmentPrice;
+                double curEquipmentTotalPriceWithNDS = countOfOrderedEquipment * (
+                    curEquipmentPrice + 
+                    countOfOrderedEquipment * curEquipmentPrice * NDS +
+                    countOfOrderedEquipment * curEquipmentPrice * NacenkaOnPrise
+                );
+
+                TotalOrderPrice += curEquipmentTotalPriceWithNDS;
+
+                file << curOrderedEquipment.first << "\t"
+                    << curEquipmentPrice << "BYN\t"
+                    << countOfOrderedEquipment << "\t"
+                    << curEquipmentTotalPrice << "BYN\n";
+
+                file << "НДС: " << 100 * NDS << "%\n"
+                    << "Итого получено: " << curEquipmentTotalPriceWithNDS << "BYN\n";
+
+            }
+            file << "___________________________________________________________________________________________\n";
+
+            file << "ИТОГО ДЛЯ ВЫПОЛНЕНИЯ ЗАКАЗА ТРЕБУЕТСЯ :\n";
+
+            std::map<string, int> necessaryDetailsMap;
+
+            for (auto curOrderedEquipment : OrderedEquipmentList) {
+                for (auto curDet : curOrderedEquipment.second.equip.DetailsCount) {
+                    if (necessaryDetailsMap.find(curDet.first) != necessaryDetailsMap.end())
+                    {
+                        necessaryDetailsMap[curDet.first] += curDet.second * curOrderedEquipment.second.equipmentsCount;
+                    }
+                    else
+                    {
+                        necessaryDetailsMap[curDet.first] = curDet.second * curOrderedEquipment.second.equipmentsCount;
+                    }
+                }
+            }
+
+            for (auto curDet : necessaryDetailsMap) {
+                file << "\t" << curDet.first << "\t" << curDet.second << "\n";
+            }
+
+            file << "\n";
+            file << "ИТОГОВАЯ ПРИБЫЛЬ: " << TotalOrderPrice * NacenkaOnPrise;
+
             file.close();
         }
         return file;

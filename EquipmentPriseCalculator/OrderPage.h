@@ -159,6 +159,29 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
 
 //////////////////////////////////////////////////////////////////////////////
 
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_CalculateTotalOrdersPrice()
+{
+    GlobalList Storage = this->GlobalStorage;
+    std::vector<OrderedEquipment> ComponentsList = Storage.getOrderedEquipmentList();
+
+    double totalPrice = 0;
+
+    for (int i = 0; i < ComponentsList.size(); i++)
+    {
+        double DetailCostDouble = Storage.getTotalEquipmentPrice(ComponentsList.at(i).equip, &Storage);
+        double Nacenka = Storage.getNacenkaOnPrice();
+        double NDS = Storage.getNDS();
+        int count = ComponentsList.at(i).equipmentsCount;
+        double DetailCostWithNdsAndNacenka = count * (DetailCostDouble + DetailCostDouble * Nacenka + DetailCostDouble * NDS);
+
+        totalPrice += DetailCostWithNdsAndNacenka;
+    }
+
+    OrderPage_TotalPrice->Text = (totalPrice.ToString() + "BYN");
+
+    return System::Void();
+}
+
 inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPage_ShowEquipmentListInOrderedEquipmentGrid()
 {
     this->OrderPage_OrderedEquipmentDataGrid->Rows->Clear();
@@ -177,6 +200,9 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
     {
         ComponentsList = Storage.getOrderedEquipmentList();
     }
+
+
+    OrderPage_CalculateTotalOrdersPrice();
 
 
     if (this->AddingEquipmentPage_ComponentsListSearchInput->Text != nullptr)
@@ -422,15 +448,28 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::OrderPag
             msclr::interop::marshal_context context;
             std::string stdFilePath = context.marshal_as<std::string>(filePath);
 
+            String^ userName = OrderPage_NameTextBox->Text->ToString();
+            std::string stdUserName = context.marshal_as<std::string>(userName);
 
-            if (filePath != nullptr)
+            if (filePath != nullptr && userName != nullptr)
             {
                 this->OrderPage_OrderedEquipmentDataGrid->Rows->Clear();
 
                 DataGridView^ DetailsGrid = this->OrderPage_OrderedEquipmentDataGrid;
 
-                this->GlobalStorage.SaveAllInFileAs(stdFilePath);
+                string orderFileName = (
+                    "Order_" +
+                    stdUserName +
+                    "_" +
+                    this->GlobalStorage.getCurrentTime() +
+                    ".txt"
+                );
+
+                this->GlobalStorage.SaveCheckInFileByFilename(stdFilePath);
+                this->GlobalStorage.SaveOrderInFile(orderFileName);
                 
+            } else if (userName == nullptr) {
+                System::Windows::Forms::MessageBox::Show("Введите свое имя:", "Ошибка!", System::Windows::Forms::MessageBoxButtons::OK);
             }
         }
         
