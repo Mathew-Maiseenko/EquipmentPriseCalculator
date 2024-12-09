@@ -168,7 +168,7 @@ namespace EquipmentPriseCalculator {
 			this->DetailsAddingWindow_ApplingAddingDetailsButton->Name = L"DetailsAddingWindow_ApplingAddingDetailsButton";
 			this->DetailsAddingWindow_ApplingAddingDetailsButton->Size = System::Drawing::Size(240, 69);
 			this->DetailsAddingWindow_ApplingAddingDetailsButton->TabIndex = 14;
-			this->DetailsAddingWindow_ApplingAddingDetailsButton->Text = L"Детали";
+			this->DetailsAddingWindow_ApplingAddingDetailsButton->Text = L"Добавить деталь";
 			this->DetailsAddingWindow_ApplingAddingDetailsButton->UseVisualStyleBackColor = false;
 			this->DetailsAddingWindow_ApplingAddingDetailsButton->Click += gcnew System::EventHandler(this, &DetailAddingWindow::DetailsAddingWindow_ApplingAddingDetailsButton_Click);
 			// 

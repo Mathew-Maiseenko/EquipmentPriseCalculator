@@ -353,9 +353,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn8;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn9;
 private: System::Windows::Forms::Label^ label7;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailId;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailName;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
+
+
+
 private: System::Windows::Forms::PictureBox^ pictureBox4;
 private: System::Windows::Forms::PictureBox^ pictureBox5;
 private: System::Windows::Forms::PictureBox^ pictureBox7;
@@ -394,18 +394,23 @@ private: System::Windows::Forms::Label^ label8;
 private: System::Windows::Forms::PictureBox^ pictureBox34;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
-private: System::Windows::Forms::Label^ label9;
+private: System::Windows::Forms::Label^ OrderPage_Title;
+
 private: System::Windows::Forms::PictureBox^ pictureBox8;
 private: System::Windows::Forms::Label^ label11;
 private: System::Windows::Forms::PictureBox^ pictureBox6;
 private: System::Windows::Forms::Label^ label10;
 private: System::Windows::Forms::Button^ button2;
-private: System::Windows::Forms::Label^ label12;
+private: System::Windows::Forms::Label^ OrderPage_UserNameLabel;
+
 private: System::Windows::Forms::TextBox^ OrderPage_NameTextBox;
 private: System::Windows::Forms::PictureBox^ pictureBox10;
 private: System::Windows::Forms::PictureBox^ pictureBox20;
 private: System::Windows::Forms::PictureBox^ pictureBox24;
 private: System::Windows::Forms::PictureBox^ pictureBox26;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailId;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailName;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 
 
 
@@ -575,11 +580,15 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->AddingEquipmentPage_EquipmentNameInput = (gcnew System::Windows::Forms::TextBox());
 			this->OrderPage = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox20 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
+			this->OrderPage_UserNameLabel = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_NameTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->OrderPage_Title = (gcnew System::Windows::Forms::Label());
 			this->OrderPage_TotalPrice = (gcnew System::Windows::Forms::Label());
 			this->OrderPage_EquipmentDataGrid = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -603,6 +612,8 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->dataGridViewTextBoxColumn14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->pictureBox24 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox26 = (gcnew System::Windows::Forms::PictureBox());
 			this->printUsersCheckInFileDialog = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->MainPage = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox11 = (gcnew System::Windows::Forms::PictureBox());
@@ -613,12 +624,6 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->OrderPage_NameTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox20 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox24 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox26 = (gcnew System::Windows::Forms::PictureBox());
 			this->HomePage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox30))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox16))->BeginInit();
@@ -652,20 +657,20 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox22))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AddingEquipmentPage_DetailsListDataGrid))->BeginInit();
 			this->OrderPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox20))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_EquipmentDataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_OrderedEquipmentDataGrid))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox24))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox26))->BeginInit();
 			this->MainPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox20))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox24))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox26))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// HomePage
@@ -955,7 +960,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->DetailName->HeaderText = L"Название детали";
 			this->DetailName->MinimumWidth = 6;
 			this->DetailName->Name = L"DetailName";
-			this->DetailName->Width = 750;
+			this->DetailName->Width = 350;
 			// 
 			// DetailPrice
 			// 
@@ -1895,13 +1900,13 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			// 
 			this->OrderPage->Controls->Add(this->pictureBox20);
 			this->OrderPage->Controls->Add(this->pictureBox10);
-			this->OrderPage->Controls->Add(this->label12);
+			this->OrderPage->Controls->Add(this->OrderPage_UserNameLabel);
 			this->OrderPage->Controls->Add(this->OrderPage_NameTextBox);
 			this->OrderPage->Controls->Add(this->pictureBox8);
 			this->OrderPage->Controls->Add(this->label11);
 			this->OrderPage->Controls->Add(this->pictureBox6);
 			this->OrderPage->Controls->Add(this->label10);
-			this->OrderPage->Controls->Add(this->label9);
+			this->OrderPage->Controls->Add(this->OrderPage_Title);
 			this->OrderPage->Controls->Add(this->OrderPage_TotalPrice);
 			this->OrderPage->Controls->Add(this->OrderPage_EquipmentDataGrid);
 			this->OrderPage->Controls->Add(this->OrderPage_EquipmentSearchTextBox);
@@ -1922,6 +1927,48 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->OrderPage->Size = System::Drawing::Size(1105, 542);
 			this->OrderPage->TabIndex = 22;
 			this->OrderPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_VisibleChanged);
+			// 
+			// pictureBox20
+			// 
+			this->pictureBox20->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox20.Image")));
+			this->pictureBox20->Location = System::Drawing::Point(924, 10);
+			this->pictureBox20->Name = L"pictureBox20";
+			this->pictureBox20->Size = System::Drawing::Size(53, 37);
+			this->pictureBox20->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox20->TabIndex = 34;
+			this->pictureBox20->TabStop = false;
+			// 
+			// pictureBox10
+			// 
+			this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
+			this->pictureBox10->Location = System::Drawing::Point(912, 163);
+			this->pictureBox10->Name = L"pictureBox10";
+			this->pictureBox10->Size = System::Drawing::Size(155, 105);
+			this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox10->TabIndex = 33;
+			this->pictureBox10->TabStop = false;
+			// 
+			// OrderPage_UserNameLabel
+			// 
+			this->OrderPage_UserNameLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_UserNameLabel->AutoSize = true;
+			this->OrderPage_UserNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->OrderPage_UserNameLabel->Location = System::Drawing::Point(9, 21);
+			this->OrderPage_UserNameLabel->Name = L"OrderPage_UserNameLabel";
+			this->OrderPage_UserNameLabel->Size = System::Drawing::Size(248, 31);
+			this->OrderPage_UserNameLabel->TabIndex = 32;
+			this->OrderPage_UserNameLabel->Text = L"Введите свое имя:";
+			this->OrderPage_UserNameLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OrderPage_NameTextBox
+			// 
+			this->OrderPage_NameTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
+			this->OrderPage_NameTextBox->Location = System::Drawing::Point(262, 23);
+			this->OrderPage_NameTextBox->Margin = System::Windows::Forms::Padding(2);
+			this->OrderPage_NameTextBox->Name = L"OrderPage_NameTextBox";
+			this->OrderPage_NameTextBox->Size = System::Drawing::Size(364, 32);
+			this->OrderPage_NameTextBox->TabIndex = 31;
 			// 
 			// pictureBox8
 			// 
@@ -1973,18 +2020,18 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->label10->Text = L"Поиск:";
 			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// label9
+			// OrderPage_Title
 			// 
-			this->label9->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->OrderPage_Title->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->OrderPage_Title->AutoSize = true;
+			this->OrderPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label9->Location = System::Drawing::Point(983, 10);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(110, 37);
-			this->label9->TabIndex = 26;
-			this->label9->Text = L"Заказ";
-			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->OrderPage_Title->Location = System::Drawing::Point(983, 10);
+			this->OrderPage_Title->Name = L"OrderPage_Title";
+			this->OrderPage_Title->Size = System::Drawing::Size(110, 37);
+			this->OrderPage_Title->TabIndex = 26;
+			this->OrderPage_Title->Text = L"Заказ";
+			this->OrderPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// OrderPage_TotalPrice
 			// 
@@ -2160,9 +2207,9 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->OrderPage_OrderedEquipmentListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
 			this->OrderPage_OrderedEquipmentListLabel->Location = System::Drawing::Point(7, 274);
 			this->OrderPage_OrderedEquipmentListLabel->Name = L"OrderPage_OrderedEquipmentListLabel";
-			this->OrderPage_OrderedEquipmentListLabel->Size = System::Drawing::Size(452, 29);
+			this->OrderPage_OrderedEquipmentListLabel->Size = System::Drawing::Size(120, 29);
 			this->OrderPage_OrderedEquipmentListLabel->TabIndex = 10;
-			this->OrderPage_OrderedEquipmentListLabel->Text = L"Список заказанного оборудования";
+			this->OrderPage_OrderedEquipmentListLabel->Text = L"Корзина";
 			this->OrderPage_OrderedEquipmentListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// OrderPage_OrderedEquipmentDataGrid
@@ -2238,6 +2285,26 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
 			this->dataGridViewTextBoxColumn16->ReadOnly = true;
 			this->dataGridViewTextBoxColumn16->Width = 125;
+			// 
+			// pictureBox24
+			// 
+			this->pictureBox24->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox24.Image")));
+			this->pictureBox24->Location = System::Drawing::Point(809, 299);
+			this->pictureBox24->Name = L"pictureBox24";
+			this->pictureBox24->Size = System::Drawing::Size(155, 105);
+			this->pictureBox24->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox24->TabIndex = 35;
+			this->pictureBox24->TabStop = false;
+			// 
+			// pictureBox26
+			// 
+			this->pictureBox26->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox26.Image")));
+			this->pictureBox26->Location = System::Drawing::Point(799, 85);
+			this->pictureBox26->Name = L"pictureBox26";
+			this->pictureBox26->Size = System::Drawing::Size(155, 105);
+			this->pictureBox26->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox26->TabIndex = 36;
+			this->pictureBox26->TabStop = false;
 			// 
 			// MainPage
 			// 
@@ -2360,68 +2427,6 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			this->pictureBox12->TabIndex = 17;
 			this->pictureBox12->TabStop = false;
 			// 
-			// label12
-			// 
-			this->label12->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label12->AutoSize = true;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label12->Location = System::Drawing::Point(9, 21);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(248, 31);
-			this->label12->TabIndex = 32;
-			this->label12->Text = L"Введите свое имя:";
-			this->label12->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// OrderPage_NameTextBox
-			// 
-			this->OrderPage_NameTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->OrderPage_NameTextBox->Location = System::Drawing::Point(262, 23);
-			this->OrderPage_NameTextBox->Margin = System::Windows::Forms::Padding(2);
-			this->OrderPage_NameTextBox->Name = L"OrderPage_NameTextBox";
-			this->OrderPage_NameTextBox->Size = System::Drawing::Size(364, 32);
-			this->OrderPage_NameTextBox->TabIndex = 31;
-			// 
-			// pictureBox10
-			// 
-			this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
-			this->pictureBox10->Location = System::Drawing::Point(912, 163);
-			this->pictureBox10->Name = L"pictureBox10";
-			this->pictureBox10->Size = System::Drawing::Size(155, 105);
-			this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox10->TabIndex = 33;
-			this->pictureBox10->TabStop = false;
-			// 
-			// pictureBox20
-			// 
-			this->pictureBox20->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox20.Image")));
-			this->pictureBox20->Location = System::Drawing::Point(924, 10);
-			this->pictureBox20->Name = L"pictureBox20";
-			this->pictureBox20->Size = System::Drawing::Size(53, 37);
-			this->pictureBox20->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox20->TabIndex = 34;
-			this->pictureBox20->TabStop = false;
-			// 
-			// pictureBox24
-			// 
-			this->pictureBox24->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox24.Image")));
-			this->pictureBox24->Location = System::Drawing::Point(809, 299);
-			this->pictureBox24->Name = L"pictureBox24";
-			this->pictureBox24->Size = System::Drawing::Size(155, 105);
-			this->pictureBox24->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox24->TabIndex = 35;
-			this->pictureBox24->TabStop = false;
-			// 
-			// pictureBox26
-			// 
-			this->pictureBox26->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox26.Image")));
-			this->pictureBox26->Location = System::Drawing::Point(799, 85);
-			this->pictureBox26->Name = L"pictureBox26";
-			this->pictureBox26->Size = System::Drawing::Size(155, 105);
-			this->pictureBox26->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox26->TabIndex = 36;
-			this->pictureBox26->TabStop = false;
-			// 
 			// EquipmentPriceCalculator
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -2483,10 +2488,14 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->AddingEquipmentPage_DetailsListDataGrid))->EndInit();
 			this->OrderPage->ResumeLayout(false);
 			this->OrderPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox20))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_EquipmentDataGrid))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OrderPage_OrderedEquipmentDataGrid))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox24))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox26))->EndInit();
 			this->MainPage->ResumeLayout(false);
 			this->MainPage->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->EndInit();
@@ -2494,10 +2503,6 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox20))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox24))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox26))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
