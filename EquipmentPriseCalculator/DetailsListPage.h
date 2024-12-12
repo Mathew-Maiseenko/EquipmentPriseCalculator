@@ -117,7 +117,9 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::deleteDe
 
 
     System::Windows::Forms::DialogResult result;
-    result = System::Windows::Forms::MessageBox::Show("Do you want to proceed?", "Confirmation", System::Windows::Forms::MessageBoxButtons::OKCancel);
+    result = System::Windows::Forms::MessageBox::Show(
+        "Вы уверены что хотите удалить эту деталь?\nДанное действие приведет к удалению всего оборудования имеющего данную деталь в своем составе!", 
+        "Confirmation", System::Windows::Forms::MessageBoxButtons::OKCancel);
     if (result == System::Windows::Forms::DialogResult::OK) {
         ToolStripMenuItem^ menuItem = dynamic_cast<ToolStripMenuItem^>(sender);
         if (menuItem != nullptr) {

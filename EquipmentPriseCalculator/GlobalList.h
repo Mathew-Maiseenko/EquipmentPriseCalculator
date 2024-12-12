@@ -1005,6 +1005,15 @@ public:
         // Удаляем элемент из DetailList и DetailsNameMap
         for (auto it = DetailList.begin(); it != DetailList.end(); ++it) {
             if (it->Name == elementNameToDelete) {
+
+                for (auto itE = EquipmentList.begin(); itE != EquipmentList.end(); ++itE) {
+                    if (itE->DetailsCount.find(elementNameToDelete) != itE->DetailsCount.end()) {
+                        EquipmentNameMap.erase(itE->Name);
+                        EquipmentList.erase(itE);
+                        break;
+                    }
+                }
+
                 DetailsNameMap.erase(it->Name);
                 DetailList.erase(it);
                 break;

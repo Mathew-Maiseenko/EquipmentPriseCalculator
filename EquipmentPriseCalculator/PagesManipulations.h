@@ -9,6 +9,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowHome
 	EquipmentListPage->Hide();
 	AddingEquipmentPage->Hide();
 	OrderPage->Hide();
+	AboutProgramPage->Hide();
 	return System::Void();
 }
 
@@ -20,6 +21,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowDeta
 	EquipmentListPage->Hide();
 	AddingEquipmentPage->Hide();
 	OrderPage->Hide();
+	AboutProgramPage->Hide();
 	return System::Void();
 }
 
@@ -31,6 +33,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowEqui
 	EquipmentListPage->Show();
 	AddingEquipmentPage->Hide();
 	OrderPage->Hide();
+	AboutProgramPage->Hide();
 	return System::Void();
 }
 
@@ -42,6 +45,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowAddi
 	EquipmentListPage->Hide();
 	AddingEquipmentPage->Show();
 	OrderPage->Hide();
+	AboutProgramPage->Hide();
 	return System::Void();
 }
 
@@ -53,6 +57,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowOrde
 	EquipmentListPage->Hide();
 	AddingEquipmentPage->Hide();
 	OrderPage->Show();
+	AboutProgramPage->Hide();
 	return System::Void();
 }
 
@@ -64,6 +69,7 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowMain
 	EquipmentListPage->Hide();
 	AddingEquipmentPage->Hide();
 	OrderPage->Hide();
+	AboutProgramPage->Hide();
 	return System::Void();
 }
 
@@ -79,6 +85,24 @@ inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::HideStar
 	EquipmentListPage->Hide();
 	AddingEquipmentPage->Hide();
 	OrderPage->Hide();
+	AboutProgramPage->Hide();
 
+	return System::Void();
+}
+
+inline System::Void EquipmentPriseCalculator::EquipmentPriceCalculator::ShowAboutProgramPage(System::Object^ sender, System::EventArgs^ e)
+{
+	StartPage->Hide();
+	MainPage->Hide();
+
+	DetailsListPage->Hide();
+	HomePage->Hide();
+	EquipmentListPage->Hide();
+	AddingEquipmentPage->Hide();
+	OrderPage->Hide();
+
+	AboutProgramPage->Show();
+
+	return System::Void();
 	return System::Void();
 }

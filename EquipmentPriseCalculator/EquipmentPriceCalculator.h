@@ -35,6 +35,7 @@ namespace EquipmentPriseCalculator {
 			AddingEquipmentPage->Hide();
 			OrderPage->Hide();
 			MainTopMenu->Hide();
+			AboutProgramPage->Hide();
 
 			// Îòêðûâàåì ôàéëû
 			fstream DetailFile("DetailSpisok.csv");
@@ -411,6 +412,15 @@ private: System::Windows::Forms::PictureBox^ pictureBox26;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailId;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailName;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
+private: System::Windows::Forms::Panel^ AboutProgramPage;
+
+private: System::Windows::Forms::Label^ label9;
+private: System::Windows::Forms::Label^ label14;
+private: System::Windows::Forms::Label^ label13;
+private: System::Windows::Forms::Label^ label12;
+private: System::Windows::Forms::Label^ label15;
+private: System::Windows::Forms::PictureBox^ pictureBox28;
+private: System::Windows::Forms::Button^ button4;
 
 
 
@@ -624,6 +634,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
+			this->AboutProgramPage = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox28 = (gcnew System::Windows::Forms::PictureBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->HomePage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox30))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox16))->BeginInit();
@@ -671,6 +689,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->BeginInit();
+			this->AboutProgramPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox28))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// HomePage
@@ -682,19 +702,18 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->HomePage->Controls->Add(this->HomePage_EquipmentButton);
 			this->HomePage->Controls->Add(this->HomePage_Label);
 			this->HomePage->Controls->Add(this->HomePage_DetailsButton);
-			this->HomePage->Location = System::Drawing::Point(4, 33);
-			this->HomePage->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage->Location = System::Drawing::Point(3, 27);
 			this->HomePage->Name = L"HomePage";
-			this->HomePage->Size = System::Drawing::Size(1469, 662);
+			this->HomePage->Size = System::Drawing::Size(1102, 538);
 			this->HomePage->TabIndex = 1;
 			// 
 			// pictureBox30
 			// 
 			this->pictureBox30->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox30.Image")));
-			this->pictureBox30->Location = System::Drawing::Point(760, 308);
-			this->pictureBox30->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox30->Location = System::Drawing::Point(570, 250);
+			this->pictureBox30->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox30->Name = L"pictureBox30";
-			this->pictureBox30->Size = System::Drawing::Size(51, 50);
+			this->pictureBox30->Size = System::Drawing::Size(38, 41);
 			this->pictureBox30->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox30->TabIndex = 17;
 			this->pictureBox30->TabStop = false;
@@ -703,10 +722,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox16
 			// 
 			this->pictureBox16->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox16.Image")));
-			this->pictureBox16->Location = System::Drawing::Point(444, 308);
-			this->pictureBox16->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox16->Location = System::Drawing::Point(333, 250);
+			this->pictureBox16->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox16->Name = L"pictureBox16";
-			this->pictureBox16->Size = System::Drawing::Size(53, 50);
+			this->pictureBox16->Size = System::Drawing::Size(40, 41);
 			this->pictureBox16->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox16->TabIndex = 16;
 			this->pictureBox16->TabStop = false;
@@ -722,10 +741,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->HomePage_ExitFromPageButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->HomePage_ExitFromPageButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->HomePage_ExitFromPageButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->HomePage_ExitFromPageButton->Location = System::Drawing::Point(395, 465);
-			this->HomePage_ExitFromPageButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_ExitFromPageButton->Location = System::Drawing::Point(296, 378);
 			this->HomePage_ExitFromPageButton->Name = L"HomePage_ExitFromPageButton";
-			this->HomePage_ExitFromPageButton->Size = System::Drawing::Size(697, 47);
+			this->HomePage_ExitFromPageButton->Size = System::Drawing::Size(523, 38);
 			this->HomePage_ExitFromPageButton->TabIndex = 15;
 			this->HomePage_ExitFromPageButton->Text = L"Íàçàä";
 			this->HomePage_ExitFromPageButton->UseVisualStyleBackColor = false;
@@ -742,10 +760,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->HomePage_EquipmentButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->HomePage_EquipmentButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->HomePage_EquipmentButton->Location = System::Drawing::Point(749, 267);
-			this->HomePage_EquipmentButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_EquipmentButton->Location = System::Drawing::Point(562, 217);
 			this->HomePage_EquipmentButton->Name = L"HomePage_EquipmentButton";
-			this->HomePage_EquipmentButton->Size = System::Drawing::Size(343, 129);
+			this->HomePage_EquipmentButton->Size = System::Drawing::Size(257, 105);
 			this->HomePage_EquipmentButton->TabIndex = 7;
 			this->HomePage_EquipmentButton->Text = L"Îáîðóäîâàíèå";
 			this->HomePage_EquipmentButton->UseVisualStyleBackColor = false;
@@ -756,10 +773,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->HomePage_Label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 			this->HomePage_Label->AutoSize = true;
 			this->HomePage_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 32, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->HomePage_Label->Location = System::Drawing::Point(403, 178);
-			this->HomePage_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->HomePage_Label->Location = System::Drawing::Point(302, 145);
 			this->HomePage_Label->Name = L"HomePage_Label";
-			this->HomePage_Label->Size = System::Drawing::Size(645, 63);
+			this->HomePage_Label->Size = System::Drawing::Size(520, 51);
 			this->HomePage_Label->TabIndex = 6;
 			this->HomePage_Label->Text = L"Ðåæèì ðåäàêòèðîâàíèÿ";
 			this->HomePage_Label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -774,10 +790,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->HomePage_DetailsButton->FlatAppearance->BorderSize = 2;
 			this->HomePage_DetailsButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->HomePage_DetailsButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->HomePage_DetailsButton->Location = System::Drawing::Point(395, 267);
-			this->HomePage_DetailsButton->Margin = System::Windows::Forms::Padding(4);
+			this->HomePage_DetailsButton->Location = System::Drawing::Point(296, 217);
 			this->HomePage_DetailsButton->Name = L"HomePage_DetailsButton";
-			this->HomePage_DetailsButton->Size = System::Drawing::Size(337, 129);
+			this->HomePage_DetailsButton->Size = System::Drawing::Size(253, 105);
 			this->HomePage_DetailsButton->TabIndex = 5;
 			this->HomePage_DetailsButton->Text = L"Äåòàëè";
 			this->HomePage_DetailsButton->UseVisualStyleBackColor = false;
@@ -792,10 +807,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->MainPage_UsersGuidButton->FlatAppearance->BorderSize = 2;
 			this->MainPage_UsersGuidButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MainPage_UsersGuidButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 17, System::Drawing::FontStyle::Bold));
-			this->MainPage_UsersGuidButton->Location = System::Drawing::Point(395, 519);
-			this->MainPage_UsersGuidButton->Margin = System::Windows::Forms::Padding(4);
+			this->MainPage_UsersGuidButton->Location = System::Drawing::Point(296, 422);
 			this->MainPage_UsersGuidButton->Name = L"MainPage_UsersGuidButton";
-			this->MainPage_UsersGuidButton->Size = System::Drawing::Size(652, 54);
+			this->MainPage_UsersGuidButton->Size = System::Drawing::Size(489, 44);
 			this->MainPage_UsersGuidButton->TabIndex = 8;
 			this->MainPage_UsersGuidButton->Text = L"Ðóêîâîäñòâî ïîëüçîâàòåëÿ";
 			this->MainPage_UsersGuidButton->UseVisualStyleBackColor = false;
@@ -815,10 +829,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->DetailsListPage->Controls->Add(this->DetailsListPage_DataGrid);
 			this->DetailsListPage->Controls->Add(this->pictureBox15);
 			this->DetailsListPage->Controls->Add(this->pictureBox4);
-			this->DetailsListPage->Location = System::Drawing::Point(4, 32);
-			this->DetailsListPage->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage->Location = System::Drawing::Point(3, 26);
 			this->DetailsListPage->Name = L"DetailsListPage";
-			this->DetailsListPage->Size = System::Drawing::Size(1469, 663);
+			this->DetailsListPage->Size = System::Drawing::Size(1102, 539);
 			this->DetailsListPage->TabIndex = 15;
 			this->DetailsListPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_DetailsListPage);
 			// 
@@ -826,10 +839,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox14->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox14->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox14.Image")));
-			this->pictureBox14->Location = System::Drawing::Point(547, 81);
-			this->pictureBox14->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox14->Location = System::Drawing::Point(410, 66);
+			this->pictureBox14->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox14->Name = L"pictureBox14";
-			this->pictureBox14->Size = System::Drawing::Size(91, 39);
+			this->pictureBox14->Size = System::Drawing::Size(68, 32);
 			this->pictureBox14->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox14->TabIndex = 22;
 			this->pictureBox14->TabStop = false;
@@ -838,10 +851,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox13->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->pictureBox13->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox13.Image")));
-			this->pictureBox13->Location = System::Drawing::Point(1376, 498);
-			this->pictureBox13->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox13->Location = System::Drawing::Point(1032, 405);
+			this->pictureBox13->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox13->Name = L"pictureBox13";
-			this->pictureBox13->Size = System::Drawing::Size(75, 75);
+			this->pictureBox13->Size = System::Drawing::Size(56, 61);
 			this->pictureBox13->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox13->TabIndex = 21;
 			this->pictureBox13->TabStop = false;
@@ -853,10 +866,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label7->Location = System::Drawing::Point(21, 81);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label7->Location = System::Drawing::Point(16, 66);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(120, 38);
+			this->label7->Size = System::Drawing::Size(100, 31);
 			this->label7->TabIndex = 19;
 			this->label7->Text = L"Ïîèñê:";
 			this->label7->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -864,10 +876,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// DetailsListPage_SearchInput
 			// 
 			this->DetailsListPage_SearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->DetailsListPage_SearchInput->Location = System::Drawing::Point(152, 82);
-			this->DetailsListPage_SearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->DetailsListPage_SearchInput->Location = System::Drawing::Point(114, 67);
+			this->DetailsListPage_SearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->DetailsListPage_SearchInput->Name = L"DetailsListPage_SearchInput";
-			this->DetailsListPage_SearchInput->Size = System::Drawing::Size(484, 38);
+			this->DetailsListPage_SearchInput->Size = System::Drawing::Size(364, 32);
 			this->DetailsListPage_SearchInput->TabIndex = 18;
 			this->DetailsListPage_SearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::DetailsListPage_SearchInput_TextChanged);
 			// 
@@ -877,10 +889,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->DetailsListPage_AddingButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->DetailsListPage_AddingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->DetailsListPage_AddingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsListPage_AddingButton->Location = System::Drawing::Point(1153, 494);
-			this->DetailsListPage_AddingButton->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_AddingButton->Location = System::Drawing::Point(865, 401);
 			this->DetailsListPage_AddingButton->Name = L"DetailsListPage_AddingButton";
-			this->DetailsListPage_AddingButton->Size = System::Drawing::Size(304, 85);
+			this->DetailsListPage_AddingButton->Size = System::Drawing::Size(228, 69);
 			this->DetailsListPage_AddingButton->TabIndex = 17;
 			this->DetailsListPage_AddingButton->Text = L"Äîáàâèòü";
 			this->DetailsListPage_AddingButton->UseVisualStyleBackColor = false;
@@ -894,10 +905,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				L"Id äåòàëè", L"Íàçâàíèþ äåòàëè",
 					L"Ñòîèìîñòè äåòàëè"
 			});
-			this->DetailsListPage_SortTypeComboBox->Location = System::Drawing::Point(1155, 177);
-			this->DetailsListPage_SortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_SortTypeComboBox->Location = System::Drawing::Point(866, 144);
 			this->DetailsListPage_SortTypeComboBox->Name = L"DetailsListPage_SortTypeComboBox";
-			this->DetailsListPage_SortTypeComboBox->Size = System::Drawing::Size(303, 37);
+			this->DetailsListPage_SortTypeComboBox->Size = System::Drawing::Size(228, 32);
 			this->DetailsListPage_SortTypeComboBox->TabIndex = 16;
 			this->DetailsListPage_SortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::onSelectDetailsListSortType);
 			// 
@@ -906,10 +916,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->DetailsListPage_SortTypeMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->DetailsListPage_SortTypeMessage->AutoSize = true;
 			this->DetailsListPage_SortTypeMessage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->DetailsListPage_SortTypeMessage->Location = System::Drawing::Point(1189, 133);
-			this->DetailsListPage_SortTypeMessage->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DetailsListPage_SortTypeMessage->Location = System::Drawing::Point(892, 108);
 			this->DetailsListPage_SortTypeMessage->Name = L"DetailsListPage_SortTypeMessage";
-			this->DetailsListPage_SortTypeMessage->Size = System::Drawing::Size(242, 36);
+			this->DetailsListPage_SortTypeMessage->Size = System::Drawing::Size(199, 29);
 			this->DetailsListPage_SortTypeMessage->TabIndex = 15;
 			this->DetailsListPage_SortTypeMessage->Text = L"Ñîðòèðîâêà ïî";
 			this->DetailsListPage_SortTypeMessage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -920,10 +929,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->DetailsListPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
 			this->DetailsListPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->DetailsListPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->DetailsListPage_ExitButton->Location = System::Drawing::Point(1153, 587);
-			this->DetailsListPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_ExitButton->Location = System::Drawing::Point(865, 477);
 			this->DetailsListPage_ExitButton->Name = L"DetailsListPage_ExitButton";
-			this->DetailsListPage_ExitButton->Size = System::Drawing::Size(304, 47);
+			this->DetailsListPage_ExitButton->Size = System::Drawing::Size(228, 38);
 			this->DetailsListPage_ExitButton->TabIndex = 14;
 			this->DetailsListPage_ExitButton->Text = L"Íàçàä";
 			this->DetailsListPage_ExitButton->UseVisualStyleBackColor = false;
@@ -934,10 +942,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->DetailsListPage_Title->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->DetailsListPage_Title->AutoSize = true;
 			this->DetailsListPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->DetailsListPage_Title->Location = System::Drawing::Point(20, 12);
-			this->DetailsListPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DetailsListPage_Title->Location = System::Drawing::Point(15, 10);
 			this->DetailsListPage_Title->Name = L"DetailsListPage_Title";
-			this->DetailsListPage_Title->Size = System::Drawing::Size(389, 54);
+			this->DetailsListPage_Title->Size = System::Drawing::Size(316, 44);
 			this->DetailsListPage_Title->TabIndex = 10;
 			this->DetailsListPage_Title->Text = L"Ñïèñîê äåòàëåé";
 			this->DetailsListPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -951,11 +958,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				this->DetailId,
 					this->DetailName, this->DetailPrice
 			});
-			this->DetailsListPage_DataGrid->Location = System::Drawing::Point(19, 133);
-			this->DetailsListPage_DataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->DetailsListPage_DataGrid->Location = System::Drawing::Point(14, 108);
 			this->DetailsListPage_DataGrid->Name = L"DetailsListPage_DataGrid";
 			this->DetailsListPage_DataGrid->RowHeadersWidth = 51;
-			this->DetailsListPage_DataGrid->Size = System::Drawing::Size(1100, 501);
+			this->DetailsListPage_DataGrid->Size = System::Drawing::Size(825, 407);
 			this->DetailsListPage_DataGrid->TabIndex = 0;
 			this->DetailsListPage_DataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::DetailsGrid_CellEndEdit);
 			this->DetailsListPage_DataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::DetailsGrid_MouseClick);
@@ -987,10 +993,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox15
 			// 
 			this->pictureBox15->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox15.Image")));
-			this->pictureBox15->Location = System::Drawing::Point(1157, 266);
-			this->pictureBox15->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox15->Location = System::Drawing::Point(868, 216);
+			this->pictureBox15->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox15->Name = L"pictureBox15";
-			this->pictureBox15->Size = System::Drawing::Size(303, 197);
+			this->pictureBox15->Size = System::Drawing::Size(227, 160);
 			this->pictureBox15->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox15->TabIndex = 23;
 			this->pictureBox15->TabStop = false;
@@ -998,10 +1004,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox4
 			// 
 			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-			this->pictureBox4->Location = System::Drawing::Point(944, 69);
-			this->pictureBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox4->Location = System::Drawing::Point(708, 56);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(303, 208);
+			this->pictureBox4->Size = System::Drawing::Size(227, 169);
 			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox4->TabIndex = 20;
 			this->pictureBox4->TabStop = false;
@@ -1019,10 +1025,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_ExitButton);
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_Title);
 			this->EquipmentListPage->Controls->Add(this->EquipmentListPage_DataGrid);
-			this->EquipmentListPage->Location = System::Drawing::Point(0, 32);
-			this->EquipmentListPage->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage->Location = System::Drawing::Point(0, 26);
 			this->EquipmentListPage->Name = L"EquipmentListPage";
-			this->EquipmentListPage->Size = System::Drawing::Size(1469, 666);
+			this->EquipmentListPage->Size = System::Drawing::Size(1102, 541);
 			this->EquipmentListPage->TabIndex = 19;
 			this->EquipmentListPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_EquipmentListPage);
 			// 
@@ -1030,10 +1035,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox34->BackColor = System::Drawing::SystemColors::Control;
 			this->pictureBox34->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox34.Image")));
-			this->pictureBox34->Location = System::Drawing::Point(1163, 266);
-			this->pictureBox34->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox34->Location = System::Drawing::Point(872, 216);
+			this->pictureBox34->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox34->Name = L"pictureBox34";
-			this->pictureBox34->Size = System::Drawing::Size(241, 194);
+			this->pictureBox34->Size = System::Drawing::Size(181, 158);
 			this->pictureBox34->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox34->TabIndex = 26;
 			this->pictureBox34->TabStop = false;
@@ -1042,10 +1047,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox17->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox17->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox17.Image")));
-			this->pictureBox17->Location = System::Drawing::Point(537, 86);
-			this->pictureBox17->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox17->Location = System::Drawing::Point(403, 70);
+			this->pictureBox17->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox17->Name = L"pictureBox17";
-			this->pictureBox17->Size = System::Drawing::Size(91, 39);
+			this->pictureBox17->Size = System::Drawing::Size(68, 32);
 			this->pictureBox17->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox17->TabIndex = 25;
 			this->pictureBox17->TabStop = false;
@@ -1054,10 +1059,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox33->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->pictureBox33->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox33.Image")));
-			this->pictureBox33->Location = System::Drawing::Point(1356, 500);
-			this->pictureBox33->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox33->Location = System::Drawing::Point(1017, 406);
+			this->pictureBox33->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox33->Name = L"pictureBox33";
-			this->pictureBox33->Size = System::Drawing::Size(75, 75);
+			this->pictureBox33->Size = System::Drawing::Size(56, 61);
 			this->pictureBox33->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox33->TabIndex = 24;
 			this->pictureBox33->TabStop = false;
@@ -1069,10 +1074,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label8->Location = System::Drawing::Point(16, 87);
-			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label8->Location = System::Drawing::Point(12, 71);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(120, 38);
+			this->label8->Size = System::Drawing::Size(100, 31);
 			this->label8->TabIndex = 23;
 			this->label8->Text = L"Ïîèñê:";
 			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1080,10 +1084,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// EquipmentListPage_SearchInput
 			// 
 			this->EquipmentListPage_SearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold));
-			this->EquipmentListPage_SearchInput->Location = System::Drawing::Point(147, 86);
-			this->EquipmentListPage_SearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->EquipmentListPage_SearchInput->Location = System::Drawing::Point(110, 70);
+			this->EquipmentListPage_SearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->EquipmentListPage_SearchInput->Name = L"EquipmentListPage_SearchInput";
-			this->EquipmentListPage_SearchInput->Size = System::Drawing::Size(484, 41);
+			this->EquipmentListPage_SearchInput->Size = System::Drawing::Size(364, 35);
 			this->EquipmentListPage_SearchInput->TabIndex = 18;
 			this->EquipmentListPage_SearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::EquipmentListPage_SearchInput_TextChanged);
 			// 
@@ -1093,10 +1097,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->EquipmentListPage__AddingButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->EquipmentListPage__AddingButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->EquipmentListPage__AddingButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentListPage__AddingButton->Location = System::Drawing::Point(1135, 491);
-			this->EquipmentListPage__AddingButton->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage__AddingButton->Location = System::Drawing::Point(851, 399);
 			this->EquipmentListPage__AddingButton->Name = L"EquipmentListPage__AddingButton";
-			this->EquipmentListPage__AddingButton->Size = System::Drawing::Size(301, 90);
+			this->EquipmentListPage__AddingButton->Size = System::Drawing::Size(226, 73);
 			this->EquipmentListPage__AddingButton->TabIndex = 17;
 			this->EquipmentListPage__AddingButton->Text = L"Äîáàâèòü";
 			this->EquipmentListPage__AddingButton->UseVisualStyleBackColor = false;
@@ -1110,10 +1113,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				L"Id îáîðóäîâàíèÿ", L"Íàçâàíèþ îáîðóäîâàíèÿ",
 					L"Ñòîèìîñòè îáîðóäîâàíèÿ"
 			});
-			this->EquipmentListPage__SortTypeComboBox->Location = System::Drawing::Point(1167, 193);
-			this->EquipmentListPage__SortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage__SortTypeComboBox->Location = System::Drawing::Point(875, 157);
 			this->EquipmentListPage__SortTypeComboBox->Name = L"EquipmentListPage__SortTypeComboBox";
-			this->EquipmentListPage__SortTypeComboBox->Size = System::Drawing::Size(236, 39);
+			this->EquipmentListPage__SortTypeComboBox->Size = System::Drawing::Size(178, 33);
 			this->EquipmentListPage__SortTypeComboBox->TabIndex = 16;
 			this->EquipmentListPage__SortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::onSelectEquipmentsListSortType);
 			// 
@@ -1122,10 +1124,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->EquipmentListPage_SortTypeMessage->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->EquipmentListPage_SortTypeMessage->AutoSize = true;
 			this->EquipmentListPage_SortTypeMessage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->EquipmentListPage_SortTypeMessage->Location = System::Drawing::Point(1161, 153);
-			this->EquipmentListPage_SortTypeMessage->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EquipmentListPage_SortTypeMessage->Location = System::Drawing::Point(871, 124);
 			this->EquipmentListPage_SortTypeMessage->Name = L"EquipmentListPage_SortTypeMessage";
-			this->EquipmentListPage_SortTypeMessage->Size = System::Drawing::Size(242, 36);
+			this->EquipmentListPage_SortTypeMessage->Size = System::Drawing::Size(199, 29);
 			this->EquipmentListPage_SortTypeMessage->TabIndex = 15;
 			this->EquipmentListPage_SortTypeMessage->Text = L"Ñîðòèðîâêà ïî";
 			this->EquipmentListPage_SortTypeMessage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1136,10 +1137,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->EquipmentListPage_ExitButton->BackColor = System::Drawing::Color::DarkRed;
 			this->EquipmentListPage_ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->EquipmentListPage_ExitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->EquipmentListPage_ExitButton->Location = System::Drawing::Point(1135, 587);
-			this->EquipmentListPage_ExitButton->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage_ExitButton->Location = System::Drawing::Point(851, 477);
 			this->EquipmentListPage_ExitButton->Name = L"EquipmentListPage_ExitButton";
-			this->EquipmentListPage_ExitButton->Size = System::Drawing::Size(301, 47);
+			this->EquipmentListPage_ExitButton->Size = System::Drawing::Size(226, 38);
 			this->EquipmentListPage_ExitButton->TabIndex = 14;
 			this->EquipmentListPage_ExitButton->Text = L"Íàçàä";
 			this->EquipmentListPage_ExitButton->UseVisualStyleBackColor = false;
@@ -1151,10 +1151,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->EquipmentListPage_Title->AutoSize = true;
 			this->EquipmentListPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->EquipmentListPage_Title->Location = System::Drawing::Point(15, 26);
-			this->EquipmentListPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EquipmentListPage_Title->Location = System::Drawing::Point(11, 21);
 			this->EquipmentListPage_Title->Name = L"EquipmentListPage_Title";
-			this->EquipmentListPage_Title->Size = System::Drawing::Size(455, 46);
+			this->EquipmentListPage_Title->Size = System::Drawing::Size(347, 37);
 			this->EquipmentListPage_Title->TabIndex = 10;
 			this->EquipmentListPage_Title->Text = L"Ñïèñîê îáîðóäîâàíèÿ";
 			this->EquipmentListPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1168,11 +1167,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2
 			});
-			this->EquipmentListPage_DataGrid->Location = System::Drawing::Point(21, 153);
-			this->EquipmentListPage_DataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->EquipmentListPage_DataGrid->Location = System::Drawing::Point(16, 124);
 			this->EquipmentListPage_DataGrid->Name = L"EquipmentListPage_DataGrid";
 			this->EquipmentListPage_DataGrid->RowHeadersWidth = 51;
-			this->EquipmentListPage_DataGrid->Size = System::Drawing::Size(1101, 481);
+			this->EquipmentListPage_DataGrid->Size = System::Drawing::Size(826, 391);
 			this->EquipmentListPage_DataGrid->TabIndex = 0;
 			this->EquipmentListPage_DataGrid->CellBeginEdit += gcnew System::Windows::Forms::DataGridViewCellCancelEventHandler(this, &EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellBeginEdit);
 			this->EquipmentListPage_DataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::EquipmentListPage_DataGrid_CellEndEdit);
@@ -1206,19 +1204,18 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->StartPage->Controls->Add(this->StartPage_OpenFileButton);
 			this->StartPage->Controls->Add(this->button1);
 			this->StartPage->Controls->Add(this->label1);
-			this->StartPage->Location = System::Drawing::Point(4, 33);
-			this->StartPage->Margin = System::Windows::Forms::Padding(4);
+			this->StartPage->Location = System::Drawing::Point(3, 27);
 			this->StartPage->Name = L"StartPage";
-			this->StartPage->Size = System::Drawing::Size(1469, 666);
+			this->StartPage->Size = System::Drawing::Size(1102, 541);
 			this->StartPage->TabIndex = 10;
 			// 
 			// pictureBox29
 			// 
 			this->pictureBox29->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox29.Image")));
-			this->pictureBox29->Location = System::Drawing::Point(288, 502);
-			this->pictureBox29->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox29->Location = System::Drawing::Point(216, 408);
+			this->pictureBox29->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox29->Name = L"pictureBox29";
-			this->pictureBox29->Size = System::Drawing::Size(100, 85);
+			this->pictureBox29->Size = System::Drawing::Size(75, 69);
 			this->pictureBox29->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox29->TabIndex = 16;
 			this->pictureBox29->TabStop = false;
@@ -1227,10 +1224,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox27
 			// 
 			this->pictureBox27->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox27.Image")));
-			this->pictureBox27->Location = System::Drawing::Point(291, 334);
-			this->pictureBox27->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox27->Location = System::Drawing::Point(218, 271);
+			this->pictureBox27->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox27->Name = L"pictureBox27";
-			this->pictureBox27->Size = System::Drawing::Size(100, 85);
+			this->pictureBox27->Size = System::Drawing::Size(75, 69);
 			this->pictureBox27->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox27->TabIndex = 14;
 			this->pictureBox27->TabStop = false;
@@ -1239,10 +1236,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox25
 			// 
 			this->pictureBox25->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox25.Image")));
-			this->pictureBox25->Location = System::Drawing::Point(291, 247);
-			this->pictureBox25->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox25->Location = System::Drawing::Point(218, 201);
+			this->pictureBox25->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox25->Name = L"pictureBox25";
-			this->pictureBox25->Size = System::Drawing::Size(100, 71);
+			this->pictureBox25->Size = System::Drawing::Size(75, 58);
 			this->pictureBox25->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox25->TabIndex = 12;
 			this->pictureBox25->TabStop = false;
@@ -1258,10 +1255,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->StartPage_CreateFileButton->FlatAppearance->BorderSize = 2;
 			this->StartPage_CreateFileButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->StartPage_CreateFileButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold));
-			this->StartPage_CreateFileButton->Location = System::Drawing::Point(248, 245);
-			this->StartPage_CreateFileButton->Margin = System::Windows::Forms::Padding(4);
+			this->StartPage_CreateFileButton->Location = System::Drawing::Point(186, 199);
 			this->StartPage_CreateFileButton->Name = L"StartPage_CreateFileButton";
-			this->StartPage_CreateFileButton->Size = System::Drawing::Size(981, 78);
+			this->StartPage_CreateFileButton->Size = System::Drawing::Size(736, 63);
 			this->StartPage_CreateFileButton->TabIndex = 9;
 			this->StartPage_CreateFileButton->Text = L"Ñîçäàòü íîâûé";
 			this->StartPage_CreateFileButton->UseVisualStyleBackColor = false;
@@ -1277,10 +1273,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->StartPage_OpenFileButton->FlatAppearance->BorderSize = 2;
 			this->StartPage_OpenFileButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->StartPage_OpenFileButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold));
-			this->StartPage_OpenFileButton->Location = System::Drawing::Point(248, 330);
-			this->StartPage_OpenFileButton->Margin = System::Windows::Forms::Padding(4);
+			this->StartPage_OpenFileButton->Location = System::Drawing::Point(186, 268);
 			this->StartPage_OpenFileButton->Name = L"StartPage_OpenFileButton";
-			this->StartPage_OpenFileButton->Size = System::Drawing::Size(981, 92);
+			this->StartPage_OpenFileButton->Size = System::Drawing::Size(736, 75);
 			this->StartPage_OpenFileButton->TabIndex = 10;
 			this->StartPage_OpenFileButton->Text = L"Îòêðûòü ôàéë";
 			this->StartPage_OpenFileButton->UseVisualStyleBackColor = false;
@@ -1296,10 +1291,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->button1->FlatAppearance->BorderSize = 2;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold));
-			this->button1->Location = System::Drawing::Point(248, 498);
-			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Location = System::Drawing::Point(186, 405);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(981, 94);
+			this->button1->Size = System::Drawing::Size(736, 76);
 			this->button1->TabIndex = 8;
 			this->button1->Text = L"Ðóêîâîäñòâî ïîëüçîâàòåëÿ";
 			this->button1->UseVisualStyleBackColor = false;
@@ -1314,10 +1308,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 32, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(1)),
 				static_cast<System::Int32>(static_cast<System::Byte>(13)));
-			this->label1->Location = System::Drawing::Point(163, 158);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(122, 128);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(1155, 63);
+			this->label1->Size = System::Drawing::Size(934, 51);
 			this->label1->TabIndex = 6;
 			this->label1->Text = L"Êàëüêóëÿòîð ñåáåñòîèìîñòè îáîðóäîâàíèÿ";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1331,8 +1324,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			});
 			this->MainTopMenu->Location = System::Drawing::Point(0, 0);
 			this->MainTopMenu->Name = L"MainTopMenu";
-			this->MainTopMenu->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->MainTopMenu->Size = System::Drawing::Size(1473, 28);
+			this->MainTopMenu->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->MainTopMenu->Size = System::Drawing::Size(1105, 24);
 			this->MainTopMenu->TabIndex = 20;
 			this->MainTopMenu->Text = L"menuStrip1";
 			// 
@@ -1343,34 +1336,34 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 					this->MainTopMenu_OpenFileButton, this->MainTopMenu_SaveFileButton, this->MainTopMenu_SaveFileAsButton
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->fileToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// ñîçäàòüToolStripMenuItem
 			// 
 			this->ñîçäàòüToolStripMenuItem->Name = L"ñîçäàòüToolStripMenuItem";
-			this->ñîçäàòüToolStripMenuItem->Size = System::Drawing::Size(192, 26);
+			this->ñîçäàòüToolStripMenuItem->Size = System::Drawing::Size(154, 22);
 			this->ñîçäàòüToolStripMenuItem->Text = L"Ñîçäàòü";
 			this->ñîçäàòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_CreateNewProjectButton);
 			// 
 			// MainTopMenu_OpenFileButton
 			// 
 			this->MainTopMenu_OpenFileButton->Name = L"MainTopMenu_OpenFileButton";
-			this->MainTopMenu_OpenFileButton->Size = System::Drawing::Size(192, 26);
+			this->MainTopMenu_OpenFileButton->Size = System::Drawing::Size(154, 22);
 			this->MainTopMenu_OpenFileButton->Text = L"Îòêðûòü";
 			this->MainTopMenu_OpenFileButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_OpenExtraFileDialog);
 			// 
 			// MainTopMenu_SaveFileButton
 			// 
 			this->MainTopMenu_SaveFileButton->Name = L"MainTopMenu_SaveFileButton";
-			this->MainTopMenu_SaveFileButton->Size = System::Drawing::Size(192, 26);
+			this->MainTopMenu_SaveFileButton->Size = System::Drawing::Size(154, 22);
 			this->MainTopMenu_SaveFileButton->Text = L"Ñîõðàíèòü";
 			this->MainTopMenu_SaveFileButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_SaveFile);
 			// 
 			// MainTopMenu_SaveFileAsButton
 			// 
 			this->MainTopMenu_SaveFileAsButton->Name = L"MainTopMenu_SaveFileAsButton";
-			this->MainTopMenu_SaveFileAsButton->Size = System::Drawing::Size(192, 26);
+			this->MainTopMenu_SaveFileAsButton->Size = System::Drawing::Size(154, 22);
 			this->MainTopMenu_SaveFileAsButton->Text = L"Ñîõðàíèòü êàê";
 			this->MainTopMenu_SaveFileAsButton->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::MainTopMenu_SaveFileAs);
 			// 
@@ -1382,48 +1375,48 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 					this->çàêàçToolStripMenuItem
 			});
 			this->îêíîToolStripMenuItem->Name = L"îêíîToolStripMenuItem";
-			this->îêíîToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->îêíîToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->îêíîToolStripMenuItem->Text = L"Îêíî";
 			// 
 			// ãëàâíàÿToolStripMenuItem
 			// 
 			this->ãëàâíàÿToolStripMenuItem->Name = L"ãëàâíàÿToolStripMenuItem";
-			this->ãëàâíàÿToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->ãëàâíàÿToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->ãëàâíàÿToolStripMenuItem->Text = L"Ãëàâíàÿ";
 			this->ãëàâíàÿToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowMainPage);
 			// 
 			// äåòàëèToolStripMenuItem
 			// 
 			this->äåòàëèToolStripMenuItem->Name = L"äåòàëèToolStripMenuItem";
-			this->äåòàëèToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->äåòàëèToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->äåòàëèToolStripMenuItem->Text = L"Äåòàëè";
 			this->äåòàëèToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowDetailsListPage);
 			// 
 			// äîáàâèòüÄåòàëèToolStripMenuItem
 			// 
 			this->äîáàâèòüÄåòàëèToolStripMenuItem->Name = L"äîáàâèòüÄåòàëèToolStripMenuItem";
-			this->äîáàâèòüÄåòàëèToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->äîáàâèòüÄåòàëèToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->äîáàâèòüÄåòàëèToolStripMenuItem->Text = L"Äîáàâèòü äåòàëè";
 			this->äîáàâèòüÄåòàëèToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::DetailsListPage_DataGrid_OpeningDetailsAddingWindow);
 			// 
 			// îáîðóäîâàíèåToolStripMenuItem
 			// 
 			this->îáîðóäîâàíèåToolStripMenuItem->Name = L"îáîðóäîâàíèåToolStripMenuItem";
-			this->îáîðóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->îáîðóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->îáîðóäîâàíèåToolStripMenuItem->Text = L"Îáîðóäîâàíèå";
 			this->îáîðóäîâàíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowEquipmentListPage);
 			// 
 			// äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem
 			// 
 			this->äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem->Name = L"äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem";
-			this->äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem->Text = L"Äîáàâèòü îáîðóäîâàíèå";
 			this->äîáàâèòüÎáîðóäîâàíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowAddingEquipmentListPage);
 			// 
 			// çàêàçToolStripMenuItem
 			// 
 			this->çàêàçToolStripMenuItem->Name = L"çàêàçToolStripMenuItem";
-			this->çàêàçToolStripMenuItem->Size = System::Drawing::Size(265, 26);
+			this->çàêàçToolStripMenuItem->Size = System::Drawing::Size(208, 22);
 			this->çàêàçToolStripMenuItem->Text = L"Çàêàç";
 			this->çàêàçToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowOrderPage);
 			// 
@@ -1434,20 +1427,22 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 					this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem
 			});
 			this->îÏðîãðàììåToolStripMenuItem->Name = L"îÏðîãðàììåToolStripMenuItem";
-			this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(118, 24);
-			this->îÏðîãðàììåToolStripMenuItem->Text = L"Î ïðîãðàììå";
+			this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(65, 20);
+			this->îÏðîãðàììåToolStripMenuItem->Text = L"Ñïðàâêà";
 			// 
 			// ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem
 			// 
 			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem->Name = L"ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem";
-			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem->Size = System::Drawing::Size(278, 26);
-			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem->Text = L"Ãëàâíàÿ èíôîðìàöèÿ";
+			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem->Size = System::Drawing::Size(221, 22);
+			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem->Text = L"Î ïðîãðàììå";
+			this->ãëàâíàÿÈíôîðìàöèÿToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowAboutProgramPage);
 			// 
 			// ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem
 			// 
 			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Name = L"ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem";
-			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Size = System::Drawing::Size(278, 26);
+			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Size = System::Drawing::Size(221, 22);
 			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Text = L"Ðóêîâîäñòâî ïîëüçîâàòåëÿ";
+			this->ðóêîâîäñòâîÏîëüçîâàòåëÿToolStripMenuItem->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowGuidOnClick);
 			// 
 			// OpenFileDialog
 			// 
@@ -1471,10 +1466,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage->Controls->Add(this->label4);
 			this->AddingEquipmentPage->Controls->Add(this->label3);
 			this->AddingEquipmentPage->Controls->Add(this->AddingEquipmentPage_EquipmentNameInput);
-			this->AddingEquipmentPage->Location = System::Drawing::Point(4, 33);
-			this->AddingEquipmentPage->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage->Location = System::Drawing::Point(3, 27);
 			this->AddingEquipmentPage->Name = L"AddingEquipmentPage";
-			this->AddingEquipmentPage->Size = System::Drawing::Size(1469, 666);
+			this->AddingEquipmentPage->Size = System::Drawing::Size(1102, 541);
 			this->AddingEquipmentPage->TabIndex = 21;
 			this->AddingEquipmentPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OnLoad_AddingEquipmentPage);
 			// 
@@ -1482,10 +1476,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(1196, 149);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox1->Location = System::Drawing::Point(897, 121);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(100, 98);
+			this->pictureBox1->Size = System::Drawing::Size(75, 80);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 29;
 			this->pictureBox1->TabStop = false;
@@ -1493,10 +1487,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox3
 			// 
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(1275, 210);
-			this->pictureBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox3->Location = System::Drawing::Point(956, 171);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(109, 114);
+			this->pictureBox3->Size = System::Drawing::Size(82, 93);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox3->TabIndex = 31;
 			this->pictureBox3->TabStop = false;
@@ -1505,10 +1499,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(1117, 82);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox2->Location = System::Drawing::Point(838, 67);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(101, 111);
+			this->pictureBox2->Size = System::Drawing::Size(76, 90);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox2->TabIndex = 30;
 			this->pictureBox2->TabStop = false;
@@ -1529,11 +1523,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->groupBox2->Controls->Add(this->AddingEquipmentPage_ComponentsListDataGrid);
 			this->groupBox2->Controls->Add(this->pictureBox23);
 			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8));
-			this->groupBox2->Location = System::Drawing::Point(15, 330);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox2->Location = System::Drawing::Point(11, 268);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->groupBox2->Size = System::Drawing::Size(1443, 318);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(2);
+			this->groupBox2->Size = System::Drawing::Size(1082, 258);
 			this->groupBox2->TabIndex = 28;
 			this->groupBox2->TabStop = false;
 			// 
@@ -1541,10 +1535,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox21->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox21->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox21.Image")));
-			this->pictureBox21->Location = System::Drawing::Point(685, 39);
-			this->pictureBox21->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox21->Location = System::Drawing::Point(514, 32);
+			this->pictureBox21->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox21->Name = L"pictureBox21";
-			this->pictureBox21->Size = System::Drawing::Size(75, 37);
+			this->pictureBox21->Size = System::Drawing::Size(56, 30);
 			this->pictureBox21->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox21->TabIndex = 33;
 			this->pictureBox21->TabStop = false;
@@ -1553,10 +1547,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox18->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox18->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox18.Image")));
-			this->pictureBox18->Location = System::Drawing::Point(479, -300);
-			this->pictureBox18->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox18->Location = System::Drawing::Point(359, -244);
+			this->pictureBox18->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox18->Name = L"pictureBox18";
-			this->pictureBox18->Size = System::Drawing::Size(91, 39);
+			this->pictureBox18->Size = System::Drawing::Size(68, 32);
 			this->pictureBox18->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox18->TabIndex = 33;
 			this->pictureBox18->TabStop = false;
@@ -1567,10 +1561,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label6->Location = System::Drawing::Point(7, 41);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Location = System::Drawing::Point(5, 33);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(102, 32);
+			this->label6->Size = System::Drawing::Size(80, 26);
 			this->label6->TabIndex = 25;
 			this->label6->Text = L"Ïîèñê:";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1579,10 +1572,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox19->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->pictureBox19->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox19.Image")));
-			this->pictureBox19->Location = System::Drawing::Point(1347, 190);
-			this->pictureBox19->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox19->Location = System::Drawing::Point(1010, 154);
+			this->pictureBox19->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox19->Name = L"pictureBox19";
-			this->pictureBox19->Size = System::Drawing::Size(29, 54);
+			this->pictureBox19->Size = System::Drawing::Size(22, 44);
 			this->pictureBox19->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox19->TabIndex = 32;
 			this->pictureBox19->TabStop = false;
@@ -1593,10 +1586,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->AutoSize = true;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Location = System::Drawing::Point(1175, 82);
-			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Location = System::Drawing::Point(881, 67);
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Name = L"AddingEquipmentPage_ComponentsListSortTypeLabel";
-			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Size = System::Drawing::Size(214, 31);
+			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Size = System::Drawing::Size(176, 26);
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->TabIndex = 15;
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->Text = L"Ñîðòèðîâêà ïî";
 			this->AddingEquipmentPage_ComponentsListSortTypeLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1610,10 +1602,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				L"Id êîìïîíåíòà",
 					L"Íàçâàíèþ êîìïîíåíòà", L"Ñòîèìîñòè êîìïîíåíòà", L"Êîëè÷åñòâó êîìïîíåòîâ", L"Ïîëíîé ñòîèìîòè êîìïîíåòîâ"
 			});
-			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Location = System::Drawing::Point(1181, 118);
-			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Location = System::Drawing::Point(886, 96);
 			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Name = L"AddingEquipmentPage_ComponemtsListSortTypeComboBox";
-			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Size = System::Drawing::Size(203, 37);
+			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->Size = System::Drawing::Size(153, 32);
 			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->TabIndex = 16;
 			this->AddingEquipmentPage_ComponemtsListSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponemtsListSortTypeComboBox_SelectedIndexChanged);
 			// 
@@ -1625,10 +1616,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage_AddingEquipmentButton->FlatAppearance->BorderSize = 2;
 			this->AddingEquipmentPage_AddingEquipmentButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->AddingEquipmentPage_AddingEquipmentButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->AddingEquipmentPage_AddingEquipmentButton->Location = System::Drawing::Point(1181, 185);
-			this->AddingEquipmentPage_AddingEquipmentButton->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_AddingEquipmentButton->Location = System::Drawing::Point(886, 150);
 			this->AddingEquipmentPage_AddingEquipmentButton->Name = L"AddingEquipmentPage_AddingEquipmentButton";
-			this->AddingEquipmentPage_AddingEquipmentButton->Size = System::Drawing::Size(205, 64);
+			this->AddingEquipmentPage_AddingEquipmentButton->Size = System::Drawing::Size(154, 52);
 			this->AddingEquipmentPage_AddingEquipmentButton->TabIndex = 17;
 			this->AddingEquipmentPage_AddingEquipmentButton->Text = L"Äîáàâèòü";
 			this->AddingEquipmentPage_AddingEquipmentButton->UseVisualStyleBackColor = false;
@@ -1642,10 +1632,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F,
 				System::Drawing::FontStyle::Bold));
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Location = System::Drawing::Point(1181, 256);
-			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Location = System::Drawing::Point(886, 208);
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Name = L"AddingEquipmentPage_ExitfromAddingEquipmentPageButton";
-			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Size = System::Drawing::Size(205, 47);
+			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Size = System::Drawing::Size(154, 38);
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->TabIndex = 14;
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->Text = L"Íàçàä";
 			this->AddingEquipmentPage_ExitfromAddingEquipmentPageButton->UseVisualStyleBackColor = false;
@@ -1654,10 +1643,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// AddingEquipmentPage_ComponentsListSearchInput
 			// 
 			this->AddingEquipmentPage_ComponentsListSearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->AddingEquipmentPage_ComponentsListSearchInput->Location = System::Drawing::Point(116, 39);
-			this->AddingEquipmentPage_ComponentsListSearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddingEquipmentPage_ComponentsListSearchInput->Location = System::Drawing::Point(87, 32);
+			this->AddingEquipmentPage_ComponentsListSearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->AddingEquipmentPage_ComponentsListSearchInput->Name = L"AddingEquipmentPage_ComponentsListSearchInput";
-			this->AddingEquipmentPage_ComponentsListSearchInput->Size = System::Drawing::Size(644, 38);
+			this->AddingEquipmentPage_ComponentsListSearchInput->Size = System::Drawing::Size(484, 32);
 			this->AddingEquipmentPage_ComponentsListSearchInput->TabIndex = 18;
 			this->AddingEquipmentPage_ComponentsListSearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListSearchInput_TextChanged);
 			// 
@@ -1666,10 +1655,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage_ComponentsListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_ComponentsListLabel->AutoSize = true;
 			this->AddingEquipmentPage_ComponentsListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_ComponentsListLabel->Location = System::Drawing::Point(7, 1);
-			this->AddingEquipmentPage_ComponentsListLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_ComponentsListLabel->Location = System::Drawing::Point(5, 1);
 			this->AddingEquipmentPage_ComponentsListLabel->Name = L"AddingEquipmentPage_ComponentsListLabel";
-			this->AddingEquipmentPage_ComponentsListLabel->Size = System::Drawing::Size(495, 31);
+			this->AddingEquipmentPage_ComponentsListLabel->Size = System::Drawing::Size(407, 26);
 			this->AddingEquipmentPage_ComponentsListLabel->TabIndex = 10;
 			this->AddingEquipmentPage_ComponentsListLabel->Text = L"Ñïèñîê êîìïîíåíòîâ îáîðóäîâàíèÿ";
 			this->AddingEquipmentPage_ComponentsListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1684,11 +1672,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 					this->Column3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6, this->Column1,
 					this->Column2
 			});
-			this->AddingEquipmentPage_ComponentsListDataGrid->Location = System::Drawing::Point(7, 82);
-			this->AddingEquipmentPage_ComponentsListDataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_ComponentsListDataGrid->Location = System::Drawing::Point(5, 67);
 			this->AddingEquipmentPage_ComponentsListDataGrid->Name = L"AddingEquipmentPage_ComponentsListDataGrid";
 			this->AddingEquipmentPage_ComponentsListDataGrid->RowHeadersWidth = 51;
-			this->AddingEquipmentPage_ComponentsListDataGrid->Size = System::Drawing::Size(1147, 220);
+			this->AddingEquipmentPage_ComponentsListDataGrid->Size = System::Drawing::Size(860, 179);
 			this->AddingEquipmentPage_ComponentsListDataGrid->TabIndex = 0;
 			this->AddingEquipmentPage_ComponentsListDataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellContentClick);
 			this->AddingEquipmentPage_ComponentsListDataGrid->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_ComponentsListDataGrid_CellEndEdit);
@@ -1753,10 +1740,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox23->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox23->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox23.Image")));
-			this->pictureBox23->Location = System::Drawing::Point(1084, 41);
-			this->pictureBox23->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox23->Location = System::Drawing::Point(813, 33);
+			this->pictureBox23->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox23->Name = L"pictureBox23";
-			this->pictureBox23->Size = System::Drawing::Size(148, 126);
+			this->pictureBox23->Size = System::Drawing::Size(111, 102);
 			this->pictureBox23->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox23->TabIndex = 33;
 			this->pictureBox23->TabStop = false;
@@ -1771,11 +1758,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->groupBox1->Controls->Add(this->AddingEquipmentPage_DetailsListSearchInput);
 			this->groupBox1->Controls->Add(this->AddingEquipmentPage_DetailsListDataGrid);
 			this->groupBox1->Controls->Add(this->AddingEquipmentPage_DetailsListLabel);
-			this->groupBox1->Location = System::Drawing::Point(15, 82);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox1->Location = System::Drawing::Point(11, 67);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->groupBox1->Size = System::Drawing::Size(1005, 241);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
+			this->groupBox1->Size = System::Drawing::Size(754, 196);
 			this->groupBox1->TabIndex = 27;
 			this->groupBox1->TabStop = false;
 			// 
@@ -1783,10 +1770,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox22->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox22->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox22.Image")));
-			this->pictureBox22->Location = System::Drawing::Point(685, 50);
-			this->pictureBox22->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox22->Location = System::Drawing::Point(514, 41);
+			this->pictureBox22->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox22->Name = L"pictureBox22";
-			this->pictureBox22->Size = System::Drawing::Size(75, 37);
+			this->pictureBox22->Size = System::Drawing::Size(56, 30);
 			this->pictureBox22->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox22->TabIndex = 34;
 			this->pictureBox22->TabStop = false;
@@ -1797,10 +1784,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label5->Location = System::Drawing::Point(7, 52);
-			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label5->Location = System::Drawing::Point(5, 42);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(102, 32);
+			this->label5->Size = System::Drawing::Size(80, 26);
 			this->label5->TabIndex = 26;
 			this->label5->Text = L"Ïîèñê:";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1814,10 +1800,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				L"Id äåòàëè",
 					L"Íàçâàíèþ äåòàëè", L"Ñòîèìîñòè äåòàëè"
 			});
-			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Location = System::Drawing::Point(781, 129);
-			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Location = System::Drawing::Point(586, 105);
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Name = L"AddingEquipmentPage_DetailsListSortTypeComboBox";
-			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Size = System::Drawing::Size(203, 37);
+			this->AddingEquipmentPage_DetailsListSortTypeComboBox->Size = System::Drawing::Size(153, 32);
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->TabIndex = 22;
 			this->AddingEquipmentPage_DetailsListSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListSortTypeComboBox_SelectedIndexChanged);
 			// 
@@ -1826,10 +1811,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->AutoSize = true;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_DetailsListSortTypeLabel->Location = System::Drawing::Point(775, 94);
-			this->AddingEquipmentPage_DetailsListSortTypeLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_DetailsListSortTypeLabel->Location = System::Drawing::Point(581, 76);
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Name = L"AddingEquipmentPage_DetailsListSortTypeLabel";
-			this->AddingEquipmentPage_DetailsListSortTypeLabel->Size = System::Drawing::Size(214, 31);
+			this->AddingEquipmentPage_DetailsListSortTypeLabel->Size = System::Drawing::Size(176, 26);
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->TabIndex = 21;
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->Text = L"Ñîðòèðîâêà ïî";
 			this->AddingEquipmentPage_DetailsListSortTypeLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1837,10 +1821,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// AddingEquipmentPage_DetailsListSearchInput
 			// 
 			this->AddingEquipmentPage_DetailsListSearchInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->AddingEquipmentPage_DetailsListSearchInput->Location = System::Drawing::Point(116, 50);
-			this->AddingEquipmentPage_DetailsListSearchInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddingEquipmentPage_DetailsListSearchInput->Location = System::Drawing::Point(87, 41);
+			this->AddingEquipmentPage_DetailsListSearchInput->Margin = System::Windows::Forms::Padding(2);
 			this->AddingEquipmentPage_DetailsListSearchInput->Name = L"AddingEquipmentPage_DetailsListSearchInput";
-			this->AddingEquipmentPage_DetailsListSearchInput->Size = System::Drawing::Size(644, 38);
+			this->AddingEquipmentPage_DetailsListSearchInput->Size = System::Drawing::Size(484, 32);
 			this->AddingEquipmentPage_DetailsListSearchInput->TabIndex = 23;
 			this->AddingEquipmentPage_DetailsListSearchInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListSearchInput_TextChanged);
 			// 
@@ -1853,12 +1837,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				this->dataGridViewTextBoxColumn7,
 					this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9
 			});
-			this->AddingEquipmentPage_DetailsListDataGrid->Location = System::Drawing::Point(7, 94);
-			this->AddingEquipmentPage_DetailsListDataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->AddingEquipmentPage_DetailsListDataGrid->Location = System::Drawing::Point(5, 76);
 			this->AddingEquipmentPage_DetailsListDataGrid->Name = L"AddingEquipmentPage_DetailsListDataGrid";
 			this->AddingEquipmentPage_DetailsListDataGrid->ReadOnly = true;
 			this->AddingEquipmentPage_DetailsListDataGrid->RowHeadersWidth = 51;
-			this->AddingEquipmentPage_DetailsListDataGrid->Size = System::Drawing::Size(753, 140);
+			this->AddingEquipmentPage_DetailsListDataGrid->Size = System::Drawing::Size(565, 114);
 			this->AddingEquipmentPage_DetailsListDataGrid->TabIndex = 19;
 			this->AddingEquipmentPage_DetailsListDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_DetailsListDataGrid_MouseClick);
 			// 
@@ -1894,10 +1877,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->AddingEquipmentPage_DetailsListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AddingEquipmentPage_DetailsListLabel->AutoSize = true;
 			this->AddingEquipmentPage_DetailsListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->AddingEquipmentPage_DetailsListLabel->Location = System::Drawing::Point(7, 15);
-			this->AddingEquipmentPage_DetailsListLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AddingEquipmentPage_DetailsListLabel->Location = System::Drawing::Point(5, 12);
 			this->AddingEquipmentPage_DetailsListLabel->Name = L"AddingEquipmentPage_DetailsListLabel";
-			this->AddingEquipmentPage_DetailsListLabel->Size = System::Drawing::Size(326, 31);
+			this->AddingEquipmentPage_DetailsListLabel->Size = System::Drawing::Size(269, 26);
 			this->AddingEquipmentPage_DetailsListLabel->TabIndex = 20;
 			this->AddingEquipmentPage_DetailsListLabel->Text = L"Îáùèé ñïèñîê äåòàëåé";
 			this->AddingEquipmentPage_DetailsListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1908,10 +1890,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(4, 25);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Location = System::Drawing::Point(3, 20);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(513, 36);
+			this->label4->Size = System::Drawing::Size(421, 29);
 			this->label4->TabIndex = 26;
 			this->label4->Text = L"Ââåäèòå íàâàíèå îáîðóäîâàíèÿ:";
 			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1921,10 +1902,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label3->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->label3->Location = System::Drawing::Point(888, 11);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Location = System::Drawing::Point(666, 9);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(545, 52);
+			this->label3->Size = System::Drawing::Size(436, 39);
 			this->label3->TabIndex = 25;
 			this->label3->Text = L"Ñîçäàíèå îáîðóäîâàíèÿ";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1932,10 +1912,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// AddingEquipmentPage_EquipmentNameInput
 			// 
 			this->AddingEquipmentPage_EquipmentNameInput->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->AddingEquipmentPage_EquipmentNameInput->Location = System::Drawing::Point(561, 26);
-			this->AddingEquipmentPage_EquipmentNameInput->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->AddingEquipmentPage_EquipmentNameInput->Location = System::Drawing::Point(421, 21);
+			this->AddingEquipmentPage_EquipmentNameInput->Margin = System::Windows::Forms::Padding(2);
 			this->AddingEquipmentPage_EquipmentNameInput->Name = L"AddingEquipmentPage_EquipmentNameInput";
-			this->AddingEquipmentPage_EquipmentNameInput->Size = System::Drawing::Size(309, 38);
+			this->AddingEquipmentPage_EquipmentNameInput->Size = System::Drawing::Size(233, 32);
 			this->AddingEquipmentPage_EquipmentNameInput->TabIndex = 24;
 			this->AddingEquipmentPage_EquipmentNameInput->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::AddingEquipmentPage_EquipmentNameInput_TextChanged);
 			// 
@@ -1965,20 +1945,18 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage->Controls->Add(this->OrderPage_OrderedEquipmentDataGrid);
 			this->OrderPage->Controls->Add(this->pictureBox24);
 			this->OrderPage->Controls->Add(this->pictureBox26);
-			this->OrderPage->Location = System::Drawing::Point(0, 32);
-			this->OrderPage->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage->Location = System::Drawing::Point(0, 26);
 			this->OrderPage->Name = L"OrderPage";
-			this->OrderPage->Size = System::Drawing::Size(1473, 667);
+			this->OrderPage->Size = System::Drawing::Size(1105, 542);
 			this->OrderPage->TabIndex = 22;
 			this->OrderPage->VisibleChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_VisibleChanged);
 			// 
 			// pictureBox20
 			// 
 			this->pictureBox20->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox20.Image")));
-			this->pictureBox20->Location = System::Drawing::Point(1232, 12);
-			this->pictureBox20->Margin = System::Windows::Forms::Padding(4);
+			this->pictureBox20->Location = System::Drawing::Point(924, 10);
 			this->pictureBox20->Name = L"pictureBox20";
-			this->pictureBox20->Size = System::Drawing::Size(71, 46);
+			this->pictureBox20->Size = System::Drawing::Size(53, 37);
 			this->pictureBox20->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox20->TabIndex = 34;
 			this->pictureBox20->TabStop = false;
@@ -1986,10 +1964,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox10
 			// 
 			this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
-			this->pictureBox10->Location = System::Drawing::Point(1216, 201);
-			this->pictureBox10->Margin = System::Windows::Forms::Padding(4);
+			this->pictureBox10->Location = System::Drawing::Point(912, 163);
 			this->pictureBox10->Name = L"pictureBox10";
-			this->pictureBox10->Size = System::Drawing::Size(207, 129);
+			this->pictureBox10->Size = System::Drawing::Size(155, 105);
 			this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox10->TabIndex = 33;
 			this->pictureBox10->TabStop = false;
@@ -2000,10 +1977,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_UserNameLabel->AutoSize = true;
 			this->OrderPage_UserNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->OrderPage_UserNameLabel->Location = System::Drawing::Point(12, 26);
-			this->OrderPage_UserNameLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_UserNameLabel->Location = System::Drawing::Point(9, 21);
 			this->OrderPage_UserNameLabel->Name = L"OrderPage_UserNameLabel";
-			this->OrderPage_UserNameLabel->Size = System::Drawing::Size(303, 38);
+			this->OrderPage_UserNameLabel->Size = System::Drawing::Size(248, 31);
 			this->OrderPage_UserNameLabel->TabIndex = 32;
 			this->OrderPage_UserNameLabel->Text = L"Ââåäèòå ñâîå èìÿ:";
 			this->OrderPage_UserNameLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2011,20 +1987,20 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// OrderPage_NameTextBox
 			// 
 			this->OrderPage_NameTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->OrderPage_NameTextBox->Location = System::Drawing::Point(349, 28);
-			this->OrderPage_NameTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->OrderPage_NameTextBox->Location = System::Drawing::Point(262, 23);
+			this->OrderPage_NameTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->OrderPage_NameTextBox->Name = L"OrderPage_NameTextBox";
-			this->OrderPage_NameTextBox->Size = System::Drawing::Size(484, 38);
+			this->OrderPage_NameTextBox->Size = System::Drawing::Size(364, 32);
 			this->OrderPage_NameTextBox->TabIndex = 31;
 			// 
 			// pictureBox8
 			// 
 			this->pictureBox8->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
-			this->pictureBox8->Location = System::Drawing::Point(537, 373);
-			this->pictureBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox8->Location = System::Drawing::Point(403, 303);
+			this->pictureBox8->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(91, 39);
+			this->pictureBox8->Size = System::Drawing::Size(68, 32);
 			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox8->TabIndex = 30;
 			this->pictureBox8->TabStop = false;
@@ -2035,10 +2011,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label11->Location = System::Drawing::Point(8, 373);
-			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Location = System::Drawing::Point(6, 303);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(120, 38);
+			this->label11->Size = System::Drawing::Size(100, 31);
 			this->label11->TabIndex = 29;
 			this->label11->Text = L"Ïîèñê:";
 			this->label11->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2047,10 +2022,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// 
 			this->pictureBox6->BackColor = System::Drawing::SystemColors::Window;
 			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(537, 119);
-			this->pictureBox6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox6->Location = System::Drawing::Point(403, 97);
+			this->pictureBox6->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(91, 39);
+			this->pictureBox6->Size = System::Drawing::Size(68, 32);
 			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox6->TabIndex = 28;
 			this->pictureBox6->TabStop = false;
@@ -2061,10 +2036,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label10->Location = System::Drawing::Point(8, 119);
-			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label10->Location = System::Drawing::Point(6, 97);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(120, 38);
+			this->label10->Size = System::Drawing::Size(100, 31);
 			this->label10->TabIndex = 27;
 			this->label10->Text = L"Ïîèñê:";
 			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2075,10 +2049,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_Title->AutoSize = true;
 			this->OrderPage_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->OrderPage_Title->Location = System::Drawing::Point(1311, 12);
-			this->OrderPage_Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_Title->Location = System::Drawing::Point(983, 10);
 			this->OrderPage_Title->Name = L"OrderPage_Title";
-			this->OrderPage_Title->Size = System::Drawing::Size(132, 46);
+			this->OrderPage_Title->Size = System::Drawing::Size(110, 37);
 			this->OrderPage_Title->TabIndex = 26;
 			this->OrderPage_Title->Text = L"Çàêàç";
 			this->OrderPage_Title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2088,10 +2061,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_TotalPrice->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->OrderPage_TotalPrice->AutoSize = true;
 			this->OrderPage_TotalPrice->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->OrderPage_TotalPrice->Location = System::Drawing::Point(1221, 494);
-			this->OrderPage_TotalPrice->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_TotalPrice->Location = System::Drawing::Point(916, 401);
 			this->OrderPage_TotalPrice->Name = L"OrderPage_TotalPrice";
-			this->OrderPage_TotalPrice->Size = System::Drawing::Size(190, 39);
+			this->OrderPage_TotalPrice->Size = System::Drawing::Size(154, 31);
 			this->OrderPage_TotalPrice->TabIndex = 25;
 			this->OrderPage_TotalPrice->Text = L"00.00 BYN";
 			this->OrderPage_TotalPrice->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2105,11 +2077,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				this->dataGridViewTextBoxColumn3,
 					this->dataGridViewTextBoxColumn10, this->Column5
 			});
-			this->OrderPage_EquipmentDataGrid->Location = System::Drawing::Point(15, 164);
-			this->OrderPage_EquipmentDataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage_EquipmentDataGrid->Location = System::Drawing::Point(11, 133);
 			this->OrderPage_EquipmentDataGrid->Name = L"OrderPage_EquipmentDataGrid";
 			this->OrderPage_EquipmentDataGrid->RowHeadersWidth = 51;
-			this->OrderPage_EquipmentDataGrid->Size = System::Drawing::Size(1179, 165);
+			this->OrderPage_EquipmentDataGrid->Size = System::Drawing::Size(884, 134);
 			this->OrderPage_EquipmentDataGrid->TabIndex = 24;
 			this->OrderPage_EquipmentDataGrid->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentGrid_MouseClick);
 			// 
@@ -2143,10 +2114,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// OrderPage_EquipmentSearchTextBox
 			// 
 			this->OrderPage_EquipmentSearchTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->OrderPage_EquipmentSearchTextBox->Location = System::Drawing::Point(143, 119);
-			this->OrderPage_EquipmentSearchTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->OrderPage_EquipmentSearchTextBox->Location = System::Drawing::Point(107, 97);
+			this->OrderPage_EquipmentSearchTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->OrderPage_EquipmentSearchTextBox->Name = L"OrderPage_EquipmentSearchTextBox";
-			this->OrderPage_EquipmentSearchTextBox->Size = System::Drawing::Size(484, 38);
+			this->OrderPage_EquipmentSearchTextBox->Size = System::Drawing::Size(364, 32);
 			this->OrderPage_EquipmentSearchTextBox->TabIndex = 23;
 			this->OrderPage_EquipmentSearchTextBox->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentSearchTextBox_TextChanged);
 			// 
@@ -2158,10 +2129,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				L"Id îáîðóäîâàíèÿ", L"Íàçâàíèþ îáîðóäîâàíèÿ",
 					L"Ñòîèìîñòè îáîðóäîâàíèÿ"
 			});
-			this->OrderPage_EquipmentSortTypeComboBox->Location = System::Drawing::Point(1216, 153);
-			this->OrderPage_EquipmentSortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage_EquipmentSortTypeComboBox->Location = System::Drawing::Point(912, 124);
 			this->OrderPage_EquipmentSortTypeComboBox->Name = L"OrderPage_EquipmentSortTypeComboBox";
-			this->OrderPage_EquipmentSortTypeComboBox->Size = System::Drawing::Size(203, 37);
+			this->OrderPage_EquipmentSortTypeComboBox->Size = System::Drawing::Size(153, 32);
 			this->OrderPage_EquipmentSortTypeComboBox->TabIndex = 22;
 			this->OrderPage_EquipmentSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_EquipmentSortTypeComboBox_SelectedIndexChanged);
 			// 
@@ -2170,10 +2140,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_EquipmentSortTypeTitle->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->OrderPage_EquipmentSortTypeTitle->AutoSize = true;
 			this->OrderPage_EquipmentSortTypeTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->OrderPage_EquipmentSortTypeTitle->Location = System::Drawing::Point(1212, 124);
-			this->OrderPage_EquipmentSortTypeTitle->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_EquipmentSortTypeTitle->Location = System::Drawing::Point(909, 101);
 			this->OrderPage_EquipmentSortTypeTitle->Name = L"OrderPage_EquipmentSortTypeTitle";
-			this->OrderPage_EquipmentSortTypeTitle->Size = System::Drawing::Size(199, 29);
+			this->OrderPage_EquipmentSortTypeTitle->Size = System::Drawing::Size(158, 24);
 			this->OrderPage_EquipmentSortTypeTitle->TabIndex = 21;
 			this->OrderPage_EquipmentSortTypeTitle->Text = L"Ñîðòèðîâêà ïî";
 			this->OrderPage_EquipmentSortTypeTitle->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2183,10 +2152,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_WholeEquipmentListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->OrderPage_WholeEquipmentListLabel->AutoSize = true;
 			this->OrderPage_WholeEquipmentListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->OrderPage_WholeEquipmentListLabel->Location = System::Drawing::Point(9, 85);
-			this->OrderPage_WholeEquipmentListLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_WholeEquipmentListLabel->Location = System::Drawing::Point(7, 69);
 			this->OrderPage_WholeEquipmentListLabel->Name = L"OrderPage_WholeEquipmentListLabel";
-			this->OrderPage_WholeEquipmentListLabel->Size = System::Drawing::Size(460, 36);
+			this->OrderPage_WholeEquipmentListLabel->Size = System::Drawing::Size(378, 29);
 			this->OrderPage_WholeEquipmentListLabel->TabIndex = 20;
 			this->OrderPage_WholeEquipmentListLabel->Text = L"Îáùèé ñïèñîê îáîðóäîâàíèÿ";
 			this->OrderPage_WholeEquipmentListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2194,10 +2162,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// OrderPage_OrderedEquipmentSearchTextBox
 			// 
 			this->OrderPage_OrderedEquipmentSearchTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold));
-			this->OrderPage_OrderedEquipmentSearchTextBox->Location = System::Drawing::Point(143, 372);
-			this->OrderPage_OrderedEquipmentSearchTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->OrderPage_OrderedEquipmentSearchTextBox->Location = System::Drawing::Point(107, 302);
+			this->OrderPage_OrderedEquipmentSearchTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->OrderPage_OrderedEquipmentSearchTextBox->Name = L"OrderPage_OrderedEquipmentSearchTextBox";
-			this->OrderPage_OrderedEquipmentSearchTextBox->Size = System::Drawing::Size(484, 38);
+			this->OrderPage_OrderedEquipmentSearchTextBox->Size = System::Drawing::Size(364, 32);
 			this->OrderPage_OrderedEquipmentSearchTextBox->TabIndex = 18;
 			this->OrderPage_OrderedEquipmentSearchTextBox->TextChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentSearchTextBox_TextChanged);
 			// 
@@ -2207,10 +2175,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_MakeOrderButton->BackColor = System::Drawing::Color::DarkOliveGreen;
 			this->OrderPage_MakeOrderButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->OrderPage_MakeOrderButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->OrderPage_MakeOrderButton->Location = System::Drawing::Point(1216, 529);
-			this->OrderPage_MakeOrderButton->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage_MakeOrderButton->Location = System::Drawing::Point(912, 430);
 			this->OrderPage_MakeOrderButton->Name = L"OrderPage_MakeOrderButton";
-			this->OrderPage_MakeOrderButton->Size = System::Drawing::Size(215, 64);
+			this->OrderPage_MakeOrderButton->Size = System::Drawing::Size(161, 52);
 			this->OrderPage_MakeOrderButton->TabIndex = 17;
 			this->OrderPage_MakeOrderButton->Text = L"Çàêàçàòü";
 			this->OrderPage_MakeOrderButton->UseVisualStyleBackColor = false;
@@ -2225,10 +2192,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 				L"Id îáîðóäîâàíèÿ",
 					L"Íàçâàíèþ îáîðóäîâàíèÿ", L"Ñòîèìîñòè îäíîãî îáîðóäîâàíèÿ", L"Êîëè÷åñòâó çàêàçàííîãî îáîðóäîâàíèÿ", L"Ïîëíîé ñòîèìîòè îáîðóäîâàíèÿ"
 			});
-			this->OrderPage_OrderedEquipmentSortTypeComboBox->Location = System::Drawing::Point(1216, 444);
-			this->OrderPage_OrderedEquipmentSortTypeComboBox->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->Location = System::Drawing::Point(912, 361);
 			this->OrderPage_OrderedEquipmentSortTypeComboBox->Name = L"OrderPage_OrderedEquipmentSortTypeComboBox";
-			this->OrderPage_OrderedEquipmentSortTypeComboBox->Size = System::Drawing::Size(213, 37);
+			this->OrderPage_OrderedEquipmentSortTypeComboBox->Size = System::Drawing::Size(161, 32);
 			this->OrderPage_OrderedEquipmentSortTypeComboBox->TabIndex = 16;
 			this->OrderPage_OrderedEquipmentSortTypeComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentSortTypeComboBox_SelectedIndexChanged);
 			// 
@@ -2237,10 +2203,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_OrderedEquipmentSortTypeTitle->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->OrderPage_OrderedEquipmentSortTypeTitle->AutoSize = true;
 			this->OrderPage_OrderedEquipmentSortTypeTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->OrderPage_OrderedEquipmentSortTypeTitle->Location = System::Drawing::Point(1220, 414);
-			this->OrderPage_OrderedEquipmentSortTypeTitle->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Location = System::Drawing::Point(915, 336);
 			this->OrderPage_OrderedEquipmentSortTypeTitle->Name = L"OrderPage_OrderedEquipmentSortTypeTitle";
-			this->OrderPage_OrderedEquipmentSortTypeTitle->Size = System::Drawing::Size(199, 29);
+			this->OrderPage_OrderedEquipmentSortTypeTitle->Size = System::Drawing::Size(158, 24);
 			this->OrderPage_OrderedEquipmentSortTypeTitle->TabIndex = 15;
 			this->OrderPage_OrderedEquipmentSortTypeTitle->Text = L"Ñîðòèðîâêà ïî";
 			this->OrderPage_OrderedEquipmentSortTypeTitle->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2251,10 +2216,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_GoToMainMenuButton->BackColor = System::Drawing::Color::DarkRed;
 			this->OrderPage_GoToMainMenuButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
 			this->OrderPage_GoToMainMenuButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->OrderPage_GoToMainMenuButton->Location = System::Drawing::Point(1216, 596);
-			this->OrderPage_GoToMainMenuButton->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage_GoToMainMenuButton->Location = System::Drawing::Point(912, 484);
 			this->OrderPage_GoToMainMenuButton->Name = L"OrderPage_GoToMainMenuButton";
-			this->OrderPage_GoToMainMenuButton->Size = System::Drawing::Size(215, 47);
+			this->OrderPage_GoToMainMenuButton->Size = System::Drawing::Size(161, 38);
 			this->OrderPage_GoToMainMenuButton->TabIndex = 14;
 			this->OrderPage_GoToMainMenuButton->Text = L"Íàçàä";
 			this->OrderPage_GoToMainMenuButton->UseVisualStyleBackColor = false;
@@ -2264,10 +2228,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->OrderPage_OrderedEquipmentListLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->OrderPage_OrderedEquipmentListLabel->AutoSize = true;
 			this->OrderPage_OrderedEquipmentListLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->OrderPage_OrderedEquipmentListLabel->Location = System::Drawing::Point(9, 337);
-			this->OrderPage_OrderedEquipmentListLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->OrderPage_OrderedEquipmentListLabel->Location = System::Drawing::Point(7, 274);
 			this->OrderPage_OrderedEquipmentListLabel->Name = L"OrderPage_OrderedEquipmentListLabel";
-			this->OrderPage_OrderedEquipmentListLabel->Size = System::Drawing::Size(144, 36);
+			this->OrderPage_OrderedEquipmentListLabel->Size = System::Drawing::Size(120, 29);
 			this->OrderPage_OrderedEquipmentListLabel->TabIndex = 10;
 			this->OrderPage_OrderedEquipmentListLabel->Text = L"Êîðçèíà";
 			this->OrderPage_OrderedEquipmentListLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2282,11 +2245,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 					this->dataGridViewButtonColumn2, this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13, this->dataGridViewTextBoxColumn14,
 					this->dataGridViewTextBoxColumn15, this->dataGridViewTextBoxColumn16
 			});
-			this->OrderPage_OrderedEquipmentDataGrid->Location = System::Drawing::Point(16, 415);
-			this->OrderPage_OrderedEquipmentDataGrid->Margin = System::Windows::Forms::Padding(4);
+			this->OrderPage_OrderedEquipmentDataGrid->Location = System::Drawing::Point(12, 337);
 			this->OrderPage_OrderedEquipmentDataGrid->Name = L"OrderPage_OrderedEquipmentDataGrid";
 			this->OrderPage_OrderedEquipmentDataGrid->RowHeadersWidth = 51;
-			this->OrderPage_OrderedEquipmentDataGrid->Size = System::Drawing::Size(1179, 228);
+			this->OrderPage_OrderedEquipmentDataGrid->Size = System::Drawing::Size(884, 185);
 			this->OrderPage_OrderedEquipmentDataGrid->TabIndex = 0;
 			this->OrderPage_OrderedEquipmentDataGrid->CellBeginEdit += gcnew System::Windows::Forms::DataGridViewCellCancelEventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_CellBeginEdit);
 			this->OrderPage_OrderedEquipmentDataGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &EquipmentPriceCalculator::OrderPage_OrderedEquipmentDataGrid_CellContentClick);
@@ -2350,10 +2312,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox24
 			// 
 			this->pictureBox24->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox24.Image")));
-			this->pictureBox24->Location = System::Drawing::Point(1079, 368);
-			this->pictureBox24->Margin = System::Windows::Forms::Padding(4);
+			this->pictureBox24->Location = System::Drawing::Point(809, 299);
 			this->pictureBox24->Name = L"pictureBox24";
-			this->pictureBox24->Size = System::Drawing::Size(207, 129);
+			this->pictureBox24->Size = System::Drawing::Size(155, 105);
 			this->pictureBox24->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox24->TabIndex = 35;
 			this->pictureBox24->TabStop = false;
@@ -2361,10 +2322,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox26
 			// 
 			this->pictureBox26->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox26.Image")));
-			this->pictureBox26->Location = System::Drawing::Point(1065, 105);
-			this->pictureBox26->Margin = System::Windows::Forms::Padding(4);
+			this->pictureBox26->Location = System::Drawing::Point(799, 85);
 			this->pictureBox26->Name = L"pictureBox26";
-			this->pictureBox26->Size = System::Drawing::Size(207, 129);
+			this->pictureBox26->Size = System::Drawing::Size(155, 105);
 			this->pictureBox26->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox26->TabIndex = 36;
 			this->pictureBox26->TabStop = false;
@@ -2380,19 +2340,18 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->MainPage->Controls->Add(this->button3);
 			this->MainPage->Controls->Add(this->pictureBox5);
 			this->MainPage->Controls->Add(this->pictureBox12);
-			this->MainPage->Location = System::Drawing::Point(4, 33);
-			this->MainPage->Margin = System::Windows::Forms::Padding(4);
+			this->MainPage->Location = System::Drawing::Point(3, 27);
 			this->MainPage->Name = L"MainPage";
-			this->MainPage->Size = System::Drawing::Size(1469, 665);
+			this->MainPage->Size = System::Drawing::Size(1102, 540);
 			this->MainPage->TabIndex = 9;
 			// 
 			// pictureBox11
 			// 
 			this->pictureBox11->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox11.Image")));
-			this->pictureBox11->Location = System::Drawing::Point(429, 270);
-			this->pictureBox11->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox11->Location = System::Drawing::Point(322, 219);
+			this->pictureBox11->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox11->Name = L"pictureBox11";
-			this->pictureBox11->Size = System::Drawing::Size(53, 59);
+			this->pictureBox11->Size = System::Drawing::Size(40, 48);
 			this->pictureBox11->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox11->TabIndex = 16;
 			this->pictureBox11->TabStop = false;
@@ -2401,10 +2360,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox9
 			// 
 			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
-			this->pictureBox9->Location = System::Drawing::Point(429, 385);
-			this->pictureBox9->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox9->Location = System::Drawing::Point(322, 313);
+			this->pictureBox9->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox9->Name = L"pictureBox9";
-			this->pictureBox9->Size = System::Drawing::Size(53, 59);
+			this->pictureBox9->Size = System::Drawing::Size(40, 48);
 			this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox9->TabIndex = 14;
 			this->pictureBox9->TabStop = false;
@@ -2413,10 +2372,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox7
 			// 
 			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
-			this->pictureBox7->Location = System::Drawing::Point(436, 528);
-			this->pictureBox7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox7->Location = System::Drawing::Point(327, 429);
+			this->pictureBox7->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(37, 39);
+			this->pictureBox7->Size = System::Drawing::Size(28, 32);
 			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox7->TabIndex = 12;
 			this->pictureBox7->TabStop = false;
@@ -2431,10 +2390,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->button2->FlatAppearance->BorderSize = 2;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold));
-			this->button2->Location = System::Drawing::Point(395, 364);
-			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Location = System::Drawing::Point(296, 296);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(648, 96);
+			this->button2->Size = System::Drawing::Size(486, 78);
 			this->button2->TabIndex = 9;
 			this->button2->Text = L"Ñäåëàòü çàêàç";
 			this->button2->UseVisualStyleBackColor = false;
@@ -2446,10 +2404,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->label2->AutoSize = true;
 			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 32, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline))));
-			this->label2->Location = System::Drawing::Point(173, 153);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(130, 124);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(1155, 63);
+			this->label2->Size = System::Drawing::Size(934, 51);
 			this->label2->TabIndex = 6;
 			this->label2->Text = L"Êàëüêóëÿòîð ñåáåñòîèìîñòè îáîðóäîâàíèÿ";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -2463,10 +2420,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->button3->FlatAppearance->BorderSize = 2;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold));
-			this->button3->Location = System::Drawing::Point(395, 245);
-			this->button3->Margin = System::Windows::Forms::Padding(4);
+			this->button3->Location = System::Drawing::Point(296, 199);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(648, 111);
+			this->button3->Size = System::Drawing::Size(486, 90);
 			this->button3->TabIndex = 5;
 			this->button3->Text = L"Ðåäàêòèðîâàòü";
 			this->button3->UseVisualStyleBackColor = false;
@@ -2475,10 +2431,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox5
 			// 
 			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			this->pictureBox5->Location = System::Drawing::Point(1256, 97);
-			this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox5->Location = System::Drawing::Point(942, 79);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(143, 113);
+			this->pictureBox5->Size = System::Drawing::Size(107, 92);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox5->TabIndex = 10;
 			this->pictureBox5->TabStop = false;
@@ -2486,20 +2442,130 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			// pictureBox12
 			// 
 			this->pictureBox12->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox12.Image")));
-			this->pictureBox12->Location = System::Drawing::Point(203, 103);
-			this->pictureBox12->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox12->Location = System::Drawing::Point(152, 84);
+			this->pictureBox12->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox12->Name = L"pictureBox12";
-			this->pictureBox12->Size = System::Drawing::Size(169, 158);
+			this->pictureBox12->Size = System::Drawing::Size(127, 128);
 			this->pictureBox12->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox12->TabIndex = 17;
 			this->pictureBox12->TabStop = false;
 			// 
+			// AboutProgramPage
+			// 
+			this->AboutProgramPage->Controls->Add(this->pictureBox28);
+			this->AboutProgramPage->Controls->Add(this->button4);
+			this->AboutProgramPage->Controls->Add(this->label15);
+			this->AboutProgramPage->Controls->Add(this->label14);
+			this->AboutProgramPage->Controls->Add(this->label13);
+			this->AboutProgramPage->Controls->Add(this->label12);
+			this->AboutProgramPage->Controls->Add(this->label9);
+			this->AboutProgramPage->Location = System::Drawing::Point(0, 21);
+			this->AboutProgramPage->Name = L"AboutProgramPage";
+			this->AboutProgramPage->Size = System::Drawing::Size(1105, 527);
+			this->AboutProgramPage->TabIndex = 37;
+			// 
+			// pictureBox28
+			// 
+			this->pictureBox28->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox28.Image")));
+			this->pictureBox28->Location = System::Drawing::Point(68, 379);
+			this->pictureBox28->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox28->Name = L"pictureBox28";
+			this->pictureBox28->Size = System::Drawing::Size(116, 88);
+			this->pictureBox28->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox28->TabIndex = 39;
+			this->pictureBox28->TabStop = false;
+			this->pictureBox28->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowGuidOnClick);
+			// 
+			// button4
+			// 
+			this->button4->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button4->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button4->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+			this->button4->FlatAppearance->BorderSize = 2;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button4->Location = System::Drawing::Point(37, 372);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(830, 100);
+			this->button4->TabIndex = 38;
+			this->button4->Text = L"Ðóêîâîäñòâî ïîëüçîâàòåëÿ";
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &EquipmentPriceCalculator::ShowGuidOnClick);
+			// 
+			// label15
+			// 
+			this->label15->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label15->AutoSize = true;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label15->Location = System::Drawing::Point(30, 261);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(830, 66);
+			this->label15->TabIndex = 37;
+			this->label15->Text = L"ÑÎÇÄÀÍÈÅ ÀÂÒÎÌÀÒÈÇÈÐÎÂÀÍÍÎÉ ÑÈÑÒÅÌÛ ÄËß \r\nÐÀÑ×ÅÒÀ ÑÅÁÅÑÒÎÈÌÎÑÒÈ ÎÁÎÐÓÄÎÂÀÍÈß";
+			this->label15->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label14
+			// 
+			this->label14->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label14->AutoSize = true;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label14->Location = System::Drawing::Point(182, 134);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(540, 39);
+			this->label14->TabIndex = 36;
+			this->label14->Text = L"Ìàéñååíêî Ìàòâåé Àíäðååâè÷";
+			this->label14->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label13
+			// 
+			this->label13->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label13->AutoSize = true;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
+				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->label13->Location = System::Drawing::Point(30, 202);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(459, 39);
+			this->label13->TabIndex = 35;
+			this->label13->Text = L"Êîìïåòåíöèÿ ïðîãðàììû:";
+			this->label13->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label12
+			// 
+			this->label12->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label12->AutoSize = true;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
+				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->label12->Location = System::Drawing::Point(30, 131);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(129, 39);
+			this->label12->TabIndex = 34;
+			this->label12->Text = L"Àâòîð:";
+			this->label12->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label9
+			// 
+			this->label9->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label9->Location = System::Drawing::Point(20, 27);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(347, 55);
+			this->label9->TabIndex = 33;
+			this->label9->Text = L"Î ïðîãðàììå:";
+			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// EquipmentPriceCalculator
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1473, 686);
+			this->ClientSize = System::Drawing::Size(1105, 557);
 			this->Controls->Add(this->MainTopMenu);
+			this->Controls->Add(this->AboutProgramPage);
 			this->Controls->Add(this->OrderPage);
 			this->Controls->Add(this->HomePage);
 			this->Controls->Add(this->MainPage);
@@ -2508,7 +2574,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			this->Controls->Add(this->AddingEquipmentPage);
 			this->Controls->Add(this->StartPage);
 			this->MainMenuStrip = this->MainTopMenu;
-			this->Margin = System::Windows::Forms::Padding(5);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"EquipmentPriceCalculator";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EquipmentPriceCalculator";
@@ -2570,6 +2636,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->EndInit();
+			this->AboutProgramPage->ResumeLayout(false);
+			this->AboutProgramPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox28))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -2644,6 +2713,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ DetailPrice;
 	private: System::Void ShowEquipmentListPage(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ShowAddingEquipmentListPage(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ShowOrderPage(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ShowAboutProgramPage(System::Object^ sender, System::EventArgs^ e);
 		   
 
 		   //DetailsList
